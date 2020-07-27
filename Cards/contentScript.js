@@ -1,5 +1,5 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
-var today = new Date();
+
 
 
 function cardCompile() {
