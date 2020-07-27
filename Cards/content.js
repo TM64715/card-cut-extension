@@ -24,42 +24,108 @@ function cardCompile() {
 	}
 
 	else if (reutersReg.test(link)) {
-		var card = reuters();
+		var card = reuters()
 	}
 
 	else {
-		console.log('Website Not Supported');
+		console.log('Website Not Supported')
 	}
 
-	cardQ = userSelect();
-	var fullCard = (card + "\n" + "\"" + cardQ + "\"");
-	console.log(fullCard);
 
 }
 
+function userSelect() {
+	var selected = window.getSelection().toString();
+	return selected;
+}
 
+function displayCard(attatch, card) {
+    const divi = document.createElement('div');
+    const cardTextArea = document.createElement('textarea')
+	const btn = document.createElement('button');
+	const para = document.createElement('para');
+    
+    divi.style.backgroundColor = "#D3D3D3";
+	divi.style.width = "60%";
+	divi.style.marginLeft = "auto";
+	divi.style.marginRight = "auto";
+	divi.style.marginTop = "40px";
+	divi.style.marginBottom = "40px";
+	divi.style.padding = "20px";
+	divi.style.fontFamily = "verdana";
+	divi.style.fontSize = "15px";
+	divi.style.height = "500px";
+    
+	cardTextArea.style.fontWeight = "lighter";
+	cardTextArea.style.width = '100%';
+	cardTextArea.style.height = '400px';
+
+	
+
+    cardTextArea.value = card;
+	btn.textContent = "copy to clipboard";
+
+	
+	para.style.visibility = 'hidden';
+	para.textContent = 'Copied To Clipboard!';
+	para.style.display = "inline-block";
+	para.style.color = "#0bda51";
+	para.style.float = "right";
+	para.style.margin = "20px";
+
+    
+    btn.onclick = function () {
+        var copyText = cardTextArea;
+        copyText.select();
+        // copyText.setSelectionRange(0, 99999);
+		document.execCommand("copy");
+		para.style.visibility = "visible";
+    }
+    
+    btn.style.border ="none";
+    btn.style.backgroundColor = "#42C0FB";
+    btn.style.color = "white";
+	btn.style.padding = "7px";
+	btn.style.margin = "20px";
+	btn.style.borderRadius = "10px";
+	btn.style.display = "inline-block";
+	btn.style.float = "left";
+    
+	attatch.append(divi);
+    divi.appendChild(cardTextArea)
+	divi.appendChild(btn)
+	divi.appendChild(para)
+	
+}
 
 function nyTimes() {
 
 		var timeFull = document.getElementsByTagName("time")[0].getAttribute("datetime");
-		var auth = document.querySelector('.last-byline').textContent;
+		var auth = document.querySelector('.last-byline').textContent; 
 		var time = timeFull.slice(0,10);
 		var title = document.querySelector("h1.e1h9rw200").textContent;
 		var today = new Date();
-		var link = window.location.href;
-		var card = `${auth} , ${time} , ${title}, New York Times, ${link}, ${today}`;
-		// console.log(card);
-		// card;
+		var link = window.location.href
+		var selection = userSelect();
+		var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+
+"${selection}"`;
+		console.log(card);
+		card;
 		// Setting Highlights
-		var authStyles = document.querySelector('.last-byline');
+		var authStyles = document.querySelector('.last-byline')
 		authStyles.style.backgroundColor = "yellow";
 		var timeFullStyle = document.getElementsByTagName("time")[0];
 		timeFullStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 		var titleStyle = document.querySelector("h1.e1h9rw200");
-		titleStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-		return card;
-}
+		titleStyle.style.backgroundColor = "#00ccff";
 
+		//Putting card on page
+
+		var containHeader = document.querySelector("h1.e1h9rw200");
+		displayCard(containHeader, card)
+}
+	
 
 function cnbc() {
 	var time = document.querySelector('time[data-testid="published-timestamp"]').textContent;
@@ -67,8 +133,11 @@ function cnbc() {
 	var title = document.querySelector('.ArticleHeader-headline').textContent;
 	var link = window.location.href;
 	var today = new Date();
-	var card = `${auth} , ${time}, ${title}, CNBC, ${link}, ${today}`;
-	// console.log(card);
+	var selection = userSelect();
+	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+
+"${selection}"`;
+	console.log(card);
 	// Setting Highlights
 	var titleStyle = document.querySelector('.ArticleHeader-headline');
 	titleStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
@@ -76,20 +145,25 @@ function cnbc() {
 	authStyle.style.backgroundColor  = "rgba(107, 240, 255, 0.53)";
 	var timeStyle = document.querySelector('time[data-testid="published-timestamp"]');
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-	return card;
 
+	//Putting Card on Page
+	displayCard(titleStyle, card)
+	
 }
 
 
 function vox () {
 	var fullTime = document.getElementsByTagName('time')[0].getAttribute('datetime');
 	var time = fullTime.slice(0,9);
-	var auth = document.querySelector('span.c-byline__author-name').textContent;
+	var auth = document.querySelector('span.c-byline__author-name').textContent
 	var title = document.querySelector('.c-page-title').textContent;
 	var link = window.location.href;
 	var today = new Date();
-	var card = `${auth} , ${time}, ${title}, Vox, ${link}, ${today}`;
-	// console.log(card);
+	var selection = userSelect();
+	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+
+"${selection}"`;
+	console.log(card);
 	// Setting Highlights
 	var authStyle = document.querySelector('span.c-byline__author-name');
 	authStyle.style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
@@ -97,7 +171,8 @@ function vox () {
 	titleStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 	var timeStyle = document.querySelector('time.c-byline__item');
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-	return card;
+
+	displayCard(titleStyle, card);
 }
 
 function reuters () {
@@ -106,16 +181,18 @@ function reuters () {
 	var title = document.querySelector('h1.ArticleHeader_headline').textContent;
 	var link = window.location.href;
 	var today = new Date();
-	var card = `${auth} , ${time}, ${title}, reiters, ${link}, ${today}`;
-	// console.log(card);
+	var selection = userSelect();
+	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+
+"${selection}"`;
+	console.log(card);
 	// Setting Highlights
 	var authStyle = document.querySelector('.BylineBar_byline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 	var titleStyle = document.querySelector('.ArticleHeader_headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 	var timeStyle = document.querySelector('.ArticleHeader_date').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-	return card;
+
+	var containHeader = document.querySelector('.ArticleHeader_headline');
+	displayCard(containHeader, card);
 }
 
-function userSelect() {
-	var selected = window.getSelection().toString();
-	return selected;
-}
+cardCompile()
