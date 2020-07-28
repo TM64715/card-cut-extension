@@ -41,12 +41,15 @@ function userSelect() {
 	var selected = window.getSelection().toString();
 	return selected;
 }
-
+let divi;
+let cardTextArea;
+let btn;
+let para;
 function displayCard(attatch, card) {
-    const divi = document.createElement('div');
-    const cardTextArea = document.createElement('textarea')
-	const btn = document.createElement('button');
-	const para = document.createElement('para');
+    divi = document.createElement('div');
+    cardTextArea = document.createElement('textarea')
+	btn = document.createElement('button');
+	para = document.createElement('para');
     
     divi.style.backgroundColor = "#D3D3D3";
 	divi.style.width = "60%";
