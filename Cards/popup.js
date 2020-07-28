@@ -4,6 +4,7 @@ const cardTextArea = document.querySelector('.cardTextArea');
 const btn = document.querySelector('.cardControl');
 function notify(message) {
   var card = message["cardVar"];
+  console.log('Message Received');
   console.log(card);
   btn.onclick = function() {
       cardTextArea.value = card;
