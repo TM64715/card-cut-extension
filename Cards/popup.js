@@ -6,9 +6,9 @@ function notify(message) {
   var card = message["cardVar"];
   console.log('Message Received');
   console.log(card);
-  btn.onclick = function() {
+  
       cardTextArea.value = card;
       btn.textContent = "Copy To Clipboard";
-  }
+  
 
 }

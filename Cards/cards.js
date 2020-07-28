@@ -12,24 +12,26 @@ function cardCompile() {
 	// If statements for sites
 
 	if (nyt.test(link)) {
-		nyTimes();
+		var card = nyTimes();
 	}
 
 	else if (cnbcReg.test(link)) {
-		cnbc();
+		var card = cnbc();
 	}
 
 	else if (voxReg.test(link)) {
-		vox();
+		var card = vox();
 	}
 
 	else if (reutersReg.test(link)) {
-		reuters()
+		var card = reuters()
 	}
 
 	else {
 		console.log('Website Not Supported')
 	}
+
+	return card;
 
 
 }
@@ -107,3 +109,5 @@ function reuters () {
 	var titleStyle = document.querySelector('.ArticleHeader_headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 	var timeStyle = document.querySelector('.ArticleHeader_date').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 }
+
+cardCompile();

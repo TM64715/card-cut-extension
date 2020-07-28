@@ -77,13 +77,13 @@ function displayCard(attatch, card) {
 	para.style.margin = "20px";
 
     
-    if (btn.textContent = "Generate New Card") {
+    if (btn.textContent == "Generate New Card") {
 		btn.onclick = function () {
 			btn.textContent = "Copy To Clipboard";
-			cardCompile();
+			cardTextArea.value = card;
 			
 		}
-	} else if  (btn.textContent = "Copy To Clipboard") {
+	} else if  (btn.textContent == "Copy To Clipboard") {
 		var copyText = cardTextArea;
 		copyText.select();
 		// copyText.setSelectionRange(0, 99999);
@@ -132,7 +132,8 @@ function nyTimes() {
 		//Putting card on page
 
 		var containHeader = document.querySelector("h1.e1h9rw200");
-		displayCard(containHeader, card)
+		displayCard(containHeader, card);
+		return card;
 }
 	
 
@@ -157,6 +158,7 @@ function cnbc() {
 
 	//Putting Card on Page
 	displayCard(titleStyle, card)
+	return card;
 	
 }
 
@@ -182,6 +184,7 @@ function vox () {
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 
 	displayCard(titleStyle, card);
+	return card;
 }
 
 function reuters () {
@@ -202,5 +205,7 @@ function reuters () {
 
 	var containHeader = document.querySelector('.ArticleHeader_headline');
 	displayCard(containHeader, card);
+	return card;
 }
 
+cardCompile();
