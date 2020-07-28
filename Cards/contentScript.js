@@ -41,15 +41,12 @@ function userSelect() {
 	var selected = window.getSelection().toString();
 	return selected;
 }
-let divi;
-let cardTextArea;
-let btn;
-let para;
+
 function displayCard(attatch, card) {
-    divi = document.createElement('div');
-    cardTextArea = document.createElement('textarea')
-	btn = document.createElement('button');
-	para = document.createElement('para');
+	let divi = document.createElement('div');
+	let cardTextArea = document.createElement('textarea');
+	let btn = document.createElement('button');
+	let para = document.createElement('para');
     
     divi.style.backgroundColor = "#D3D3D3";
 	divi.style.width = "60%";
@@ -68,8 +65,8 @@ function displayCard(attatch, card) {
 
 	
 
-    cardTextArea.value = card;
-	btn.textContent = "copy to clipboard";
+    // cardTextArea.value = card;
+	btn.textContent = "Generate New Card";
 
 	
 	para.style.visibility = 'hidden';
@@ -80,13 +77,19 @@ function displayCard(attatch, card) {
 	para.style.margin = "20px";
 
     
-    btn.onclick = function () {
-        var copyText = cardTextArea;
-        copyText.select();
-        // copyText.setSelectionRange(0, 99999);
+    if (btn.textContent = "Generate New Card") {
+		btn.onclick = function () {
+			btn.textContent = "Copy To Clipboard";
+			cardCompile();
+			
+		}
+	} else if  (btn.textContent = "Copy To Clipboard") {
+		var copyText = cardTextArea;
+		copyText.select();
+		// copyText.setSelectionRange(0, 99999);
 		document.execCommand("copy");
 		para.style.visibility = "visible";
-    }
+	}
     
     btn.style.border ="none";
     btn.style.backgroundColor = "#42C0FB";
@@ -205,4 +208,3 @@ function reuters () {
 	return card;
 }
 
-cardCompile()
