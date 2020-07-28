@@ -5,7 +5,7 @@ const btn = document.querySelector('.cardControl');
 const storage = document.querySelector('.storage');
 function notify(message) {
   var card = message["cardVar"];
-  console.log('Defined Card');
+  console.log('Message Received');
   console.log(card);
   storage.textContent = card;
  
