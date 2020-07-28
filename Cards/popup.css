@@ -42,3 +42,7 @@ div {
 	font-weight: bolder;
 	visibility: hidden;
 }
+
+.storage {
+	visibility: hidden;
+}
