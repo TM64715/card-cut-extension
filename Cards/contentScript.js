@@ -126,7 +126,8 @@ function nyTimes() {
 		//Putting card on page
 
 		var containHeader = document.querySelector("h1.e1h9rw200");
-		displayCard(containHeader, card)
+		displayCard(containHeader, card);
+		return card;
 }
 	
 
@@ -151,6 +152,7 @@ function cnbc() {
 
 	//Putting Card on Page
 	displayCard(titleStyle, card)
+	return card;
 	
 }
 
@@ -176,6 +178,7 @@ function vox () {
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 
 	displayCard(titleStyle, card);
+	return card;
 }
 
 function reuters () {
@@ -196,6 +199,7 @@ function reuters () {
 
 	var containHeader = document.querySelector('.ArticleHeader_headline');
 	displayCard(containHeader, card);
+	return card;
 }
 
 cardCompile()
