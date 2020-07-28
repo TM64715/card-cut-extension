@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(notify);
 
 function notify(message) {
-  console.log(message.varCard);
+  console.log(message.cardVar);
 }

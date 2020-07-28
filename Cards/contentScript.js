@@ -1,6 +1,6 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
 
-
+var card;
 
 function cardCompile() {
 	var link = window.location.href;
@@ -12,26 +12,27 @@ function cardCompile() {
 	// If statements for sites
 
 	if (nyt.test(link)) {
-		var card = nyTimes();
+		card = nyTimes();
 	}
 
 	else if (cnbcReg.test(link)) {
-		var card = cnbc();
+		card = cnbc();
 	}
 
 	else if (voxReg.test(link)) {
-		var card = vox();
+		card = vox();
 	}
 
 	else if (reutersReg.test(link)) {
-		var card = reuters()
+		card = reuters()
 	}
 
 	else {
 		console.log('Website Not Supported')
 	}
 
-	chrome.runtime.sendMessage({"cardVar": card});
+	// chrome.runtime.sendMessage({"cardVar": card});
+	console.log("Card Compile is running")
 	return card;
 
 
@@ -132,7 +133,7 @@ function nyTimes() {
 		//Putting card on page
 
 		var containHeader = document.querySelector("h1.e1h9rw200");
-		displayCard(containHeader, card);
+		// displayCard(containHeader, card);
 		return card;
 }
 	
@@ -157,7 +158,7 @@ function cnbc() {
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 
 	//Putting Card on Page
-	displayCard(titleStyle, card)
+	// displayCard(titleStyle, card)
 	return card;
 	
 }
@@ -183,7 +184,7 @@ function vox () {
 	var timeStyle = document.querySelector('time.c-byline__item');
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 
-	displayCard(titleStyle, card);
+	// displayCard(titleStyle, card);
 	return card;
 }
 
@@ -204,8 +205,15 @@ function reuters () {
 	var timeStyle = document.querySelector('.ArticleHeader_date').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 
 	var containHeader = document.querySelector('.ArticleHeader_headline');
-	displayCard(containHeader, card);
+	// displayCard(containHeader, card);
 	return card;
 }
-
-cardCompile();
+card = cardCompile()
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse) {
+	  console.log(sender.tab ?
+				  "from a content script:" + sender.tab.url :
+				  "from the extension");
+	  if (request.greeting == "hello")
+		sendResponse({"cardVar": card});
+	});
