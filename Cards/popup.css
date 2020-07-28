@@ -1,0 +1,44 @@
+html {
+	height: 500px;
+	width: 500px;
+}
+
+.productName {
+	font-family: avenir;
+	text-align: center;
+	font-weight: normal;
+	width: 100%;
+}
+
+div > textarea {
+	height: 250px;
+	width: 250px;
+	margin-left: 125px;
+	margin-right: 125px;
+	padding: 0px;
+
+}
+
+div {
+	font-size: 15px;
+	text-align: center;
+}
+
+.cardControl {
+	background-color:#42C0FB;
+	color: white;
+	border: none;
+	padding: 7px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.successMsg {
+	margin-top: 20px;
+	padding: 7px;
+	text-align: center;
+	color: #0bda51;
+	font-weight: bolder;
+	visibility: hidden;
+}

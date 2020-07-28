@@ -1,1 +1,5 @@
-chrome.tabs.executeScript(null, {file: "content.js"});
+chrome.runtime.onMessage.addListener(notify);
+
+function notify(message) {
+  console.log(message.varCard);
+}

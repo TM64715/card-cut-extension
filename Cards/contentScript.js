@@ -1,4 +1,8 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
+// 1. Let page Load
+// 2. display button to run funciton
+// 3. Run function
+// 4. Show Card
 
 
 
@@ -28,8 +32,11 @@ function cardCompile() {
 	}
 
 	else {
-		console.log('Website Not Supported')
+		 console.log('Website Not Supported');
 	}
+	// card = "johnny"
+	chrome.runtime.sendMessage({"cardVar": card});
+	return card;
 
 
 }
@@ -62,8 +69,8 @@ function displayCard(attatch, card) {
 
 	
 
-    cardTextArea.value = card;
-	btn.textContent = "copy to clipboard";
+    // cardTextArea.value = "Press Generate Card"
+	btn.textContent = "Generate Card";
 
 	
 	para.style.visibility = 'hidden';
@@ -74,13 +81,8 @@ function displayCard(attatch, card) {
 	para.style.margin = "20px";
 
     
-    btn.onclick = function () {
-        var copyText = cardTextArea;
-        copyText.select();
-        // copyText.setSelectionRange(0, 99999);
-		document.execCommand("copy");
-		para.style.visibility = "visible";
-    }
+   
+	
     
     btn.style.border ="none";
     btn.style.backgroundColor = "#42C0FB";
@@ -95,6 +97,36 @@ function displayCard(attatch, card) {
     divi.appendChild(cardTextArea)
 	divi.appendChild(btn)
 	divi.appendChild(para)
+
+	cardTextArea.value = "Select/Highlight text then click generate card"
+	if (btn.textContent == "Copy To Clipboard") {
+		btn.onclick = function () {
+			var copyText = cardTextArea;
+			copyText.select();
+			copyText.setSelectionRange(0, 99999);
+			document.execCommand("copy");
+			para.style.visibility = "visible";
+			btn.textContent = "Start Over";
+		}
+	}
+	else if (btn.textContent == "Generate Card") {
+		btn.onclick = function () {
+
+			cardTextArea.value = card;
+			btn.textContent = "Copy To Clipboard";
+
+		}
+	}
+	else if (btn.textContent == "Start Over") {
+		btn.onclick = function() {
+			cardTextArea.value = "Select/Highlight text then click generate card";
+			btn.textContent = "Generate Card";
+
+		}
+	}
+	else {
+		btn.textContent = "Broke";
+	}
 	
 }
 
@@ -107,11 +139,9 @@ function nyTimes() {
 		var today = new Date();
 		var link = window.location.href
 		var selection = userSelect();
-		var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
-
-"${selection}"`;
+		var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}, ${selection}`;
 		console.log(card);
-		card;
+
 		// Setting Highlights
 		var authStyles = document.querySelector('.last-byline')
 		authStyles.style.backgroundColor = "yellow";
@@ -123,7 +153,9 @@ function nyTimes() {
 		//Putting card on page
 
 		var containHeader = document.querySelector("h1.e1h9rw200");
-		displayCard(containHeader, card)
+		displayCard(containHeader, card);
+		return card;
+
 }
 	
 
@@ -136,7 +168,7 @@ function cnbc() {
 	var selection = userSelect();
 	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
 
-"${selection}"`;
+${selection}`;
 	console.log(card);
 	// Setting Highlights
 	var titleStyle = document.querySelector('.ArticleHeader-headline');
@@ -173,6 +205,7 @@ function vox () {
 	timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
 
 	displayCard(titleStyle, card);
+
 }
 
 function reuters () {
@@ -193,6 +226,9 @@ function reuters () {
 
 	var containHeader = document.querySelector('.ArticleHeader_headline');
 	displayCard(containHeader, card);
+
 }
 
 cardCompile()
+
+
