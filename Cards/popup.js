@@ -9,6 +9,7 @@
 console.log('Popup.JS running')
 const cardTextArea = document.getElementById('cardTextArea');
 const btn = document.getElementById('cardControl');
+const para = document.querySelector('.successMsg');
 var card;
 // function notify(message) {
 //   card = message["cardVar"];
@@ -44,6 +45,7 @@ function sendCard () {
         });
       });
   }
+  btn.addEventListener('click', cardCopy())
   
 }
 
@@ -57,13 +59,23 @@ else if (btn.textContent == "Copy To Clipboard") {
   }
 
 function cardCopy() {
+  console.log(btn.textContent)
   if (btn.textContent == "Copy To Clipboard") {
-    navigator.clipboard.writeText("<empty clipboard>").then(function() {
+    navigator.clipboard.writeText(cardTextArea.value).then(function() {
       console.log("clipboard successfully set");
+      para.style.visibility = "visible";
+      
     }, function() {
-      console.log("clipboard write failed");
-    });
+      var copyText = cardTextArea;
+		  copyText.select();
+		  // copyText.setSelectionRange(0, 99999);
+		  document.execCommand("copy");
+      para.style.visibility = "visible";
+      console.log("Second Try for copy text")
+    })
+    ;
   }
+
 
 }
   
