@@ -5,11 +5,13 @@
 // Only loads Card Once (Fixed)
 
 
+
 // chrome.runtime.onMessage.addListener(notify);
 console.log('Popup.JS running')
 const cardTextArea = document.getElementById('cardTextArea');
 const btn = document.getElementById('cardControl');
 const para = document.querySelector('.successMsg');
+const hiddenPara = document.querySelector('.hiddenStorage');
 var card;
 // function notify(message) {
 //   card = message["cardVar"];
@@ -94,4 +96,8 @@ function startOver () {
   cardTextArea.value = ""
   
 }
-  
+
+// https://stackoverflow.com/questions/14531102/saving-and-retrieving-from-chrome-storage-sync
+
+
+
