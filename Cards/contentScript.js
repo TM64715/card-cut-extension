@@ -1,6 +1,7 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
 
 var card;
+let cardList = [];
 
 function cardCompile() {
 	var link = window.location.href;
@@ -34,6 +35,9 @@ function cardCompile() {
 
 	// chrome.runtime.sendMessage({"cardVar": card});
 	console.log("Card Compile is running")
+	cardList.push(card);
+	console.log(cardList);
+		
 	return card;
 
 
@@ -219,4 +223,15 @@ chrome.runtime.onMessage.addListener(
 				  "from the extension");
 	  if (request.greeting == "hello")
 		sendResponse({"cardVar":cardCompile()});
+		
 	});
+
+// Chrome Storage
+
+chrome.storage.sync.set({'cardList': cardList}, function() {
+	console.log('Value is set to ' + cardList);
+	});
+
+chrome.storage.sync.get(['cardList'], function(result) {
+	console.log('Value returned is ' + result.cardList);
+	});	

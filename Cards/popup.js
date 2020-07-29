@@ -11,6 +11,7 @@ const cardTextArea = document.getElementById('cardTextArea');
 const btn = document.getElementById('cardControl');
 const para = document.querySelector('.successMsg');
 var card;
+let cardList = []
 // function notify(message) {
 //   card = message["cardVar"];
 //   console.log('Message Received');
@@ -41,8 +42,10 @@ function sendCard () {
         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
           console.log("send Message response activated")
           card = response["cardVar"];
+          cardList.push(card);
           console.log('Message Received');
           console.log(card);
+          console.log(cardList);
           cardTextArea.value = card;
           btn.textContent = "Copy To Clipboard";
           cardTextArea.style.textAlign = "left";
@@ -94,4 +97,6 @@ function startOver () {
   cardTextArea.value = ""
   
 }
+
+
   

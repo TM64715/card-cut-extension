@@ -26,7 +26,6 @@
 "permissions": [
 "activeTab",
 "storage",
-"https://ajax.googleapis.com/",
 "clipboardWrite",
 "clipboardRead"
 ],
