@@ -29,6 +29,7 @@ function cardCompile() {
 
 	else {
 		console.log('Website Not Supported')
+		card = "Website Not Supported"
 	}
 
 	// chrome.runtime.sendMessage({"cardVar": card});

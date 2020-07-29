@@ -1,6 +1,6 @@
 // ISSUES
-// Won't capture User selection
-// Won't copy text
+// Won't capture User selection (fixed)
+// Won't copy text (fixed)
 // Btn firing before ev (fixed)
 // Only loads Card Once (Fixed)
 
