@@ -208,12 +208,14 @@ function reuters () {
 	// displayCard(containHeader, card);
 	return card;
 }
-card = cardCompile()
+
+// card = cardCompile()
+
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 	  console.log(sender.tab ?
 				  "from a content script:" + sender.tab.url :
 				  "from the extension");
 	  if (request.greeting == "hello")
-		sendResponse({"cardVar": card});
+		sendResponse({"cardVar":cardCompile()});
 	});

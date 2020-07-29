@@ -18,14 +18,17 @@ html {
 	width: 250px;
 	margin-left: 115px;
 	margin-right: 115px;
-	padding: 0px;
 	outline: none;
 	color: #4f4f4f;
 	font-family: 'Roboto', sans-serif;
 	background-color: #faf9f7;
 	border: 3px double #ff5e5e;
-	padding: 10px;
+	padding: 16px;
 
+}
+
+.cardTextArea::placeholder {
+	color: #737373;
 }
 
 .cardTextArea:focus {
