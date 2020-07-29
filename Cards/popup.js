@@ -20,6 +20,9 @@ var card;
 // 		// para.style.visibility = "visible"; 
 //   }
 
+
+
+
 function genCard() {
   
   if (btn.textContent == "Generate Card") {
@@ -42,10 +45,13 @@ function sendCard () {
           console.log(card);
           cardTextArea.value = card;
           btn.textContent = "Copy To Clipboard";
+          cardTextArea.style.textAlign = "left";
+
         });
       });
   }
   btn.addEventListener('click', cardCopy())
+  btn.addEventListener("click", startOver());
   
 }
 
@@ -64,6 +70,8 @@ function cardCopy() {
     navigator.clipboard.writeText(cardTextArea.value).then(function() {
       console.log("clipboard successfully set");
       para.style.visibility = "visible";
+      btn.textContent = "Start Over"
+      cardTextArea.value = "Press CMD+V on Windows or CTRL+V on Windows";
       
     }, function() {
       var copyText = cardTextArea;
@@ -77,5 +85,13 @@ function cardCopy() {
   }
 
 
+}
+
+function startOver () {
+  console.log('startOver')
+  para.style.visibility = "hidden" ;
+  btn.textContent = "Generate Card";
+  cardTextArea.value = ""
+  
 }
   
