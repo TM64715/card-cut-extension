@@ -20,7 +20,10 @@ var card;
 //   }
 
 function genCard() {
-  console.log("genCard???")
+  
+  if (btn.textContent == "Generate Card") {
+    console.log("If statement is bopping")
+  }
 
 }
 // console.log("send Message response activted")
@@ -28,17 +31,19 @@ function genCard() {
 //     console.log('Message Received');
 //     console.log(card);
 function sendCard () {
-  console.log("sendCard triggered")
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-      console.log("send Message response activated")
-      card = response["cardVar"];
-      console.log('Message Received');
-      console.log(card);
-      cardTextArea.value = card;
-      btn.textContent = "Copy To Clipboard";
-    });
-  });
+  if (btn.textContent == "Generate Card") {
+    console.log("sendCard triggered")
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+          console.log("send Message response activated")
+          card = response["cardVar"];
+          console.log('Message Received');
+          console.log(card);
+          cardTextArea.value = card;
+          btn.textContent = "Copy To Clipboard";
+        });
+      });
+  }
   
 }
 
