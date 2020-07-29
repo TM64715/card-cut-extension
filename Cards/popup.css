@@ -58,7 +58,7 @@ div {
 	text-align: center;
 	color: #8edea6;
 	font-weight: lighter;
-	visibility: visible;
+	visibility: hidden;
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bolder;
