@@ -53,9 +53,17 @@ if (btn.textContent == "Generate Card") {
 
   }
 else if (btn.textContent == "Copy To Clipboard") {
-  btn.addEventListener('click', function () {
-    btn.style.color = 'red';
-  })
+  btn.addEventListener('click', cardCopy())
   }
 
+function cardCopy() {
+  if (btn.textContent == "Copy To Clipboard") {
+    navigator.clipboard.writeText("<empty clipboard>").then(function() {
+      console.log("clipboard successfully set");
+    }, function() {
+      console.log("clipboard write failed");
+    });
+  }
+
+}
   
