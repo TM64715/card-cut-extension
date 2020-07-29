@@ -48,13 +48,9 @@ if (btn.textContent == "Generate Card") {
 
   }
 else if (btn.textContent == "Copy To Clipboard") {
-    btn.onclick = function(){
-      btn.style.color = "red"
-      var copyText = cardTextArea;
-		  copyText.select();
-		  copyText.setSelectionRange(0, 99999);
-      document.execCommand("copy");
-    }
+  btn.addEventListener('click', function () {
+    btn.style.color = 'red';
+  })
   }
 
   
