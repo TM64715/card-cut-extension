@@ -1,22 +1,36 @@
 html {
 	height: 500px;
 	width: 500px;
+	background: #faf9f7;
 }
 
 .productName {
 	font-family: avenir;
 	text-align: center;
-	font-weight: normal;
+	font-weight: bolder;
 	width: 100%;
+	color: #ff5e5e;
+	font-family: 'Krona One', sans-serif;
 }
 
-div > textarea {
+.cardTextArea {
 	height: 250px;
 	width: 250px;
 	margin-left: 125px;
 	margin-right: 125px;
 	padding: 0px;
+	border: 1px solid #ededed;
+	color: #4f4f4f;
+	font-family: 'Roboto', sans-serif;
+	background-color: #faf9f7;
+	outline: 3px double #ff5e5e;
+	padding: 10px;
 
+}
+
+.cardTextArea:focus {
+	background-color: #faf9f7;
+	
 }
 
 div {
@@ -28,17 +42,24 @@ div {
 	background-color:#42C0FB;
 	color: white;
 	border: none;
-	padding: 7px;
+	padding: 10px;
 	margin-top: 20px;
 	border-radius: 10px;
 	text-align: center;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #ff5e5e;
+	color: #faf9f7;
 }
 
 .successMsg {
 	margin-top: 20px;
 	padding: 7px;
 	text-align: center;
-	color: #0bda51;
+	color: #8edea6;
+	font-weight: lighter;
+	visibility: visible;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
 	font-weight: bolder;
-	visibility: hidden;
 }
