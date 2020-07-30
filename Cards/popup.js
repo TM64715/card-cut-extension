@@ -3,6 +3,32 @@
 // Won't copy text
 // Btn firing before ev (fixed)
 // Only loads Card Once (Fixed)
+var testArray=[];
+function storageFunc(card) {
+  chrome.storage.sync.set({
+      ['list']:testArray
+  }, function() {
+      console.log("added to list");
+  });
+  chrome.storage.sync.get({
+    ['list']:testArray //put defaultvalues if any
+  },
+  function(data) {
+  console.log(data.list);
+  update(data.list); //storing the storage value in a variable and passing to update function
+  }
+  );  
+}
+function update(array)
+ {
+  array.push(card);
+  //then call the set to update with modified value
+  chrome.storage.sync.set({
+      list:array
+  }, function() {
+      console.log("added to list with new values");
+  });
+  }
 
 
 
@@ -26,7 +52,6 @@ var card;
 
 
 function genCard() {
-  
   if (btn.textContent == "Generate Card") {
     console.log("If statement is bopping")
   }
@@ -48,6 +73,8 @@ function sendCard () {
           cardTextArea.value = card;
           btn.textContent = "Copy To Clipboard";
           cardTextArea.style.textAlign = "left";
+          testArray.push(card);
+          storageFunc(card);
 
         });
       });
