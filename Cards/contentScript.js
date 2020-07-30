@@ -2,8 +2,6 @@
 
 var card;
 
-var link = window.location.href;
-
 function cardCompile() {
 	var link = window.location.href;
 	var nyt = /nytimes/gi;
@@ -33,7 +31,7 @@ function cardCompile() {
 		console.log('Website Not Supported')
 	}
 
-	chrome.runtime.sendMessage({"cardVar": card});
+	// chrome.runtime.sendMessage({"cardVar": card});
 	console.log("Card Compile is running")
 	return card;
 
@@ -135,7 +133,7 @@ function nyTimes() {
 		//Putting card on page
 
 		var containHeader = document.querySelector("h1.e1h9rw200");
-		displayCard(containHeader, card);
+		// displayCard(containHeader, card);
 		return card;
 }
 	
@@ -218,44 +216,6 @@ chrome.runtime.onMessage.addListener(
 	  console.log(sender.tab ?
 				  "from a content script:" + sender.tab.url :
 				  "from the extension");
-	  if (request.greeting == "nyt") {
-		sendResponse({"cardVar":nyt()});
-		return true;
-	  }
-	});
-
-chrome.runtime.sendMessage({"location": link});
-console.log("Sent " +link)
-
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-	  console.log(sender.tab ?
-				  "from a content script:" + sender.tab.url :
-				  "from the extension");
-	  if (request.greeting == "reuters") {
-		sendResponse({"cardVar":reuters()});
-		console.log("sending reuters")
-	  }
-	});
-
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		console.log(sender.tab ?
-					"from a content script:" + sender.tab.url :
-					"from the extension");
-		if (request.greeting == "vox"){
-			sendResponse({"cardVar":vox()});
-			console.log("sending vox");
-		}
-	});
-
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		console.log(sender.tab ?
-					"from a content script:" + sender.tab.url :
-					"from the extension");
-		if (request.greeting == "cnbc") {
-			sendResponse({"cardVar":cnbc()});
-			console.log("sending cnbc");
-		}
+	  if (request.greeting == "hello")
+		sendResponse({"cardVar":cardCompile()});
 	});
