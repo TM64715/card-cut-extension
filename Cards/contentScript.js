@@ -10,6 +10,8 @@ function runScript() {
 		var reutersReg = /reuters/gi;
 		var busReg = /insider\.com/gi;
 		var huffPostReg = /huffpost/gi;
+		var waPoReg = /washingtonpost/gi;
+		var wsjReg = /www\.wsj/gi;
 
 		// If statements for sites
 
@@ -35,6 +37,12 @@ function runScript() {
 		else if (huffPostReg.test(link)) {
 			card = huffPost();
 		}
+		else if (waPoReg.test(link)) {
+			card = waPo();
+		}
+		else if (wsjReg.test(link)) {
+			card = wsj();
+		}
 		else {
 			console.log('Website Not Supported');
 			card = "Website Not Supported";
@@ -42,6 +50,7 @@ function runScript() {
 
 		// chrome.runtime.sendMessage({"cardVar": card});
 		console.log("Card Compile is running")
+		console.log(card);
 		return card;
 
 
@@ -119,146 +128,331 @@ function runScript() {
 
 	function nyTimes() {
 
-			var timeFull = document.getElementsByTagName("time")[0].getAttribute("datetime");
-			var auth = document.querySelector('.last-byline').textContent; 
-			var time = timeFull.slice(0,10);
-			var title = document.querySelector("h1.e1h9rw200").textContent;
-			var today = new Date();
-			var link = window.location.href
-			var selection = userSelect();
-			var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+		try {
+			var auth = document.querySelector(".last-byline").textContent.trim()
+		} catch(err) {
+			var auth = "NYT Staff";
+		}
+		try {
+			var title = document.querySelector("h1.e1h9rw200").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
 
-	"${selection}"`;
-			console.log(card);
-			card;
-			// Setting Highlights
-			var authStyles = document.querySelector('.last-byline')
-			authStyles.style.backgroundColor = "yellow";
-			var timeFullStyle = document.getElementsByTagName("time")[0];
-			timeFullStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-			var titleStyle = document.querySelector("h1.e1h9rw200");
-			titleStyle.style.backgroundColor = "#00ccff";
-
-			//Putting card on page
-
-			var containHeader = document.querySelector("h1.e1h9rw200");
-			// displayCard(containHeader, card);
-			return card;
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".last-byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.e1h9rw200").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
 	}
 		
 
 	function cnbc() {
-		var time = document.querySelector('time[data-testid="published-timestamp"]').textContent;
-		var auth = document.querySelector(".Author-authorName").textContent;
-		var title = document.querySelector('.ArticleHeader-headline').textContent;
-		var link = window.location.href;
-		var today = new Date();
-		var selection = userSelect();
+		try {
+			var auth = document.querySelector(".Author-authorName").textContent.trim()
+		} catch(err) {
+			var auth = "CNBC Staff";
+		}
+		try {
+			var title = document.querySelector(".ArticleHeader-headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time[data-testid=\"published-timestamp\"]").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, CNBC, ${link}, ${today}
 
-"${selection}"`;
-		console.log(card);
-		// Setting Highlights
-		var titleStyle = document.querySelector('.ArticleHeader-headline');
-		titleStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-		var authStyle = document.querySelector(".Author-authorName");
-		authStyle.style.backgroundColor  = "rgba(107, 240, 255, 0.53)";
-		var timeStyle = document.querySelector('time[data-testid="published-timestamp"]');
-		timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-
-		//Putting Card on Page
-		// displayCard(titleStyle, card)
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".Author-authorName").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".ArticleHeader-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time[data-testid=\"published-timestamp\"]").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
 		return card;
-		
 	}
 
 
 	function vox () {
-		var fullTime = document.getElementsByTagName('time')[0].getAttribute('datetime');
-		var time = fullTime.slice(0,9);
-		var auth = document.querySelector('span.c-byline__author-name').textContent
-		var title = document.querySelector('.c-page-title').textContent;
-		var link = window.location.href;
-		var today = new Date();
-		var selection = userSelect();
+		try {
+			var auth = document.querySelector("span.c-byline__author-name").textContent.trim()
+		} catch(err) {
+			var auth = "Vox Staff";
+		}
+		try {
+			var title = document.querySelector(".c-page-title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, Vox, ${link}, ${today}
 
-"${selection}"`;
-		console.log(card);
-		// Setting Highlights
-		var authStyle = document.querySelector('span.c-byline__author-name');
-		authStyle.style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var titleStyle = document.querySelector('.c-page-title');
-		titleStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-		var timeStyle = document.querySelector('time.c-byline__item');
-		timeStyle.style.backgroundColor = "rgba(107, 240, 255, 0.53)";
-
-		// displayCard(titleStyle, card);
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("span.c-byline__author-name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".c-page-title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
 		return card;
 	}
 
 	function reuters () {
-		var time = document.querySelector('.ArticleHeader_date').textContent;
-		var auth = document.querySelector('.BylineBar_byline').textContent;
-		var title = document.querySelector('h1.ArticleHeader_headline').textContent;
-		var link = window.location.href;
-		var today = new Date();
-		var selection = userSelect();
+		try {
+			var auth = document.querySelector(".BylineBar_byline").textContent.trim()
+		} catch(err) {
+			var auth = "Reuters Staff";
+			console.log(err);
+		}
+		try {
+			var title = document.querySelector("h1.ArticleHeader_headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".ArticleHeader_date").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, Reuters, ${link}, ${today}
 
-"${selection}"`;
-		console.log(card);
-		// Setting Highlights
-		var authStyle = document.querySelector('.BylineBar_byline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var titleStyle = document.querySelector('.ArticleHeader_headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var timeStyle = document.querySelector('.ArticleHeader_date').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-
-		var containHeader = document.querySelector('.ArticleHeader_headline');
-		// displayCard(containHeader, card);
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".BylineBar_byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.ArticleHeader_headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".ArticleHeader_date").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
 		return card;
 	}
 
 
 	function busInsider () {
-		var title = document.querySelector('h1.post-headline').textContent;
-		var auth = document.querySelector('a.byline-author-name').textContent;
-		var time = document.querySelector('.byline-timestamp').textContent;
-		var link = window.location.href;
-		var today = new Date();
-		var selection = userSelect();
+		try {
+			var auth = document.querySelector("a.byline-author-name").textContent.trim()
+		} catch(err) {
+			var auth = "Business Insider Staff";
+		}
+		try {
+			var title = document.querySelector("h1.post-headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".byline-timestamp").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today}
 
-"${selection}"`;
-		console.log(card);
-		// Setting Highlights
-		var authStyle = document.querySelector('a.byline-author-name').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var titleStyle =document.querySelector('h1.post-headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var timeStyle = document.querySelector('.byline-timestamp').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-
-		var containHeader = document.querySelector('.ArticleHeader_headline');
-		// displayCard(containHeader, card);
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("a.byline-author-name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.post-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".byline-timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
 		return card;
 	}
 
 	function huffPost () {
-		var auth = document.querySelector(".author-card__link span").textContent
-		var title = document.querySelector(".headline__title").textContent
-		var time = document.querySelector(".timestamp__date--published span").textContent
+		try {
+			var auth = document.querySelector(".author-card__link span").textContent.trim()
+		} catch(err) {
+			var auth = "Huffington Post Staff";
+		}
+		try {
+			var title = document.querySelector(".headline__title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".timestamp__date--published span").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
 		var link = window.location.href
 		var today = new Date()
 		var selection = userSelect()
-		var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today} " 
-		
-${selection}"`
-		var authStyle = document.querySelector(".author-card__link span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var titleStyle = document.querySelector(".headline__title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		var timeStyle = document.querySelector(".timestamp__date--published span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		console.log(card);
+		var card = `${auth}, ${time}, ${title}, Huffington Post, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".author-card__link span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".headline__title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".timestamp__date--published span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+	
+	function waPo () {
+		try {
+			var auth = document.querySelector(".author-name").textContent.trim()
+		} catch(err) {
+			var auth = "Washington Post Staff";
+		}
+		try {
+			var title = document.querySelector(".font--headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".display-date").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Washington Post, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".author-name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".font--headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".display-date").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function wsj () {
+		try {
+			var auth = document.querySelector(".author-button").textContent.trim()
+		} catch(err) {
+			var auth = "WSJ Staff";
+		}
+		try {
+			var title = document.querySelector(".wsj-article-headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".timestamp").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Wall Street Journal, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".author-button").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".wsj-article-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
 		return card;
 	}
 
 
-	for (let i = 0; i<100; i++) {
+	for (let i = 0; i<9; i++) {
 		console.log("Content Running")
 	}
 
