@@ -3,6 +3,7 @@
 // Won't copy text(fixed)
 // Btn firing before ev (fixed)
 // Only loads Card Once (Fixed)
+<<<<<<< Updated upstream
 // Wont add more sites properly
 // Maybe add google docs api for storage
 
@@ -26,6 +27,127 @@ var link = window.link;
 console.log("GLopbal " + window.link)
 
 
+=======
+var link;
+
+function getLink () {
+  chrome.runtime.onMessage.addListener(
+  function(request, sender) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    link = request["location"];
+    console.log(link);
+    return link;
+  });
+}
+
+link = getLink()
+console.log(link + " link has been defined")
+
+
+function cardCompile() {
+	var nyt = /nytimes/gi;
+	var cnbcReg = /cnbc/gi;
+	var voxReg = /vox/gi;
+	var reutersReg = /reuters/gi;
+
+	// If statements for sites
+
+	if (nyt.test(link)) {
+      if (btn.textContent == "Generate Card") {
+        console.log("sendCard triggered")
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {greeting: "nyt"}, function(response) {
+              console.log("send Message response activated")
+              card = response["cardVar"];
+              console.log('Message Received');
+              console.log(card);
+              cardTextArea.value = card;
+              btn.textContent = "Copy To Clipboard";
+              cardTextArea.style.textAlign = "left";
+    
+            });
+          });
+      }
+      btn.addEventListener('click', cardCopy())
+      btn.addEventListener("click", startOver());
+      
+	}
+
+	else if (cnbcReg.test(link)) {
+      if (btn.textContent == "Generate Card") {
+        console.log("sendCard triggered")
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {greeting: "cnbc"}, function(response) {
+              console.log("send Message response activated")
+              card = response["cardVar"];
+              console.log('Message Received');
+              console.log(card);
+              cardTextArea.value = card;
+              btn.textContent = "Copy To Clipboard";
+              cardTextArea.style.textAlign = "left";
+    
+            });
+          });
+      }
+      btn.addEventListener('click', cardCopy())
+      btn.addEventListener("click", startOver());
+      
+	}
+
+	else if (voxReg.test(link)) {
+		if (btn.textContent == "Generate Card") {
+      console.log("sendCard triggered")
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.sendMessage(tabs[0].id, {greeting: "vox"}, function(response) {
+            console.log("send Message response activated")
+            card = response["cardVar"];
+            console.log('Message Received');
+            console.log(card);
+            cardTextArea.value = card;
+            btn.textContent = "Copy To Clipboard";
+            cardTextArea.style.textAlign = "left";
+  
+          });
+        });
+    }
+    btn.addEventListener('click', cardCopy())
+    btn.addEventListener("click", startOver());
+	}
+
+	else if (reutersReg.test(link)) {
+		if (btn.textContent == "Generate Card") {
+      console.log("sendCard triggered")
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.sendMessage(tabs[0].id, {greeting: "reuters"}, function(response) {
+            console.log("send Message response activated")
+            card = response["cardVar"];
+            console.log('Message Received');
+            console.log(card);
+            cardTextArea.value = card;
+            btn.textContent = "Copy To Clipboard";
+            cardTextArea.style.textAlign = "left";
+  
+          });
+        });
+    }
+    btn.addEventListener('click', cardCopy())
+    btn.addEventListener("click", startOver());
+	}
+
+	else {
+		console.log('Website Not Supported');
+	}
+
+	// chrome.runtime.sendMessage({"cardVar": card});
+	console.log("Card Compile is running");
+
+
+}
+
+// chrome.runtime.onMessage.addListener(notify);
+>>>>>>> Stashed changes
 console.log('Popup.JS running')
 const cardTextArea = document.getElementById('cardTextArea');
 const btn = document.getElementById('cardControl');
@@ -46,30 +168,31 @@ function genCard() {
 //     card = response["cardVar"];
 //     console.log('Message Received');
 //     console.log(card);
-function sendCard () {
-  if (btn.textContent == "Generate Card") {
-    console.log("sendCard triggered")
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-          console.log("send Message response activated")
-          card = response["cardVar"];
-          console.log('Message Received');
-          console.log(card);
-          cardTextArea.value = card;
-          btn.textContent = "Copy To Clipboard";
-          cardTextArea.style.textAlign = "left";
+// function sendCard () {
+//   if (btn.textContent == "Generate Card") {
+//     console.log("sendCard triggered")
+//       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//         chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+//           console.log("send Message response activated")
+//           card = response["cardVar"];
+//           console.log('Message Received');
+//           console.log(card);
+//           cardTextArea.value = card;
+//           btn.textContent = "Copy To Clipboard";
+//           cardTextArea.style.textAlign = "left";
 
-        });
-      });
-  }
-  btn.addEventListener('click', cardCopy())
-  btn.addEventListener("click", startOver());
+//         });
+//       });
+//   }
+//   btn.addEventListener('click', cardCopy())
+//   btn.addEventListener("click", startOver());
   
-}
+// }
 
 if (btn.textContent == "Generate Card") {
     btn.addEventListener("click", genCard);
-    btn.addEventListener("click", sendCard);
+    // btn.addEventListener("click", sendCard);
+    btn.addEventListener("click", cardCompile)
 
   }
 else if (btn.textContent == "Copy To Clipboard") {
@@ -106,4 +229,6 @@ function startOver () {
   cardTextArea.value = ""
   
 }
+
+
   
