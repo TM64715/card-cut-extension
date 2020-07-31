@@ -219,7 +219,6 @@ chrome.runtime.onMessage.addListener(
 				  "from the extension");
 	  if (request.greeting == "hello")
 		sendResponse({"cardVar":cardCompile()});
-	});
 	}
 );
 var link = window.location.href;
