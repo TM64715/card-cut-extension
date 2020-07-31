@@ -20,16 +20,15 @@
 },
 
 "background": {
-  "page": "background.html",
+  "scripts": ["background.js"],
   "persistent": false
 },
 "permissions": [
+"activeTab",
+"storage",
+"https://ajax.googleapis.com/",
 "clipboardWrite",
-<<<<<<< Updated upstream
 "clipboardRead"
-=======
-"identity"
->>>>>>> Stashed changes
 ],
 "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
