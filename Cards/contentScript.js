@@ -156,7 +156,7 @@ function runScript() {
 		var selection = userSelect();
 		var card = `${auth}, ${time}, ${title}, CNBC, ${link}, ${today}
 
-	"${selection}"`;
+"${selection}"`;
 		console.log(card);
 		// Setting Highlights
 		var titleStyle = document.querySelector('.ArticleHeader-headline');
@@ -183,7 +183,7 @@ function runScript() {
 		var selection = userSelect();
 		var card = `${auth}, ${time}, ${title}, Vox, ${link}, ${today}
 
-	"${selection}"`;
+"${selection}"`;
 		console.log(card);
 		// Setting Highlights
 		var authStyle = document.querySelector('span.c-byline__author-name');
@@ -206,7 +206,7 @@ function runScript() {
 		var selection = userSelect();
 		var card = `${auth}, ${time}, ${title}, Reuters, ${link}, ${today}
 
-	"${selection}"`;
+"${selection}"`;
 		console.log(card);
 		// Setting Highlights
 		var authStyle = document.querySelector('.BylineBar_byline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
@@ -228,7 +228,7 @@ function runScript() {
 		var selection = userSelect();
 		var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today}
 
-	"${selection}"`;
+"${selection}"`;
 		console.log(card);
 		// Setting Highlights
 		var authStyle = document.querySelector('a.byline-author-name').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
@@ -249,7 +249,7 @@ function runScript() {
 		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today} " 
 		
-	${selection}"`
+${selection}"`
 		var authStyle = document.querySelector(".author-card__link span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		var titleStyle = document.querySelector(".headline__title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		var timeStyle = document.querySelector(".timestamp__date--published span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
