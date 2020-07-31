@@ -1,0 +1,16 @@
+function cardCreate(auth, title, time) {
+  console.log(`var auth = document.querySelector("${auth}").textContent`);
+  console.log(`var title = document.querySelector("${title}").textContent`);
+  console.log(`var time = document.querySelector("${time}").textContent`);
+  console.log("var link = window.location.href");
+  console.log("var today = new Date()");
+  console.log("var selection = userSelect()");
+  console.log("var card = \`${auth}, ${time}, ${title}, Business Insider, ${link}, ${today} \" \n \n ${selection}\"\`");
+  console.log(`var authStyle = document.querySelector("${auth}").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';`);
+  console.log(`var titleStyle = document.querySelector("${title}").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';`);
+  console.log(`var timeStyle = document.querySelector("${time}").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';`);
+  console.log("return card\;");
+}
+
+
+cardCreate('.author-card__link span', '.headline__title', '.timestamp__date--published span')
