@@ -145,7 +145,7 @@ function cnbc() {
 	var link = window.location.href;
 	var today = new Date();
 	var selection = userSelect();
-	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+	var card = `${auth}, ${time}, ${title}, CNBC, ${link}, ${today}
 
 "${selection}"`;
 	console.log(card);
@@ -172,7 +172,7 @@ function vox () {
 	var link = window.location.href;
 	var today = new Date();
 	var selection = userSelect();
-	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+	var card = `${auth}, ${time}, ${title}, Vox, ${link}, ${today}
 
 "${selection}"`;
 	console.log(card);
@@ -195,7 +195,7 @@ function reuters () {
 	var link = window.location.href;
 	var today = new Date();
 	var selection = userSelect();
-	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+	var card = `${auth}, ${time}, ${title}, Reuters, ${link}, ${today}
 
 "${selection}"`;
 	console.log(card);
@@ -203,6 +203,28 @@ function reuters () {
 	var authStyle = document.querySelector('.BylineBar_byline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 	var titleStyle = document.querySelector('.ArticleHeader_headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 	var timeStyle = document.querySelector('.ArticleHeader_date').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+
+	var containHeader = document.querySelector('.ArticleHeader_headline');
+	// displayCard(containHeader, card);
+	return card;
+}
+
+
+function busInsider () {
+	var title = document.querySelector('h1.post-headline').textContent;
+	var auth = document.querySelector('a.byline-author-name').textContent;
+	var time = document.querySelector('.byline-timestamp').textContent;
+	var link = window.location.href;
+	var today = new Date();
+	var selection = userSelect();
+	var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
+
+"${selection}"`;
+	console.log(card);
+	// Setting Highlights
+	var authStyle = document.querySelector('a.byline-author-name').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+	var titleStyle =document.querySelector('h1.post-headline').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+	var timeStyle = document.querySelector('.byline-timestamp').style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 
 	var containHeader = document.querySelector('.ArticleHeader_headline');
 	// displayCard(containHeader, card);
