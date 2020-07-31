@@ -1,24 +1,36 @@
 // ISSUES
-// Won't capture User selection
-// Won't copy text
+// Won't capture User selection(fixed);
+// Won't copy text(fixed)
 // Btn firing before ev (fixed)
 // Only loads Card Once (Fixed)
+// Wont add more sites properly
+// Maybe add google docs api for storage
+
+var card;
+var link;
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name == "contentToExtn")
+  port.onMessage.addListener(function (msg) {
+    getLink(msg);
+    console.log("Message Recieved")
+  });
+})
+
+function getLink(msg) {
+  link = msg.locationLink;
+  console.log(link);
+  console.log("getLink running")
+  return link;
+}
+var link = window.link;
+console.log("GLopbal " + window.link)
 
 
-// chrome.runtime.onMessage.addListener(notify);
 console.log('Popup.JS running')
 const cardTextArea = document.getElementById('cardTextArea');
 const btn = document.getElementById('cardControl');
 const para = document.querySelector('.successMsg');
 var card;
-// function notify(message) {
-//   card = message["cardVar"];
-//   console.log('Message Received');
-//   console.log(card);
-
-  
-// 		// para.style.visibility = "visible"; 
-//   }
 
 
 

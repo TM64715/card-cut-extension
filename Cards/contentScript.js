@@ -1,6 +1,7 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
 
 var card;
+var port = chrome.runtime.connect({name: "contentToExtn"});
 
 function cardCompile() {
 	var link = window.location.href;
@@ -219,3 +220,7 @@ chrome.runtime.onMessage.addListener(
 	  if (request.greeting == "hello")
 		sendResponse({"cardVar":cardCompile()});
 	});
+	}
+);
+var link = window.location.href;
+port.postMessage({locationLink: link});
