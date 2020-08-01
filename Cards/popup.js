@@ -94,4 +94,3 @@ function startOver () {
   cardTextArea.value = ""
   
 }
-  

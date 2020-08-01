@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.author-name', '.font--headline', '.display-date', 'Washington Post Staff', 'Washington Post')
+cardCreate('.founders-cond', '.article-hero__headline', 'time.relative', 'NBC Staff', 'NBC News')

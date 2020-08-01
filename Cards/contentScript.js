@@ -12,6 +12,7 @@ function runScript() {
 		var huffPostReg = /huffpost/gi;
 		var waPoReg = /washingtonpost/gi;
 		var wsjReg = /www\.wsj/gi;
+		var nbcReg = /nbcnews/gi;
 
 		// If statements for sites
 
@@ -42,6 +43,9 @@ function runScript() {
 		}
 		else if (wsjReg.test(link)) {
 			card = wsj();
+		}
+		else if (nbcReg.test(link)) {
+			card = nbc();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -450,8 +454,45 @@ function runScript() {
 		}
 		return card;
 	}
-
-
+	function nbc() {
+		try {
+			var auth = document.querySelector(".founders-cond").textContent.trim()
+		} catch(err) {
+			var auth = "NBC Staff";
+		}
+		try {
+			var title = document.querySelector(".article-hero__headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time.relative").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, NBC News, ${link}, ${today}
+		
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".founders-cond").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".article-hero__headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time.relative").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
 	for (let i = 0; i<9; i++) {
 		console.log("Content Running")
 	}
