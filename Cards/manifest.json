@@ -20,7 +20,7 @@
 },
 
 "background": {
-  "scripts": ["background.js"],
+  "page": "background.html",
   "persistent": false
 },
 "permissions": [
@@ -30,5 +30,14 @@
 "clipboardWrite",
 "clipboardRead"
 ],
+<<<<<<< Updated upstream
 "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+=======
+"content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'",
+"oauth2": {
+  "client_id": "551340727075-3mea8d7u6q2673cvvvvk70vctdgb9lln.apps.googleusercontent.com",
+  "scopes":["https://www.googleapis.com/auth/documents"],
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD1vQDXw5XVV3fFU90LVhNYFCmtv1DiTZouA1xBzA1Om+IvsFHV8uHUWx5nqUOrdwWadPYaJTU1bS49j5JcP6Ykj84LwKE9cbVVeqHJnQzuv2j0O3Pu+yDKLvCmiaSKc4WiDOivZdc8w8SsDwHXecgO8IpZdr75QPYhf7RkgjVXJ+VyxmzymcOtBiTdBwbnP1g1dQWMNxurqGtqmvdqKKjpv+iTkCBf8/Z4V3isbVqSqrrvp67oQr+RhUSUPDehR9Oe7+4JfCemkCjidjZp3lVUDWjM+dHfnooauYCxeRkhIdzadq+6VHWjEaBNMyR8y54Z8MFpzoFTPLBbtW0bfciBAgMBAAECggEAAfsrmhG2YlBJtfpWm4RKEBA4+qewRb9daliNBKTHtmYHL5UYiYTQ+o7NN07fZJOQbe3ad4EQ3EBVupnBN2OajBVXSUX4ORk78M5DyzgZ2GBVY1ocNaoX7F3u8OMPny1FGwjZdxpAcXnBJBWvLJ3m8RGbPRNDN+MSizOYJzeSYF/YbFIF2fg1XVXo0VMHBgZPgKyn9zhQhDTrLzYIDOchbdp7IQwWjyRYkU/2CwoQvtgzppEvPSx+YEh8fIzDEP0oEO+rOVTB0Wybf1/HNja1yDXJQUkYvNXoH+lcUsdA3Idw+TdyGeeEqOMLtON5RuQDJ4hKp57rIQJB1Xg72dRciQKBgQD7PWk/A+ZPyMRiL/XNEU/F+vSt4OmIppEV++zeZQ39ilQJBQyA3fXHmYpFwcobdN/J1ccIyQxDeltDm0j/f62bmGdjr9TlHYOy5Tk94Vb0wNOR9tWPAEXIu0UuPhtQCEC5b/vEy735EYOLxDiTdMu8yf4fD67yfHT+/3xOChZKvQKBgQD6ZOhlWDGT4h3mn/22Di+eWUuZqJsw0y6tljypk8/J3uTWwKBDGFgZO4EPi9x9WgmNFx6Wprs4H5slrLmtk0DDdA9Db+p3gKPpWURwdMVCb195xhX9wdwCsrrYLiWDbn4w5/DiCn5nDapy1z7NxA+jyoXoMzjorwAuXEtPAT4zFQKBgCBrn04zaZ/4D2eAOt7YkgvBQ5vAf0JUBDrrBHj6X2DNXeTAEwn6GoJETPSNelAqt8oq3QFEOGHowygpPLVDu5ptg0H46acbNOh77fQPRRJWY7bdPFe0uEyb5eR+vTWJqxiC2+FcTUp7uRbrHkXg932IL1PAyVmfN9XEED1dzdydAoGBAIUzDslyrBT+MWfQ7lddnok++U+JeNz1Spx/ElAnWF8MGnH/UIHAvoTVuac6gJWSQwhyJwx/L5MAhTj6dF/YuJgA8mmubG0b2pY0rYqhI5pewsx1ypcN/GrXBzwe+Ee9jJWZnPOyH2HUzDqBNGCjjqpT/v3x2bE1/wOqh0lE4QCtAoGAWyMZ9O98jsqqGbGFBY/+mUApjteBmOsANZGP+MMPTbs192A+jbup/dJwlXoM7xivKtrCMbLwhcswHkY8BOC1NUZCNgajaFq9DO1ke148s2AXqMfYQYUQzblYU4DA3YxD0BppqDmkQ2Yk2SKpWUcyc3n3+WWo7U7pM7sckS28O1U="
+}
+>>>>>>> Stashed changes
 }

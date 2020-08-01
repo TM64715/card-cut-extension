@@ -229,6 +229,17 @@ function startOver () {
   cardTextArea.value = ""
   
 }
+<<<<<<< Updated upstream
 
 
   
+=======
+  
+var cardElements = card.split(', ');
+var auth = cardElements[0];
+var time = cardElements[1] + ", " +  cardElements[2];
+var title = cardElements[3];
+var org = cardElements[4];
+var link = cardElements[5];
+var localTime = cardElements[6];
+>>>>>>> Stashed changes
