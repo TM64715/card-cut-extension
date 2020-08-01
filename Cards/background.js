@@ -1,5 +1,5 @@
-chrome.runtime.onMessage.addListener(notify);
-
-function notify(message) {
-  console.log(message.cardVar);
-}
+window.onload = function() {
+    chrome.identity.getAuthToken({interactive: true}, function(token) {
+      console.log(token);
+    });
+};

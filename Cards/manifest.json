@@ -29,7 +29,9 @@
 ],
 "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 "oauth2": {
-  "client_id": "551340727075-3mea8d7u6q2673cvvvvk70vctdgb9lln.apps.googleusercontent.com",
+  "client_id": "518804757170-dph2hr8an16ne5ku829dllvf0vd76vtk.apps.googleusercontent.com",
   "scopes":["https://www.googleapis.com/auth/spreadsheets"]
-}
+},
+"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmf6DlLKaOOkAYdnZNzGHoC1/WIAnsJeGv4C+XlDeL+vApLFlvwTionOsbDlZ5QGihip3KZB6yyflQCC6/DNOJg11axkkxbVgUXcQZQxGfuVgymFzMaAVN+yTrqwQlOZk1FNyDdBbds6QdUMqRUyZ6lctcUWcuhL8/eHVJqRMDxqXCiHM9u7YgO+/pPkcSAVPrfjiR0Z2GyzVg6FwSyF7+AoKIXTA6Ph7fgT4DJfFPwpdp71j1BhPGcQnYg+63A7aWxgYNfL7A+Rq5iyIKo1cOP2u8liGNSujXwav4e8qIoAByBLml/5R/dbnC7GxV6asLqxWfr0ajIsCLK21tdCtKwIDAQAB"
+
 }
