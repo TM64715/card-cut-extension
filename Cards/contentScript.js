@@ -13,6 +13,11 @@ function runScript() {
 		var waPoReg = /washingtonpost/gi;
 		var wsjReg = /www\.wsj/gi;
 		var nbcReg = /nbcnews/gi;
+		var guardianReg = /theguardian/gi;
+		var bloombergReg = /bloomberg\.com/gi;
+		var forbesReg = /forbes\.com/gi;
+		var atlanticReg = /theatlantic\.com/gi;
+		var usaTodayReg = /usatoday\.com/gi;
 
 		// If statements for sites
 
@@ -46,6 +51,21 @@ function runScript() {
 		}
 		else if (nbcReg.test(link)) {
 			card = nbc();
+		}
+		else if (guardianReg.test(link)) {
+			card = guardian();
+		} 
+		else if (bloombergReg.test(link)) {
+			card = bloomberg();
+		}
+		else if (forbesReg.test(link)) {
+			card = forbes();
+		}
+		else if (atlanticReg.test(link)) {
+			card = atlantic();
+		}
+		else if (usaTodayReg.test(link)) {
+			card = usaToday();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -456,38 +476,237 @@ function runScript() {
 	}
 	function nbc() {
 		try {
-			var auth = document.querySelector(".founders-cond").textContent.trim()
+			var auth = document.querySelector("[data-test = 'byline']").textContent.trim()
 		} catch(err) {
-			var auth = "NBC Staff";
+			var auth = "Bloomberg Staff";
 		}
 		try {
-			var title = document.querySelector(".article-hero__headline").textContent.trim()
+			var title = document.querySelector("[data-test = 'article-hero__headline']").textContent.trim()
 		} catch(err) {
 			var title = document.title;
 		}
 		try {
-			var time = document.querySelector("time.relative").textContent.trim();
+			var time = document.querySelector("[data-test = 'timestamp__datePublished']").textContent.trim();
 		} catch(err) {
 			var time = "No Time Given/Found";
 		}
 		var link = window.location.href
 		var today = new Date()
 		var selection = userSelect()
-		var card = `${auth}, ${time}, ${title}, NBC News, ${link}, ${today}
+		var card = `${auth}, ${time}, ${title}, Bloomberg, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("[data-test = 'byline']").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("[data-test = 'article-hero__headline']").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("[data-test = 'timestamp__datePublished']").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function guardian () {
+		try {
+			var auth = document.querySelector(".css-1rv9jci").textContent.trim()
+		} catch(err) {
+			var auth = "Guardian Staff";
+		}
+		try {
+			var title = document.querySelector("h1.css-rtdfvn").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".css-1kkxezg").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, The Guardian, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".css-1rv9jci").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.css-rtdfvn").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".css-1kkxezg").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function bloomberg () {
+		try {
+			var auth = document.querySelector("a.author-v2__byline").textContent.trim()
+		} catch(err) {
+			var auth = "Bloomberg Staff";
+		}
+		try {
+			var title = document.querySelector("h1.lede-text-v2__hed").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time.article-timestamp").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Bloomberg News, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("a.author-v2__byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.lede-text-v2__hed").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time.article-timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function forbes () {
+		try {
+			var auth = document.querySelector(".contrib-link--name").textContent.trim()
+		} catch(err) {
+			var auth = "Forbes Staff";
+		}
+		try {
+			var title = document.querySelector(".fs-headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Forbes, ${link}, ${today}
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".contrib-link--name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".fs-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function atlantic () {
+		try {
+			var auth = document.querySelector(".c-article-author__link").textContent.trim()
+		} catch(err) {
+			var auth = "Atlantic Staff";
+		}
+		try {
+			var title = document.querySelector(".c-article-header__hed").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time.c-dateline").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Atlantic, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".c-article-author__link").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".c-article-header__hed").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time.c-dateline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function usaToday () {
+		try {
+			var auth = document.querySelector(".gnt_ar_by_a").textContent.trim()
+		} catch(err) {
+			var auth = "USA Today Staff";
+		}
+		try {
+			var title = document.querySelector("h1.gnt_ar_hl").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".gnt_ar_dt").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, USA Today, ${link}, ${today}
 		
 "${selection}"`
 		try {
-			var authStyle = document.querySelector(".founders-cond").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+			var authStyle = document.querySelector(".gnt_ar_by_a").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}
 		try {
-			var titleStyle = document.querySelector(".article-hero__headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+			var titleStyle = document.querySelector("h1.gnt_ar_hl").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}
 		try {
-			var timeStyle = document.querySelector("time.relative").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+			var timeStyle = document.querySelector(".gnt_ar_dt").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}
