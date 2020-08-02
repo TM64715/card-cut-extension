@@ -28,7 +28,7 @@
 "identity",
 "storage"
 ],
-"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+"content_security_policy": "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js; object-src 'self'",
 "oauth2": {
   "client_id": "551340727075-3mea8d7u6q2673cvvvvk70vctdgb9lln.apps.googleusercontent.com",
   "scopes":["https://www.googleapis.com/auth/spreadsheets"]

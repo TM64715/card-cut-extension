@@ -12,11 +12,15 @@
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Generate Card'" spellcheck="false"></textarea>
 		<button class="cardControl" id = "cardControl">Generate Card</button>
 		<p class="successMsg" id = "successMsg">Text Copied</p>
+	</div>
+	<div>
 		<h1 class="productName" id = "pastCards">Past Cards</h1>
-		<textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea>
+		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
 		<button id = "getStored">Get Stored</button>
-		<p id = "appendedTo"></p>
+		<div id = "appendedTo"></div>
+		<button id = "clearStorage">Clear Card History</button>
 	</div>	
 	<script src = "popup.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </body>
 </html>

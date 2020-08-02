@@ -6,42 +6,54 @@ function main() {
   const storagebtn = document.getElementById('getStored');
   const storageField = document.getElementById('cardHistory');
   const appendTo = document.getElementById('appendedTo');
+  const clearStorageBtn = document.getElementById("clearStorage");
   var card;
   var stored;
-  var cardList;
+  var cardList = [];
+  // Defining Variables
+  clearStorageBtn.addEventListener("click", function (){
+    chrome.storage.sync.clear();
+  })
   storagebtn.addEventListener("click", function () {
+    console.log("get Card is running");
     chrome.storage.sync.get("card", function(result) {
       if (typeof result.card == "string") {
         cardList = result.card.split('///')
       }
-      console.log("Fist ones running")  
-      cardList = result.card;
-      for (let i = 0; i < (cardList.length); i++) {
-        var newPara = document.createElement('p');
-        console.log("new paragraph")
-        newPara.textContent = cardList[i];
-        appendTo.appendChild(newPara);
-      }
-      
+      if (true) {
+        console.log("First ones running")  
+        cardList = result.card;
+        for (let i = 0; i <= (cardList.length -1); i++) {
+          var newInput = document.createElement('textarea');
+          newInput.setAttribute("id", `textarea${i}`)
+          var copyBtn = document.createElement('button');
+          copyBtn.setAttribute("class", "copyBtn");
+          copyBtn.setAttribute("class", `copyBtn${i}`);
+          copyBtn.textContent = "copy card"
+          var newInputCopy = document.getElementById(`textarea${i}`)
+          console.log("new textarea")
+          newInput.value += cardList[i] + '\n';
+          appendTo.appendChild(newInput);
+          appendTo.appendChild(copyBtn);
+          copyBtn.addEventListener("click", function () {
+            navigator.clipboard.writeText(newInputCopy.value).then(function() {
+              console.log("clipboard successfully set");
+              
+            }, function() {
+              var copyText = newInputCopy;
+              copyText.select();
+              document.execCommand("copy");
+              
+              console.log("Second Try for copy text")
+            })
+
+          })
+        }
+     }
       console.log(cardList)
     });
   })
   
-
-  
-
-  // Defining Variables
-  
-  storagebtn.addEventListener("click", function () {
-    chrome.storage.sync.get("card", function(result) {
-      storageField.textContent = result.card;
-      console.log(result.card)
-    });
-    console.log("Second thing working")
-    
-  })
-
-
   function genCard() {
     
     if (btn.textContent == "Generate Card") {
@@ -76,12 +88,24 @@ function main() {
   }
 
   function storeCard(card) {
-    if (card.isArray !== true) {
-      cardList = card.split('///')
-    }
-    chrome.storage.sync.set({"card": cardList}, function() {
-      console.log('Value is set to ' + cardList);
-    });
+    console.log("store card is running")
+    chrome.storage.sync.get("card", function(result) {
+      if (result.card !== undefined) {
+        cardList = result.card;
+      }
+      else (
+        cardList = []
+      )
+      console.log("Getting Cardlist: " + cardList);
+      cardList.push(card);
+      console.log("after pushed: " + cardList);
+      chrome.storage.sync.set({"card": cardList}, function() {
+        console.log('Value is set to ' + cardList);
+      })
+      
+    })
+    
+    ;
   }
 
   if (btn.textContent == "Generate Card") {

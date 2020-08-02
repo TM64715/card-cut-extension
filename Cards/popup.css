@@ -13,17 +13,18 @@ html {
 	font-family: 'Krona One', sans-serif;
 }
 
-.cardTextArea {
+.cardTextArea,textarea {
 	height: 250px;
 	width: 250px;
-	margin-left: 100px;
-	margin-right: 100px;
+	margin-left: auto;
+	margin-right: auto;
 	outline: none;
 	color: #4f4f4f;
 	font-family: 'Roboto', sans-serif;
 	background-color: #faf9f7;
 	border: 3px double #ff5e5e;
 	padding: 16px;
+	box-sizing: border-box;
 
 }
 
@@ -72,8 +73,7 @@ div {
 	margin-bottom: 5px;
 }
 
-#getStored {
-	background-color:#42C0FB;
+#getStored, #clearStorage, .copyBtn {
 	color: white;
 	border: none;
 	padding: 11px;
@@ -103,4 +103,31 @@ div {
 	margin-right: 100px;
 	height: 250px;
 	width: 250px;
+}
+
+p {
+	font-size: 13px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+textarea {
+	display: block;
+	width: 90%;
+	height: 60px;
+	margin-bottom: 5px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+textarea:nth-of-type(1) {
+	margin-top: 5px;
+}
+
+.copyBtn {
+	margin: 15px;
+	font-size: 10px;
+	padding: 7px;
 }
