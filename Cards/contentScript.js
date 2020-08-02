@@ -85,71 +85,6 @@ function runScript() {
 		return selected;
 	}
 
-	function displayCard(attatch, card) {
-		let divi = document.createElement('div');
-		let cardTextArea = document.createElement('textarea');
-		let btn = document.createElement('button');
-		let para = document.createElement('para');
-		
-		divi.style.backgroundColor = "#D3D3D3";
-		divi.style.width = "60%";
-		divi.style.marginLeft = "auto";
-		divi.style.marginRight = "auto";
-		divi.style.marginTop = "40px";
-		divi.style.marginBottom = "40px";
-		divi.style.padding = "20px";
-		divi.style.fontFamily = "verdana";
-		divi.style.fontSize = "15px";
-		divi.style.height = "500px";
-		
-		cardTextArea.style.fontWeight = "lighter";
-		cardTextArea.style.width = '100%';
-		cardTextArea.style.height = '400px';
-
-		
-
-		// cardTextArea.value = card;
-		btn.textContent = "Generate New Card";
-
-		
-		para.style.visibility = 'hidden';
-		para.textContent = 'Copied To Clipboard!';
-		para.style.display = "inline-block";
-		para.style.color = "#0bda51";
-		para.style.float = "right";
-		para.style.margin = "20px";
-
-		
-		if (btn.textContent == "Generate New Card") {
-			btn.onclick = function () {
-				btn.textContent = "Copy To Clipboard";
-				cardTextArea.value = card;
-				
-			}
-		} else if  (btn.textContent == "Copy To Clipboard") {
-			var copyText = cardTextArea;
-			copyText.select();
-			// copyText.setSelectionRange(0, 99999);
-			document.execCommand("copy");
-			para.style.visibility = "visible";
-		}
-		
-		btn.style.border ="none";
-		btn.style.backgroundColor = "#42C0FB";
-		btn.style.color = "white";
-		btn.style.padding = "7px";
-		btn.style.margin = "20px";
-		btn.style.borderRadius = "10px";
-		btn.style.display = "inline-block";
-		btn.style.float = "left";
-		
-		attatch.append(divi);
-		divi.appendChild(cardTextArea)
-		divi.appendChild(btn)
-		divi.appendChild(para)
-		
-	}
-
 	function nyTimes() {
 
 		try {
@@ -231,7 +166,6 @@ function runScript() {
 		}
 		return card;
 	}
-
 
 	function vox () {
 		try {
@@ -722,10 +656,12 @@ function runScript() {
 					"from a content script:" + sender.tab.url :
 					"from the extension");
 		if (request.greeting == "hello") {
-			sendResponse({"cardVar":cardCompile()});
+			sendResponse({"cardVar": cardCompile()});
 		}
 		return Promise.resolve("Dummy response to keep the console quiet");
 		});
+			
 	}
 
-	window.addEventListener('DOMContentLoaded', runScript());
+window.addEventListener('DOMContentLoaded', runScript());
+

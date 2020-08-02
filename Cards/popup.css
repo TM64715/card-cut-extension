@@ -16,8 +16,8 @@ html {
 .cardTextArea {
 	height: 250px;
 	width: 250px;
-	margin-left: 115px;
-	margin-right: 115px;
+	margin-left: 100px;
+	margin-right: 100px;
 	outline: none;
 	color: #4f4f4f;
 	font-family: 'Roboto', sans-serif;
@@ -61,7 +61,7 @@ div {
 
 .successMsg {
 	margin-top: 20px;
-	padding: 7px;
+	padding: 7px 7px 7px 0px;
 	text-align: center;
 	color: #8edea6;
 	font-weight: lighter;
@@ -69,4 +69,38 @@ div {
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bolder;
+	margin-bottom: 5px;
+}
+
+#getStored {
+	background-color:#42C0FB;
+	color: white;
+	border: none;
+	padding: 11px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 13px;
+	font-family: 'Krona One', sans-serif;
+	background-color: #ff5e5e;
+	color: #faf9f7;
+	line-height: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	outline: none;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#pastCards {
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	margin-bottom: 30px;
+}
+
+#cardHistory {
+	margin-left: 100px;
+	margin-right: 100px;
+	height: 250px;
+	width: 250px;
 }
