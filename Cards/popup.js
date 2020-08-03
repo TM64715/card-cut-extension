@@ -41,14 +41,32 @@ function main() {
         for (let i = (cardList.length - 1); i >= 0; i--) {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
-          var copyBtn = document.createElement('button');
-          var deleteBtn = document.createElement('button');
+          const copyBtn = document.createElement('button');
+          const clipboardIcon = document.createElement("svg");
+          const deleteBtn = document.createElement('button');
+          const trashIcon = document.createElement('svg');
+          trashIcon.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="15px" height="15px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+       <path fill="#faf9f7" d="M459.232,60.687h-71.955c-1.121-17.642-15.631-31.657-33.553-31.657H161.669
+         c-17.921,0-32.441,14.015-33.553,31.657H64.579c-18.647,0-33.767,15.12-33.767,33.768v8.442c0,18.648,15.12,33.768,33.767,33.768
+         h21.04v342.113c0,13.784,11.179,24.963,24.963,24.963h308.996c13.784,0,24.964-11.179,24.964-24.963V136.665h14.691
+         c18.663,0,33.768-15.12,33.768-33.768v-8.442C493,75.807,477.896,60.687,459.232,60.687z M196.674,443.725
+         c0,12.58-10.197,22.803-22.802,22.803c-12.598,0-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.205-22.802,22.803-22.802
+         c12.605,0,22.802,10.206,22.802,22.802V443.725z M287.887,443.725c0,12.58-10.205,22.803-22.803,22.803
+         s-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.205-22.802,22.803-22.802s22.803,10.206,22.803,22.802V443.725z M379.099,443.725
+         c0,12.58-10.205,22.803-22.803,22.803c-12.613,0-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.189-22.802,22.803-22.802
+         c12.598,0,22.803,10.206,22.803,22.802V443.725z"/>
+       </svg>
+       ` 
+          clipboardIcon.className = "clipboard"
+          clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "20px" width = "20px" fill = "white"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
+          trashIcon.className = "trash"
           deleteBtn.className = "deleteBtn"
-          deleteBtn.textContent = "Delete Card From History";
+          // deleteBtn.textContent = "Delete";
           deleteBtn.id = `deleteBtn${i}`;
           copyBtn.setAttribute("class", "copyBtn");
           copyBtn.setAttribute("id", `copyBtn${i}`);
-          copyBtn.textContent = "Copy Card"
+          // copyBtn.textContent = "Copy Card"
           const newInputCopy = document.getElementById(`textarea${i}`)
           console.log(newInput.value);
           console.log("new textarea")
@@ -56,6 +74,8 @@ function main() {
           appendTo.appendChild(newInput);
           appendTo.appendChild(copyBtn);
           appendTo.appendChild(deleteBtn)
+          deleteBtn.appendChild(trashIcon);
+          copyBtn.appendChild(clipboardIcon);
           $(document).on('click',`#copyBtn${i}`,function(){
             event.preventDefault();
             navigator.clipboard.writeText(newInput.value).then(function() {

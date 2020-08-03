@@ -10,7 +10,9 @@ html {
 	font-weight: bolder;
 	width: 100%;
 	color: #ff5e5e;
-	font-family: 'Krona One', sans-serif;
+	font-family: 'Acme', sans-serif;
+	letter-spacing: 1.6px;
+	font-size: 30px;
 }
 
 .cardTextArea,textarea {
@@ -70,7 +72,7 @@ div {
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bolder;
-	margin-bottom: 5px;
+
 }
 
 #getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll {
@@ -93,8 +95,8 @@ div {
 }
 
 #pastCards {
-	font-size: 1.5rem;
-	letter-spacing: 2px;
+	font-size: 25px;
+	letter-spacing: 1px;
 	margin-bottom: 30px;
 }
 
@@ -127,19 +129,31 @@ textarea:nth-of-type(1) {
 }
 
 .copyBtn {
-	margin: 15px;
-	font-size: 10px;
-	width: 40%;
-	box-sizing: border-box;
+	font-size: 12px;
+	text-align: left;
+	margin-right: 20px;
+	padding: 9px 11px 9px 11px;
 }
 
 .deleteBtn {
 	font-size: 10px;
-	padding: 13px;
+	padding: 13px 13px 10px 13px;
 	box-sizing: border-box;
-	width: 40%;
+
 }
 
 #exportAll {
 	display: block;
+}
+
+.credit {
+	font-size: 7px;
+}
+
+.credit a {
+	color: black;
+}
+
+.trash:hover {
+	fill: black;
 }
