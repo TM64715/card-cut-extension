@@ -5,18 +5,30 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="popup.css">
 	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Krona+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	
 </head>
 <body>
-	<h1 class="productName"> Card Cutting Extension</h1>
+	<nav>
+		<button type="button" class="collapsible">&#9776;</button>
+		<div class="content">
+			<ul class="navList"></ul>
+				<li class="navItem"><a href = "#cardGenerator">Create Card</a></li>
+				<li class="navItem"><a href = "#pastCards">See Past Cards</a></li>
+				<li class="navItem">Settings</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<h1 class="productName" id = "cardGenerator">Card Generator</h1>
 	<div>
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Generate Card'" spellcheck="false"></textarea>
-		<button class="cardControl" id = "cardControl">Generate Card</button>
+		<button class="cardControl" id = "cardControl">Create Card</button>
 		<p class="successMsg" id = "successMsg">Text Copied</p>
 	</div>
 	<div>
-		<h1 class="productName" id = "pastCards">Past Cards</h1>
+		<h1 class="productName" id = "pastCards">Evidence Locker</h1>
 		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
-		<button id = "getStored">Get Stored</button>
+		<button id = "getStored">See Past Cards</button>
 		<div id = "appendedTo"></div>
 		<button id = "exportAll">Copy All</button>
 		<button id = "clearStorage">Clear Card History</button>

@@ -45,21 +45,13 @@ function main() {
           const clipboardIcon = document.createElement("svg");
           const deleteBtn = document.createElement('button');
           const trashIcon = document.createElement('svg');
-          trashIcon.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          width="15px" height="15px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-       <path fill="#faf9f7" d="M459.232,60.687h-71.955c-1.121-17.642-15.631-31.657-33.553-31.657H161.669
-         c-17.921,0-32.441,14.015-33.553,31.657H64.579c-18.647,0-33.767,15.12-33.767,33.768v8.442c0,18.648,15.12,33.768,33.767,33.768
-         h21.04v342.113c0,13.784,11.179,24.963,24.963,24.963h308.996c13.784,0,24.964-11.179,24.964-24.963V136.665h14.691
-         c18.663,0,33.768-15.12,33.768-33.768v-8.442C493,75.807,477.896,60.687,459.232,60.687z M196.674,443.725
-         c0,12.58-10.197,22.803-22.802,22.803c-12.598,0-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.205-22.802,22.803-22.802
-         c12.605,0,22.802,10.206,22.802,22.802V443.725z M287.887,443.725c0,12.58-10.205,22.803-22.803,22.803
-         s-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.205-22.802,22.803-22.802s22.803,10.206,22.803,22.802V443.725z M379.099,443.725
-         c0,12.58-10.205,22.803-22.803,22.803c-12.613,0-22.803-10.223-22.803-22.803v-284.9c0-12.597,10.189-22.802,22.803-22.802
-         c12.598,0,22.803,10.206,22.803,22.802V443.725z"/>
-       </svg>
+          trashIcon.innerHTML = `<svg width="20px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+        </svg>
        ` 
+          newInput.className = "oldCardContent"
           clipboardIcon.className = "clipboard"
-          clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "20px" width = "20px" fill = "white"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
+          clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "23px" width = "23px" fill = "white"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
           trashIcon.className = "trash"
           deleteBtn.className = "deleteBtn"
           // deleteBtn.textContent = "Delete";
@@ -76,6 +68,7 @@ function main() {
           appendTo.appendChild(deleteBtn)
           deleteBtn.appendChild(trashIcon);
           copyBtn.appendChild(clipboardIcon);
+          newInput.setAttribute("spellcheck", "false")
           $(document).on('click',`#copyBtn${i}`,function(){
             event.preventDefault();
             navigator.clipboard.writeText(newInput.value).then(function() {
@@ -120,7 +113,7 @@ function main() {
   //     console.log('Message Received');
   //     console.log(card);
   function sendCard () {
-    if (btn.textContent == "Generate Card") {
+    if (btn.textContent == "Create Card") {
       console.log("sendCard triggered")
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
           chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
@@ -162,7 +155,7 @@ function main() {
     ;
   }
 
-  if (btn.textContent == "Generate Card") {
+  if (btn.textContent == "Create Card") {
       btn.addEventListener("click", genCard);
       btn.addEventListener("click", sendCard);
 
@@ -197,8 +190,23 @@ function main() {
   function startOver () {
     console.log('startOver')
     para.style.visibility = "hidden" ;
-    btn.textContent = "Generate Card";
+    btn.textContent = "Create Card";
     cardTextArea.value = ""
+  }
+
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
   }
 }
 window.addEventListener("DOM Content Loaded", main())
