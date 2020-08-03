@@ -1,0 +1,16 @@
+html {
+	height: 500px;
+	width: 500px;
+}
+
+nav a {
+	color: #4f4f4f;;
+}
+
+#settings {
+	text-align: center;
+	font-family: "acme";
+	font-weight: lighter;
+	letter-spacing: 1px;
+	color: #ff5e5e;
+}
