@@ -73,7 +73,7 @@ div {
 	margin-bottom: 5px;
 }
 
-#getStored, #clearStorage, .copyBtn {
+#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll {
 	color: white;
 	border: none;
 	padding: 11px;
@@ -129,5 +129,17 @@ textarea:nth-of-type(1) {
 .copyBtn {
 	margin: 15px;
 	font-size: 10px;
-	padding: 7px;
+	width: 40%;
+	box-sizing: border-box;
+}
+
+.deleteBtn {
+	font-size: 10px;
+	padding: 13px;
+	box-sizing: border-box;
+	width: 40%;
+}
+
+#exportAll {
+	display: block;
 }

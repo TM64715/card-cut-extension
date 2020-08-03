@@ -1,5 +1,6 @@
 function main() {
   console.log('Popup.JS running')
+  // Defining Variables
   const cardTextArea = document.getElementById('cardTextArea');
   const btn = document.getElementById('cardControl');
   const para = document.getElementById('successMsg');
@@ -7,15 +8,29 @@ function main() {
   const storageField = document.getElementById('cardHistory');
   const appendTo = document.getElementById('appendedTo');
   const clearStorageBtn = document.getElementById("clearStorage");
+  const exportAll = document.getElementById("exportAll");
   var card;
   var stored;
   var cardList = [];
-  // Defining Variables
+  // Clear History
   clearStorageBtn.addEventListener("click", function (){
     chrome.storage.sync.clear();
   })
+  // Export All
+  exportAll.addEventListener("click", function () {
+    exportAll.style.color = "blue";
+    chrome.storage.sync.get("card", function(result) {
+      cardList = result.card
+      var copyText = cardList.join("\n\n");
+      navigator.clipboard.writeText(copyText).then(function() {
+        console.log(copyText)
+        exportAll.style.color = "white"
+    })
+  })});
+  // Looping Through Storage
   storagebtn.addEventListener("click", function () {
     console.log("get Card is running");
+    appendTo.innerHTML = "";
     chrome.storage.sync.get("card", function(result) {
       if (typeof result.card == "string") {
         cardList = result.card.split('///')
@@ -23,19 +38,24 @@ function main() {
       if (true) {
         console.log("First ones running")  
         cardList = result.card;
-        for (let i = 0; i <= (cardList.length -1); i++) {
+        for (let i = (cardList.length - 1); i > 0; i--) {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           var copyBtn = document.createElement('button');
+          var deleteBtn = document.createElement('button');
+          deleteBtn.className = "deleteBtn"
+          deleteBtn.textContent = "Delete Card From History";
+          deleteBtn.id = `deleteBtn${i}`;
           copyBtn.setAttribute("class", "copyBtn");
           copyBtn.setAttribute("id", `copyBtn${i}`);
-          copyBtn.textContent = "copy card"
+          copyBtn.textContent = "Copy Card"
           const newInputCopy = document.getElementById(`textarea${i}`)
           console.log(newInput.value);
           console.log("new textarea")
           newInput.value += cardList[i] + '\n';
           appendTo.appendChild(newInput);
           appendTo.appendChild(copyBtn);
+          appendTo.appendChild(deleteBtn)
           $(document).on('click',`#copyBtn${i}`,function(){
             event.preventDefault();
             navigator.clipboard.writeText(newInput.value).then(function() {
@@ -49,7 +69,18 @@ function main() {
               
               console.log("Second Try for copy text")
             })
+          
 
+          })
+
+          $(document).on('click', `#deleteBtn${i}`, function () {
+            cardList.splice(i, 1);
+            newInput.remove();
+            deleteBtn.remove();
+            copyBtn.remove();
+            chrome.storage.sync.set({"card": cardList}, function() {
+              console.log('Value is set to ' + cardList);
+            })
           })
         }
      }
