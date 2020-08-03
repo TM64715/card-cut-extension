@@ -24,20 +24,23 @@ function main() {
         console.log("First ones running")  
         cardList = result.card;
         for (let i = 0; i <= (cardList.length -1); i++) {
-          var newInput = document.createElement('textarea');
+          const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           var copyBtn = document.createElement('button');
           copyBtn.setAttribute("class", "copyBtn");
-          copyBtn.setAttribute("class", `copyBtn${i}`);
+          copyBtn.setAttribute("id", `copyBtn${i}`);
           copyBtn.textContent = "copy card"
-          var newInputCopy = document.getElementById(`textarea${i}`)
+          const newInputCopy = document.getElementById(`textarea${i}`)
+          console.log(newInput.value);
           console.log("new textarea")
           newInput.value += cardList[i] + '\n';
           appendTo.appendChild(newInput);
           appendTo.appendChild(copyBtn);
-          copyBtn.addEventListener("click", function () {
-            navigator.clipboard.writeText(newInputCopy.value).then(function() {
+          $(document).on('click',`#copyBtn${i}`,function(){
+            event.preventDefault();
+            navigator.clipboard.writeText(newInput.value).then(function() {
               console.log("clipboard successfully set");
+              console.log(newInput.value)
               
             }, function() {
               var copyText = newInputCopy;
