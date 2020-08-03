@@ -38,7 +38,7 @@ function main() {
       if (true) {
         console.log("First ones running")  
         cardList = result.card;
-        for (let i = (cardList.length - 1); i > 0; i--) {
+        for (let i = (cardList.length - 1); i >= 0; i--) {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           var copyBtn = document.createElement('button');
