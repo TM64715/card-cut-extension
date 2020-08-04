@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.a517e', 'h1.context-article', '.febc7', 'Quartz Staff', 'Quartz')
+cardCreate('.byline', '.storytitle', 'time', 'NPR Staff', 'NPR')

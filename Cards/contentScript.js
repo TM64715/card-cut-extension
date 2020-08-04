@@ -23,6 +23,9 @@ function runScript() {
 		var politicoReg = /politico\.com/gi;
 		var slateReg = /slate\.com/gi;
 		var quartzReg = /qz\.com/gi;
+		var cnnReg = /cnn\.com/;
+		var bbcReg = /bbc\.com/gi;
+		nprReg = /npr\.org/gi;
 		// If statements for sites
 
 		if (nyt.test(link)) {
@@ -85,6 +88,15 @@ function runScript() {
 		}
 		else if (quartzReg.test(link)) {
 			card = quartz();
+		}
+		else if (cnnReg.test(link)) {
+			card = cnn();
+		}
+		else if (bbcReg.test(link)) {
+			card = bbc();
+		}
+		else if (nprReg.test(link)) {
+			card = npr();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -868,6 +880,127 @@ function runScript() {
 		}
 		return card;
 	}
+
+	function cnn () {
+		try {
+			var auth = document.querySelector(".metadata__byline__author").textContent.trim()
+		} catch(err) {
+			var auth = "CNN Staff";
+		}
+		try {
+			var title = document.querySelector(".pg-headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".update-time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, CNN, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".metadata__byline__author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".pg-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".update-time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function bbc() {
+		try {
+			var auth = document.querySelector(".byline__name").textContent.trim()
+		} catch(err) {
+			var auth = "BBC Staff";
+		}
+		try {
+			var title = document.querySelector("h1.story-body__h1").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".date").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, BBC, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".byline__name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.story-body__h1").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".date").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function npr() {
+		try {
+			var auth = document.querySelector(".byline").textContent.trim()
+		} catch(err) {
+			var auth = "NPR Staff";
+		}
+		try {
+			var title = document.querySelector(".storytitle").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, NPR, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".storytitle").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 		console.log(sender.tab ?
