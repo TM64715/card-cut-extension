@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.article-author__name-link', 'h1.headline', 'time', 'SCMP Staff', 'South China Morning Post')
+cardCreate('.td-author', "#td-headline", '.td-date', 'The Diplomat Staff', 'The Diplomat')
