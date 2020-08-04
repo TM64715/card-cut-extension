@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.n-content-tag--author', 'h1.topper__headline', '.article-info__timestamp', 'Financial Times Staff', 'Financial Times')
+cardCreate('.story-meta__authors', '.headline', '.story-meta__timestamp', 'Politico Staff', 'Politico')

@@ -19,6 +19,8 @@ function runScript() {
 		var atlanticReg = /theatlantic\.com/gi;
 		var usaTodayReg = /usatoday\.com/gi;
 		var financialTimesReg = /ft\.com/gi;
+		var wiredReg = /wired\.com/gi;
+		var politicoReg = /politico\.com/gi;
 
 		// If statements for sites
 
@@ -70,6 +72,12 @@ function runScript() {
 		}
 		else if (financialTimesReg.test(link)) {
 			card = financialTimes();
+		}
+		else if (wiredReg.test(link)) {
+			card = wired();
+		}
+		else if (politicoReg.test(link)) {
+			card = politico();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -671,7 +679,7 @@ function runScript() {
 		var today = new Date()
 		var selection = userSelect()
 		var card = `${auth}, ${time}, ${title}, Financial Times, ${link}, ${today}
-		
+
 "${selection}"`
 		try {
 			var authStyle = document.querySelector(".n-content-tag--author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
@@ -685,6 +693,86 @@ function runScript() {
 		}
 		try {
 			var timeStyle = document.querySelector(".article-info__timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function wired () {
+		try {
+			var auth = document.querySelector(".byline__name").textContent.trim()
+		} catch(err) {
+			var auth = "WIRED Staff";
+		}
+		try {
+			var title = document.querySelector("h1.content-header__hed").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".content-header__publish-date").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, WIRED, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".byline__name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.content-header__hed").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".content-header__publish-date").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function politico () {
+		try {
+			var auth = document.querySelector(".story-meta__authors").textContent.trim()
+		} catch(err) {
+			var auth = "Politico Staff";
+		}
+		try {
+			var title = document.querySelector(".headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".story-meta__timestamp").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Politico, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".story-meta__authors").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".story-meta__timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}
