@@ -2,11 +2,16 @@ html {
 	height: 500px;
 	width: 500px;
 	outline: none;
+	font-family: 'roboto', sans-serif;
 }
 
 body {
 	background: #faf9f7;
 	margin-left: 0px;
+}
+
+select {
+	color: green;
 }
 
 /* Navbar */
@@ -119,6 +124,11 @@ div {
 	outline: none;
 }
 
+.saveTo {
+	display: inline-block;
+	line-height: 15px;
+}
+
 .successMsg {
 	margin-top: 20px;
 	padding: 7px 7px 7px 0px;
@@ -134,7 +144,7 @@ div {
 
 /* Button */
 
-#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll {
+#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll,.saveTo {
 	color: white;
 	border: none;
 	padding: 11px;
