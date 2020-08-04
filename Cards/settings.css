@@ -8,6 +8,14 @@ nav a {
 	color: #4f4f4f;
 }
 
+#settings {
+	text-align: center;
+	font-family: "acme";
+	font-weight: lighter;
+	letter-spacing: 1px;
+	color: #ff5e5e;
+}
+
 h1 {
 	font-family: "acme", avenir;
 	text-align: center;
@@ -16,32 +24,23 @@ h1 {
 label {
 	display: inline-block;
 	margin-bottom: 20px;
-	color: white;
-	background: #ff5e5e;
-	border-radius: 10px;
-	padding: 9px;
-	text-align: center;
-	font-family: "krona one";
-	font-size: 10px;
-	width: 160px;
+	font-family: "roboto", sans-serif;
+	font-size: 14px;
 }
 
 input {
 	display: inline-block;
-	padding: 0;
+	outline: none;
+	padding: 0px;
 	border: 2.5px solid #424242;
 	margin-right: 10px;
-}
-
-input:focus {
-	outline: thin dotted black;
-	border: none;
 }
 
 .revert {
 	font-family: 'Krona One', sans-serif;
 	background-color: #ff5e5e;
 	color: #faf9f7;
+	outline: none;
 	border: none;
 	font-size: 10px;
 	padding: 9px;
@@ -53,19 +52,15 @@ input:focus {
 
 }
 
-.revert:focus {
-	outline: none;
-	border: 1.7px double #7DCBD8; 
-}
-
 li {
 	list-style: none;
 }
 
 .dynamicBtn {
+	color: white;
 	border: none;
 	padding: 11px;
-	margin: 20px auto;
+	margin-top: 20px;
 	border-radius: 10px;
 	text-align: center;
 	font-size: 13px;
@@ -73,24 +68,10 @@ li {
 	background-color: #ff5e5e;
 	color: #faf9f7;
 	line-height: 15px;
-	display: block;
-}
-
-.dynamicBtn:focus {
-	outline: none;
-	border: 1.7px double #7DCBD8;
-}
-
-.dynamicTxtArea {
-	height: 200px;
-	width: 200px;
-	margin-right: auto;
 	margin-left: auto;
+	margin-right: auto;
+	outline: none;
+	margin-bottom: 20px;
+	text-align: center;
 	display: block;
-	border: 3px double #ff5e5e;
-}
-
-.dynamicTxtArea::placeholder {
-	font-family: "roboto", serif;
-	padding: 10px;
 }

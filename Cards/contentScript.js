@@ -1,37 +1,35 @@
 // AuthorName/Date/ArticleTitle/Organization/Author'sCredentials/URL/DateAcessed
 function runScript() {
 	var card;
-	var link = window.location.href;
-	var nytReg = /nytimes/gi;
-	var cnbcReg = /cnbc/gi;
-	var voxReg = /vox/gi;
-	var reutersReg = /reuters/gi;
-	var busReg = /insider\.com/gi;
-	var huffPostReg = /huffpost/gi;
-	var waPoReg = /washingtonpost/gi;
-	var wsjReg = /www\.wsj/gi;
-	var nbcReg = /nbcnews/gi;
-	var guardianReg = /theguardian/gi;
-	var bloombergReg = /bloomberg\.com/gi;
-	var forbesReg = /forbes\.com/gi;
-	var atlanticReg = /theatlantic\.com/gi;
-	var usaTodayReg = /usatoday\.com/gi;
-	var financialTimesReg = /ft\.com/gi;
-	var wiredReg = /wired\.com/gi;
-	var politicoReg = /politico\.com/gi;
-	var slateReg = /slate\.com/gi;
-	var quartzReg = /qz\.com/gi;
-	var cnnReg = /cnn\.com/;
-	var bbcReg = /bbc\.com/gi;
-	var nprReg = /npr\.org/gi;
-	var scmpReg = /scmp\.com/gi;
-	var diplomatReg = /thediplomat\.com/gi;
 
 	function cardCompile() {
-
+		var link = window.location.href;
+		var nyt = /nytimes/gi;
+		var cnbcReg = /cnbc/gi;
+		var voxReg = /vox/gi;
+		var reutersReg = /reuters/gi;
+		var busReg = /insider\.com/gi;
+		var huffPostReg = /huffpost/gi;
+		var waPoReg = /washingtonpost/gi;
+		var wsjReg = /www\.wsj/gi;
+		var nbcReg = /nbcnews/gi;
+		var guardianReg = /theguardian/gi;
+		var bloombergReg = /bloomberg\.com/gi;
+		var forbesReg = /forbes\.com/gi;
+		var atlanticReg = /theatlantic\.com/gi;
+		var usaTodayReg = /usatoday\.com/gi;
+		var financialTimesReg = /ft\.com/gi;
+		var wiredReg = /wired\.com/gi;
+		var politicoReg = /politico\.com/gi;
+		var slateReg = /slate\.com/gi;
+		var quartzReg = /qz\.com/gi;
+		var cnnReg = /cnn\.com/;
+		var bbcReg = /bbc\.com/gi;
+		var nprReg = /npr\.org/gi;
+		var scmpReg = /scmp\.com/gi;
 		// If statements for sites
 
-		if (nytReg.test(link)) {
+		if (nyt.test(link)) {
 			card = nyTimes();
 		}
 
@@ -103,9 +101,6 @@ function runScript() {
 		}
 		else if (scmpReg.test(link)) {
 			card = scmp();
-		}
-		else if(diplomatReg.test(link)) {
-			card = diplomat();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -1044,45 +1039,6 @@ function runScript() {
 		}
 		try {
 			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		} catch(err) {
-		  console.log(err);
-		}
-		return card;
-	}
-
-	function diplomat() {
-		try {
-			var auth = document.querySelector(".td-author").textContent.trim()
-		} catch(err) {
-			var auth = "The Diplomat Staff";
-		}
-		try {
-			var title = document.getElementById("#td-headline").textContent.trim()
-		} catch(err) {
-			var title = document.title;
-		}
-		try {
-			var time = document.querySelector(".td-date").textContent.trim();
-		} catch(err) {
-			var time = "No Time Given/Found";
-		}
-		var link = window.location.href
-		var today = new Date()
-		var selection = userSelect()
-		var card = `${auth}, ${time}, ${title}, The Diplomat, ${link}, ${today}
-		"${selection}"`
-		try {
-			var authStyle = document.querySelector(".td-author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		} catch(err) {
-		  console.log(err);
-		}
-		try {
-			var titleStyle = document.getElementById("#td-headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
-		} catch(err) {
-		  console.log(err);
-		}
-		try {
-			var timeStyle = document.querySelector(".td-date").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}

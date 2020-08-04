@@ -9,8 +9,6 @@ window.onload = function () {
     const revertColor2 = document.getElementById("revertColor2");
     const revertBg = document.getElementById("revertBg");
     const goBack = document.getElementById("goBack");
-    const labels = document.getElementsByClassName("label");
-    const exTxtArea = document.getElementById("dynamicTxtArea");
     chrome.storage.sync.get("bgColor", function(result) {
         colorBg.value = result.bgColor;
         body.style.backgroundColor = result.bgColor
@@ -20,9 +18,6 @@ window.onload = function () {
     chrome.storage.sync.get("color1", function(result) {
         color1.value = result.color1;
         demoBtn.style.color = result.color1;
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].style.color = result.color1
-        }
         console.log("color1 retrieved is " + result.color1);
 
     })
@@ -32,11 +27,7 @@ window.onload = function () {
         demoBtn.style.backgroundColor = result.color2;
         header1.style.color = result.color2;
         console.log("color2 retrieved is " + result.color2);
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].style.backgroundColor = result.color2;
-        }
         goBack.style.color = result.color2;
-        exTxtArea.style.border = `3px double ${result.color2}`;
     })
 
     console.log("DOM ready")
@@ -52,9 +43,6 @@ window.onload = function () {
             console.log("color1 is set to: " + color1.value);
         })
         demoBtn.style.color = color1.value;
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].style.color = color1.value;
-        }
         
     })
     // Color2
@@ -65,11 +53,6 @@ window.onload = function () {
         demoBtn.style.backgroundColor = color2.value;
         header1.style.color = color2.value;
         goBack.style.color = color2.value;
-        for (let i = 0; i < labels.length; i++) {
-            labels[i].style.backgroundColor = color2.value;
-        }
-
-        exTxtArea.style.border = `3px double ${color2.value}`
     })
     // Revert BG
     
