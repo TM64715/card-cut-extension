@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.story-meta__authors', '.headline', '.story-meta__timestamp', 'Politico Staff', 'Politico')
+cardCreate('.article__byline', '.article__hed', '.article__dateline', 'Slate Staff', 'Slate')
