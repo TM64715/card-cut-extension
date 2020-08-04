@@ -22,6 +22,7 @@ function runScript() {
 		var wiredReg = /wired\.com/gi;
 		var politicoReg = /politico\.com/gi;
 		var slateReg = /slate\.com/gi;
+		var quartzReg = /qz\.com/gi;
 		// If statements for sites
 
 		if (nyt.test(link)) {
@@ -81,6 +82,9 @@ function runScript() {
 		}
 		else if (slateReg.test(link)) {
 			card = slate();
+		}
+		else if (quartzReg.test(link)) {
+			card = quartz();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -825,6 +829,45 @@ function runScript() {
 		return card;
 	}
 
+	function quartz () {
+		try {
+			var auth = document.querySelector(".a517e").textContent.trim()
+		} catch(err) {
+			var auth = "Quartz Staff";
+		}
+		try {
+			var title = document.querySelector("h1.context-article").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".febc7").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Quartz, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".a517e").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.context-article").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".febc7").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 		console.log(sender.tab ?

@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.article__byline', '.article__hed', '.article__dateline', 'Slate Staff', 'Slate')
+cardCreate('.a517e', 'h1.context-article', '.febc7', 'Quartz Staff', 'Quartz')
