@@ -1,10 +1,11 @@
 html {
 	height: 500px;
 	width: 500px;
+	font-family: 'roboto', sans-serif;
 }
 
 nav a {
-	color: #4f4f4f;;
+	color: #4f4f4f;
 }
 
 #settings {
@@ -13,4 +14,64 @@ nav a {
 	font-weight: lighter;
 	letter-spacing: 1px;
 	color: #ff5e5e;
+}
+
+h1 {
+	font-family: "acme", avenir;
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 20px;
+	font-family: "roboto", sans-serif;
+	font-size: 14px;
+}
+
+input {
+	display: inline-block;
+	outline: none;
+	padding: 0px;
+	border: 2.5px solid #424242;
+	margin-right: 10px;
+}
+
+.revert {
+	font-family: 'Krona One', sans-serif;
+	background-color: #ff5e5e;
+	color: #faf9f7;
+	outline: none;
+	border: none;
+	font-size: 10px;
+	padding: 9px;
+	display: block;
+	float: right;
+	margin-right: 25px;
+	border-radius: 10px;
+	width: 150px;
+
+}
+
+li {
+	list-style: none;
+}
+
+.dynamicBtn {
+	color: white;
+	border: none;
+	padding: 11px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 13px;
+	font-family: 'Krona One', sans-serif;
+	background-color: #ff5e5e;
+	color: #faf9f7;
+	line-height: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	outline: none;
+	margin-bottom: 20px;
+	text-align: center;
+	display: block;
 }

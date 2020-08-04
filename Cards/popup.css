@@ -56,7 +56,9 @@ body {
 	color: #4f4f4f;
 	text-decoration: none;
 }
-
+.navItem:last-child {
+	padding-bottom: 10px;
+}
 /* Card Generator */
 .productName {
 	font-family: avenir;
@@ -151,19 +153,31 @@ div {
 	text-align: center;
 }
 
-#pastCards {
-	font-size: 25px;
-	letter-spacing: 1px;
-	margin-bottom: 30px;
+.btnFlex {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-content: center;
+	gap: 10px;
 }
 
-#cardHistory {
-	margin-left: 100px;
-	margin-right: 100px;
-	height: 250px;
-	width: 250px;
+#bgSticky {
+	position: sticky;
+	top: 0px;
 }
 
+#getStored {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#clearStorage {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#getStored {
+	
+}
 p {
 	font-size: 13px;
 	margin-left: 20px;
@@ -197,10 +211,6 @@ textarea:nth-of-type(1) {
 	padding: 13px 13px 8px 13px;
 	box-sizing: border-box;
 
-}
-
-#exportAll {
-	display: block;
 }
 
 .credit {

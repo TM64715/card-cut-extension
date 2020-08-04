@@ -14,12 +14,15 @@ function main() {
   var cardList = [];
   // Clear History
   clearStorageBtn.addEventListener("click", function (){
-    chrome.storage.sync.clear();
+    chrome.storage.local.set({"card": []}, function () {
+      console.log("cleared");
+    });
+    appendTo.innerHTML = "";
   })
   // Export All
   exportAll.addEventListener("click", function () {
     exportAll.style.color = "blue";
-    chrome.storage.sync.get("card", function(result) {
+    chrome.storage.local.get("card", function(result) {
       cardList = result.card
       var copyText = cardList.join("\n\n");
       navigator.clipboard.writeText(copyText).then(function() {
@@ -31,7 +34,7 @@ function main() {
   storagebtn.addEventListener("click", function () {
     console.log("get Card is running");
     appendTo.innerHTML = "";
-    chrome.storage.sync.get("card", function(result) {
+    chrome.storage.local.get("card", function(result) {
       if (typeof result.card == "string") {
         cardList = result.card.split('///')
       }
@@ -45,18 +48,24 @@ function main() {
           const clipboardIcon = document.createElement("svg");
           const deleteBtn = document.createElement('button');
           const trashIcon = document.createElement('svg');
-          trashIcon.innerHTML = `<svg width="20px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          chrome.storage.local.get(["color1", "color2"], function (result) {
+            trashIcon.innerHTML = `<svg width="20px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="${result["color1"]}" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
         </svg>
        ` 
+            clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "23px" width = "23px" fill = "${result["color1"]}"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
+            deleteBtn.style.backgroundColor = result.color2;
+            copyBtn.style.backgroundColor = result.color2;
+            newInput.style.border = `3px double ${result.color2}`;
+          })
+          
           newInput.className = "oldCardContent"
           clipboardIcon.className = "clipboard"
-          clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "23px" width = "23px" fill = "white"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
           trashIcon.className = "trash"
-          deleteBtn.className = "deleteBtn"
+          deleteBtn.className = "deleteBtn color1 color2Fill"
           // deleteBtn.textContent = "Delete";
           deleteBtn.id = `deleteBtn${i}`;
-          copyBtn.setAttribute("class", "copyBtn");
+          copyBtn.setAttribute("class", "copyBtn color1");
           copyBtn.setAttribute("id", `copyBtn${i}`);
           // copyBtn.textContent = "Copy Card"
           const newInputCopy = document.getElementById(`textarea${i}`)
@@ -91,7 +100,7 @@ function main() {
             newInput.remove();
             deleteBtn.remove();
             copyBtn.remove();
-            chrome.storage.sync.set({"card": cardList}, function() {
+            chrome.storage.local.set({"card": cardList}, function() {
               console.log('Value is set to ' + cardList);
             })
           })
@@ -136,7 +145,7 @@ function main() {
 
   function storeCard(card) {
     console.log("store card is running")
-    chrome.storage.sync.get("card", function(result) {
+    chrome.storage.local.get("card", function(result) {
       if (result.card !== undefined) {
         cardList = result.card;
       }
@@ -146,7 +155,7 @@ function main() {
       console.log("Getting Cardlist: " + cardList);
       cardList.push(card);
       console.log("after pushed: " + cardList);
-      chrome.storage.sync.set({"card": cardList}, function() {
+      chrome.storage.local.set({"card": cardList}, function() {
         console.log('Value is set to ' + cardList);
       })
       

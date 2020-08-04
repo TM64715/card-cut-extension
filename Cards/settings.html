@@ -7,15 +7,29 @@
 	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Krona+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src = "settings.js"></script>
-	<script type="text/javascript" src = "theme.js"></script>
 </head>
-<body>
+<body id="body">
 	<nav>
-		<a href = "popup.html">Go Back</a>
+		<a href = "popup.html" id = "goBack">Go Back</a>
 	</nav>
-	<h1 id = "settings">Settings</h1>
+	<h1 class="settingsHeader" id = "settingsHeader">Settings</h1>
 	<form>
-		<input type="color" name="" id = "color1">
+		<li>
+			<input type="color" name="user_bgColor" id = "user_bgColor">
+			<label for="user_bgColor" class="label">Set Default Background </label>
+			<button class="revert" id = "revertBg">Default Background</button>
+		</li>
+		<li>
+			<input type="color" name="user_color1" id = "user_color1">
+			<label for="user_color1" class="label">Set Color 1</label>
+			<button class="revert" id = "revertColor1">Default Color 1</button>
+		</li>
+		<li>
+			<input type="color" name="user_color2" id = "user_color2">
+			<label for="user_color2" class="label">Set Color 2</label>
+			<button class="revert" id = "revertColor2">Default Color 2</button>
+		</li>
 	</form>
+	<button class = "dynamicBtn" id = "dynamicBtn">Example Button</button>
 </body>
 </html>
