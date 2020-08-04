@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.gnt_ar_by_a', 'h1.gnt_ar_hl', '.gnt_ar_dt', 'USA Today Staff', 'USA Today')
+cardCreate('.n-content-tag--author', 'h1.topper__headline', '.article-info__timestamp', 'Financial Times Staff', 'Financial Times')

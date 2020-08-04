@@ -18,6 +18,7 @@ function runScript() {
 		var forbesReg = /forbes\.com/gi;
 		var atlanticReg = /theatlantic\.com/gi;
 		var usaTodayReg = /usatoday\.com/gi;
+		var financialTimesReg = /ft\.com/gi;
 
 		// If statements for sites
 
@@ -66,6 +67,9 @@ function runScript() {
 		}
 		else if (usaTodayReg.test(link)) {
 			card = usaToday();
+		}
+		else if (financialTimesReg.test(link)) {
+			card = financialTimes();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -641,6 +645,46 @@ function runScript() {
 		}
 		try {
 			var timeStyle = document.querySelector(".gnt_ar_dt").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function financialTimes () {
+		try {
+			var auth = document.querySelector(".n-content-tag--author").textContent.trim()
+		} catch(err) {
+			var auth = "Financial Times Staff";
+		}
+		try {
+			var title = document.querySelector("h1.topper__headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".article-info__timestamp").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Financial Times, ${link}, ${today}
+		
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".n-content-tag--author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.topper__headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".article-info__timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
 		} catch(err) {
 		  console.log(err);
 		}

@@ -8,11 +8,24 @@ window.onload = function() {
 
     })
     chrome.storage.sync.get("color1", function(result) {
-        var useColor1 = document.getElementsByClassName("color1");
-        for (let i = 0; i < (useColor1.length); i++) {
-            useColor1[i].style.color = result.color1
+        if (result.color1) {
+            var useColor1 = document.getElementsByClassName("color1");
+            for (let i = 0; i < (useColor1.length); i++) {
+                useColor1[i].style.color = result.color1
+            }
         }
-    })
+
+            else {
+                for (let i = 0; i < (useColor1.length); i++) {
+                    useColor1[i].style.color = "#faf9f7"
+                }
+
+                chrome.storage.sync.set({"color1": "#faf9f7"}, function (){
+                    console.log("color1 set to #faf9f7");
+                })
+            }
+         }
+    );
     chrome.storage.sync.get("color2", function(result) {
         var useColor2 = document.getElementsByClassName("color2");
         var color2Fill = document.getElementsByClassName("color2Fill");
