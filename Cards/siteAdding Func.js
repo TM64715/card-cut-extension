@@ -8,7 +8,7 @@ function cardCreate(auth, title, time, staff, org) {
     var title = document.querySelector("${title}").textContent.trim()
 } catch(err) {
     var title = document.title;
-}`)
+}`);
   console.log(`try {
     var time = document.querySelector("${time}").textContent.trim();
 } catch(err) {
@@ -35,9 +35,5 @@ function cardCreate(auth, title, time, staff, org) {
   console.log(err);
 }`);
 
-
-  console.log("return card\;");
+  console.log("return card;");
 }
-
-
-cardCreate('.td-author', "#td-headline", '.td-date', 'The Diplomat Staff', 'The Diplomat')
