@@ -25,7 +25,8 @@ function runScript() {
 		var quartzReg = /qz\.com/gi;
 		var cnnReg = /cnn\.com/;
 		var bbcReg = /bbc\.com/gi;
-		nprReg = /npr\.org/gi;
+		var nprReg = /npr\.org/gi;
+		var scmpReg = /scmp\.com/gi;
 		// If statements for sites
 
 		if (nyt.test(link)) {
@@ -97,6 +98,9 @@ function runScript() {
 		}
 		else if (nprReg.test(link)) {
 			card = npr();
+		}
+		else if (scmpReg.test(link)) {
+			card = scmp();
 		}
 		else {
 			console.log('Website Not Supported');
@@ -1001,6 +1005,46 @@ function runScript() {
 		return card;
 	}
 
+	function scmp () {
+		try {
+			var auth = document.querySelector(".article-author__name-link").textContent.trim()
+		} catch(err) {
+			var auth = "SCMP Staff";
+		}
+		try {
+			var title = document.querySelector("h1.headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time").textContent.trim();
+		} catch(err) {
+			var time = "No Time Given/Found";
+		}
+		var link = window.location.href
+		var today = new Date()
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, South China Morning Post, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".article-author__name-link").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 		console.log(sender.tab ?
@@ -1015,4 +1059,3 @@ function runScript() {
 	}
 
 window.addEventListener('DOMContentLoaded', runScript());
-

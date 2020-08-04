@@ -40,4 +40,4 @@ function cardCreate(auth, title, time, staff, org) {
 }
 
 
-cardCreate('.byline', '.storytitle', 'time', 'NPR Staff', 'NPR')
+cardCreate('.article-author__name-link', 'h1.headline', 'time', 'SCMP Staff', 'South China Morning Post')
