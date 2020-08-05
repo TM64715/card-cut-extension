@@ -4,8 +4,55 @@ html {
 	font-family: 'roboto', sans-serif;
 }
 
-nav a {
+/* Navbar */
+.collapsible {
+	color: #444;
+	padding: 18px;
+	width: 50px;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	border: none;
+	margin-left: 5px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+	background-color: #ccc;
+	outline: none;
+	border: none;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	background-color: #faf9f7;
+	color: #444;
+	font-family: 'roboto', sans-serif;
+  }
+
+.navList {
+	list-style: none;
+	padding-left: 0;
+	background-color: #faf9f7;
+}
+
+.navItem {
+	font-size: 14px;
+	padding: 3px;
+	list-style: none;
+	text-align: left;
+	background-color: #faf9f7;
+}
+.navItem a {
 	color: #4f4f4f;
+	text-decoration: none;
+}
+.navItem:last-child {
+	padding-bottom: 10px;
 }
 
 h1 {

@@ -15,27 +15,28 @@
 				<li class="navItem"><a href = "#cardGenerator">Create Card</a></li>
 				<li class="navItem"><a href = "#pastCards">See Past Cards</a></li>
 				<li class="navItem"><a href = "settings.html">Settings</a></li>
-				<li class = "navItem"><a href = "List1.html">List 1</a></li>
+				<li class = "navItem"><a href = "List1.html">Pro</a></li>
+				<li class="navItem"><a href = "list2.html">Con</a></li>
+				<li class="navItem"><a href = "other.html">Other</a></li>
 			</ul>
 		</div>
 	</nav>
 	
-	<h1 class="productName color2" id = "cardGenerator">Card Generator</h1>
+	<h1 class="productName color2" id = "cardGenerator">Evidence Locker</h1>
 	<div>
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Create Card'" spellcheck="false"></textarea>
 		<button class="cardControl color1 color2Fill" id = "cardControl">Create Card</button>
-		<li class = "saveTo">
-			<label for = "saveTo" class = "saveToLabel">Save To: </label>
-			<select>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
+		<li class = "saveTo color2Fill">
+			<label for = "saveTo" class = "saveToLabel color1">Save To: </label>
+			<select id = "select" class="color1">
+				<option>Locker</option>
+				<option>Pro</option>
+				<option>Con</option>
+				<option>Other</option>
 			</select>
 		</li>
-		<p class="successMsg color1" id = "successMsg">Text Copied</p>
-	</div>
-	<div>
-		<h1 class="productName color2" id = "pastCards">Evidence Locker</h1>
+		<p class = "color2">All cards are saved to <strong>Locker.</strong> If you want a more specific list save the card to a different category otherwise leave it on <strong>Locker.</strong></p>
+		<h1 class="productName color2" id = "pastCards">Locker</h1>
 		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
 		<div class = "btnFlex" id ="bgSticky">
 			<button id = "exportAll" class="color1 color2Fill">Copy All</button>

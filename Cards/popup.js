@@ -9,9 +9,13 @@ function main() {
   const appendTo = document.getElementById('appendedTo');
   const clearStorageBtn = document.getElementById("clearStorage");
   const exportAll = document.getElementById("exportAll");
+  const select = document.getElementById("select");
   var card;
   var stored;
   var cardList = [];
+  var cardList1 = [];
+  var cardList2 = [];
+  var cardList3 = [];
   // Clear History
   clearStorageBtn.addEventListener("click", function (){
     chrome.storage.local.set({"card": []}, function () {
@@ -134,6 +138,7 @@ function main() {
             btn.textContent = "Copy To Clipboard";
             cardTextArea.style.textAlign = "left";
             storeCard(card)
+            cardLists(card);
 
           });
         });
@@ -162,6 +167,68 @@ function main() {
     })
     
     ;
+  }
+
+  function cardLists(card) {
+    var i = select.value;
+    var list1Reg = /Pro/gi;
+    var list2Reg = /Con/gi;
+    var list3Reg = /Other/gi;
+
+    if (list1Reg.test(i)) {
+      chrome.storage.local.get("card1", function(result) {
+        if (result.card1 !== undefined) {
+          cardList1 = result.card1;
+        }
+        else {
+          console.log("new card1 history")
+        }
+        cardList1.push(card);
+
+        chrome.storage.local.set({card1: cardList1}, function () {
+          console.log("this is cardList1");
+          console.log(cardList1);
+        });
+      })
+      
+    } 
+    else if (list2Reg.test(i)) {
+      chrome.storage.local.get("card2", function(result) {
+        if (result.card2 !== undefined) {
+          cardList2 = result.card2;
+        }
+        else {
+          console.log("new card2 history")
+        }
+        cardList2.push(card);
+
+        chrome.storage.local.set({card2: cardList2}, function () {
+          console.log("this is cardList2");
+          console.log(cardList2);
+        });
+      })
+      
+        
+    } 
+    else if (list3Reg.test(i)) {
+      chrome.storage.local.get("card3", function(result) {
+        if (result.card3 !== undefined) {
+          cardList3 = result.card3;
+        }
+        else {
+          console.log("new card2 history")
+        }
+        cardList3.push(card);
+
+        chrome.storage.local.set({card3: cardList3}, function () {
+          console.log("this is cardList3");
+          console.log(cardList3);
+        });
+      })
+
+    }
+
+  
   }
 
   if (btn.textContent == "Create Card") {

@@ -1,13 +1,11 @@
+* {
+	box-sizing: border-box;
+}
+
 html {
 	height: 500px;
 	width: 500px;
-	outline: none;
-	font-family: 'roboto', sans-serif;
-}
-
-body {
-	background: #faf9f7;
-	margin-left: 0px;
+	font-family: "roboto", "sans-serif";
 }
 
 /* Navbar */
@@ -42,7 +40,7 @@ body {
 
 .navList {
 	list-style: none;
-	padding-left: 20px;
+	padding-left: 0;
 	background-color: #faf9f7;
 }
 
@@ -60,111 +58,14 @@ body {
 .navItem:last-child {
 	padding-bottom: 10px;
 }
-/* Card Generator */
-.productName {
-	font-family: avenir;
+
+h1 {
+	font-size: 22px;
+	font-family: "Krona One", serif;
 	text-align: center;
-	font-weight: bolder;
-	width: 100%;
-	color: #ff5e5e;
-	font-family: 'Acme', sans-serif;
-	letter-spacing: 1.6px;
-	font-size: 30px;
-	margin-top: 10px;
-}
-
-.cardTextArea,textarea {
-	height: 250px;
-	width: 250px;
-	margin-left: auto;
-	margin-right: auto;
-	outline: none;
-	color: #4f4f4f;
-	font-family: 'Roboto', sans-serif;
-	background-color: #faf9f7;
-	border: 3px double #ff5e5e;
-	padding: 16px;
-	box-sizing: border-box;
-
-}
-
-.cardTextArea::placeholder {
-	color: #737373;
-}
-
-.cardTextArea:focus {
-	background-color: #faf9f7;
-	
-}
-
-div {
-	font-size: 15px;
-	text-align: center;
-}
-
-.cardControl {
-	background-color:#42C0FB;
-	border: none;
-	padding: 11px;
-	margin-top: 20px;
-	border-radius: 10px;
-	text-align: center;
-	font-size: 17px;
-	font-family: 'Krona One', sans-serif;
-	background-color: #ff5e5e;
-	color: #faf9f7;
-	line-height: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	outline: none;
-}
-
-.saveTo {
-	display: inline-block;
-	line-height: 15px;
-}
-
-select {
-	border: none;
-	background-color: #ff5e5e;
-	font-family: 'Krona One', sans-serif;
-	color: #faf9f7;
-	border: .5px solid #faf9f7;
-
-}
-
-.successMsg {
-	margin-top: 20px;
-	padding: 7px 7px 7px 0px;
-	text-align: center;
-	color: #8edea6;
-	font-weight: lighter;
-	visibility: hidden;
-	font-size: 18px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bolder;
-
-}
-
-/* Button */
-
-#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll,.saveTo {
-	color: white;
-	border: none;
-	padding: 11px;
-	margin-top: 20px;
-	border-radius: 10px;
-	text-align: center;
-	font-size: 13px;
-	font-family: 'Krona One', sans-serif;
-	background-color: #ff5e5e;
-	color: #faf9f7;
-	line-height: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	outline: none;
-	margin-bottom: 20px;
-	text-align: center;
+    color: #ff5e5e;
+    position: relative;
+    top: -20px;
 }
 
 .btnFlex {
@@ -224,13 +125,100 @@ textarea:nth-of-type(1) {
 
 }
 
-.credit {
-	font-size: 7px;
+.trash:hover {
+	fill: black;
 }
 
-.credit a {
-	color: black;
+.oldCardContent {
+	height: 70px;
+	transition: height 2.4s;
+	padding: 10px;
+	box-sizing: border-box;
+	resize: none;
+	outline: none;
+
 }
+
+.oldCardContent {
+	font-family: "roboto", sans-serif;
+}
+
+
+.oldCardContent:hover, .oldCardContent:focus {
+	height: 200px;
+}
+
+#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll,.saveTo {
+	color: white;
+	border: none;
+	padding: 11px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 13px;
+	font-family: 'Krona One', sans-serif;
+	background-color: #ff5e5e;
+	color: #faf9f7;
+	line-height: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	outline: none;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+
+#bgSticky {
+	position: sticky;
+	top: 0px;
+}
+
+#getStored {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#clearStorage {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+p {
+	font-size: 13px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+textarea {
+	display: block;
+	width: 90%;
+	height: 60px;
+	margin-bottom: 5px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+textarea:nth-of-type(1) {
+	margin-top: 5px;
+}
+
+.copyBtn {
+	font-size: 12px;
+	text-align: left;
+	margin-right: 20px;
+	padding: 9px 11px 9px 11px;
+	margin-left: 180px;
+}
+
+.deleteBtn {
+	font-size: 10px;
+	padding: 13px 13px 8px 13px;
+	box-sizing: border-box;
+	margin-right: 180px;
+}
+
 
 .trash:hover {
 	fill: black;
@@ -242,6 +230,7 @@ textarea:nth-of-type(1) {
 	padding: 10px;
 	box-sizing: border-box;
 	resize: none;
+	color: #4f4f4f;
 }
 
 

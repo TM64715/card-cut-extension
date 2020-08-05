@@ -10,9 +10,12 @@ window.onload = function() {
     chrome.storage.sync.get("color1", function(result) {
         if (result.color1) {
             var useColor1 = document.getElementsByClassName("color1");
+            var select = document.getElementById("select");
             for (let i = 0; i < (useColor1.length); i++) {
                 useColor1[i].style.color = result.color1
             }
+
+            select.style.border = `.5px solid ${result.color1}`;
         }
 
             else {
@@ -37,6 +40,7 @@ window.onload = function() {
             color2Fill[i].style.backgroundColor = result.color2;
         }
         const bigTxtArea = document.getElementById("cardTextArea");
+        select.style.backgroundColor = result.color2;
         bigTxtArea.style.border = `3px double ${result.color2}`;
     })  
 }

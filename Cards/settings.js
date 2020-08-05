@@ -8,7 +8,6 @@ window.onload = function () {
     const revertColor1 = document.getElementById("revertColor1");
     const revertColor2 = document.getElementById("revertColor2");
     const revertBg = document.getElementById("revertBg");
-    const goBack = document.getElementById("goBack");
     const labels = document.getElementsByClassName("label");
     const exTxtArea = document.getElementById("dynamicTxtArea");
     chrome.storage.sync.get("bgColor", function (result) {
@@ -34,7 +33,6 @@ window.onload = function () {
       for (let i = 0; i < labels.length; i++) {
         labels[i].style.backgroundColor = result.color2;
       }
-      goBack.style.color = result.color2;
       exTxtArea.style.border = `3px double ${result.color2}`;
     });
   
@@ -62,7 +60,6 @@ window.onload = function () {
       });
       demoBtn.style.backgroundColor = color2.value;
       header1.style.color = color2.value;
-      goBack.style.color = color2.value;
       for (let i = 0; i < labels.length; i++) {
         labels[i].style.backgroundColor = color2.value;
       }
@@ -95,6 +92,19 @@ window.onload = function () {
       revertColor1.style.backgroundColor = color2.value;
       revertColor2.style.backgroundColor = color2.value;
       revertBg.style.backgroundColor = color2.value;
-      goBack.style.color = color2.value;
     });
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
   };
