@@ -80,7 +80,7 @@ function runScript() {
 		card = diplomat();
 	  } else {
 		console.log("Website Not Supported");
-		card = "Website Not Supported";
+		card = metaScrape();
 	  }
   
 	  // chrome.runtime.sendMessage({"cardVar": card});
@@ -108,7 +108,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -159,7 +169,17 @@ function runScript() {
 		  .querySelector('time[data-testid="published-timestamp"]')
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -207,7 +227,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -257,7 +287,17 @@ function runScript() {
 		  .querySelector(".ArticleHeader_date")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -305,7 +345,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".byline-timestamp").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -355,7 +405,17 @@ function runScript() {
 		  .querySelector(".timestamp__date--published span")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -401,7 +461,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".display-date").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -449,7 +519,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".timestamp").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -500,7 +580,17 @@ function runScript() {
 		  .querySelector("[data-test = 'timestamp__datePublished']")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -546,7 +636,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".css-1kkxezg").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -598,7 +698,17 @@ function runScript() {
 		  .querySelector("time.article-timestamp")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -646,7 +756,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -694,7 +814,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time.c-dateline").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -740,7 +870,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".gnt_ar_dt").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -784,7 +924,8 @@ function runScript() {
 		var title = document
 		  .querySelector("h1.topper__headline")
 		  .textContent.trim();
-	  } catch (err) {
+	  } 
+	  catch (err) {
 		var title = document.title;
 	  }
 	  try {
@@ -792,7 +933,17 @@ function runScript() {
 		  .querySelector(".article-info__timestamp")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -842,7 +993,17 @@ function runScript() {
 		  .querySelector(".content-header__publish-date")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -892,7 +1053,17 @@ function runScript() {
 		  .querySelector(".story-meta__timestamp")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -943,7 +1114,17 @@ function runScript() {
 		  .querySelector(".article__dateline")
 		  .textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -991,7 +1172,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".febc7").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -1037,7 +1228,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".update-time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -1085,7 +1286,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector(".date").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -1130,7 +1341,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -1166,7 +1387,15 @@ function runScript() {
 		  .querySelector(".article-author__name-link")
 		  .textContent.trim();
 	  } catch (err) {
-		var auth = "SCMP Staff";
+			try {var allAuth = document.querySelectorAll("meta[name = 'author'], meta[name = 'og:author'], meta[name = 'article:author'], meta[name = 'byl'], [property = 'author'], [property = 'og:author'], [property = 'article:author'], meta[name = 'DCSext.author'], meta[itemprop = 'author'], meta[itemprop = 'og:author'], meta[itemprop = 'article:author'], meta[itemprop = 'byl']")
+			var auth
+			for (let i = 0; i< allAuth.length; i++) {
+				if (allAuth[i]) {
+					auth = allAuth[i].getAttribute("content");
+				}
+			}} catch(err) {
+				auth = "SCMP Staff"
+			}
 	  }
 	  try {
 		var title = document.querySelector("h1.headline").textContent.trim();
@@ -1176,7 +1405,17 @@ function runScript() {
 	  try {
 		var time = document.querySelector("time").textContent.trim();
 	  } catch (err) {
-		var time = "No Time Given/Found";
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
 	  }
 	  var link = window.location.href;
 	  var today = new Date();
@@ -1250,6 +1489,42 @@ function runScript() {
 		console.log(err);
 	  }
 	  return card;
+	}
+
+	function metaScrape () {
+		var link = window.location.href;
+		var today = new Date();
+		var selection = userSelect();
+		var title = document.title;
+		var allAuth = document.querySelectorAll("meta[name = 'author'], meta[name = 'og:author'], meta[name = 'article:author'], meta[name = 'byl'], [property = 'author'], [property = 'og:author'], [property = 'article:author'], meta[name = 'DCSext.author'], meta[itemprop = 'author'], meta[itemprop = 'og:author'], meta[itemprop = 'article:author'], meta[itemprop = 'byl']")
+		var auth
+		if (allAuth){
+			for (let i = 0; i< allAuth.length; i++) {
+				if (allAuth[i]) {
+					auth = allAuth[i].getAttribute("content");
+				}
+			}
+		} else {
+			auth = "Author Not Found"
+		}
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
+
+		card =  `${auth}, ${time}, ${title}, ${link}, ${today}
+  
+"${selection}"`;
+		console.log(card);
+		return card;
+		
 	}
   
 	chrome.runtime.onMessage.addListener(function (

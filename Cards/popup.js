@@ -3,7 +3,6 @@ function main() {
   // Defining Variables
   const cardTextArea = document.getElementById('cardTextArea');
   const btn = document.getElementById('cardControl');
-  const para = document.getElementById('successMsg');
   const storagebtn = document.getElementById('getStored');
   const storageField = document.getElementById('cardHistory');
   const appendTo = document.getElementById('appendedTo');
@@ -245,7 +244,6 @@ function main() {
     if (btn.textContent == "Copy To Clipboard") {
       navigator.clipboard.writeText(cardTextArea.value).then(function() {
         console.log("clipboard successfully set");
-        para.style.visibility = "visible";
         btn.textContent = "Start Over"
         cardTextArea.value = "Press CMD+V on Windows or CTRL+V on Windows";
         
@@ -254,7 +252,6 @@ function main() {
         copyText.select();
         // copyText.setSelectionRange(0, 99999);
         document.execCommand("copy");
-        para.style.visibility = "visible";
         console.log("Second Try for copy text")
       })
       ;
@@ -265,7 +262,6 @@ function main() {
 
   function startOver () {
     console.log('startOver')
-    para.style.visibility = "hidden" ;
     btn.textContent = "Create Card";
     cardTextArea.value = ""
   }
@@ -284,5 +280,20 @@ function main() {
       }
     });
   }
+
+  select.addEventListener("change", function () {
+      chrome.storage.sync.set({"select": select.value}, function () {
+      console.log("select set to " + select.value);
+    })
+  })
+
+  chrome.storage.sync.get("select", function (result) {
+    if (result.select) {
+    select.value = result.select
+    }
+    else {
+      select.value = "Locker";
+    }
+  })
 }
 window.addEventListener("DOM Content Loaded", main())
