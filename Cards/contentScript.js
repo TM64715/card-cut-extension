@@ -186,7 +186,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, CNBC, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".Author-authorName"
@@ -244,7 +244,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Vox, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  "span.c-byline__author-name"
@@ -304,7 +304,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Reuters, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".BylineBar_byline"
@@ -362,7 +362,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  "a.byline-author-name"
@@ -422,7 +422,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Huffington Post, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".author-card__link span"
@@ -478,7 +478,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Washington Post, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".author-name"
@@ -536,7 +536,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Wall Street Journal, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".author-button"
@@ -597,7 +597,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Bloomberg, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  "[data-test = 'byline']"
@@ -653,7 +653,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, The Guardian, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".css-1rv9jci"
@@ -715,7 +715,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Bloomberg News, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  "a.author-v2__byline"
@@ -772,7 +772,7 @@ function runScript() {
 	  var today = new Date();
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Forbes, ${link}, ${today}
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".contrib-link--name"
@@ -831,7 +831,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Atlantic, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".c-article-author__link"
@@ -887,7 +887,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, USA Today, ${link}, ${today}
 		  
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".gnt_ar_by_a"
@@ -950,7 +950,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Financial Times, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".n-content-tag--author"
@@ -1010,7 +1010,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, WIRED, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".byline__name"
@@ -1070,7 +1070,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Politico, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".story-meta__authors"
@@ -1131,7 +1131,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Slate, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".article__byline"
@@ -1189,7 +1189,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Quartz, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(".a517e").style.backgroundColor =
 		  "rgba(107, 240, 255, 0.53)");
@@ -1245,7 +1245,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, CNN, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".metadata__byline__author"
@@ -1303,7 +1303,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, BBC, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".byline__name"
@@ -1358,7 +1358,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, NPR, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(".byline").style.backgroundColor =
 		  "rgba(107, 240, 255, 0.53)");
@@ -1422,7 +1422,7 @@ function runScript() {
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, South China Morning Post, ${link}, ${today}
   
-  "${selection}"`;
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".article-author__name-link"
@@ -1466,7 +1466,8 @@ function runScript() {
 	  var today = new Date();
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, The Diplomat, ${link}, ${today}
-		  "${selection}"`;
+	  
+"${selection}"`;
 	  try {
 		var authStyle = (document.querySelector(
 		  ".td-author"
