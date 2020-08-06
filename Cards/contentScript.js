@@ -2,86 +2,123 @@
 function runScript() {
 	var card;
 	var link = window.location.href;
-	var nytReg = /nytimes/gi;
-	var cnbcReg = /cnbc/gi;
-	var voxReg = /vox/gi;
-	var reutersReg = /reuters/gi;
-	var busReg = /insider\.com/gi;
-	var huffPostReg = /huffpost/gi;
-	var waPoReg = /washingtonpost/gi;
-	var wsjReg = /www\.wsj/gi;
-	var nbcReg = /nbcnews/gi;
-	var guardianReg = /theguardian/gi;
-	var bloombergReg = /bloomberg\.com/gi;
-	var forbesReg = /forbes\.com/gi;
-	var atlanticReg = /theatlantic\.com/gi;
-	var usaTodayReg = /usatoday\.com/gi;
-	var financialTimesReg = /ft\.com/gi;
-	var wiredReg = /wired\.com/gi;
-	var politicoReg = /politico\.com/gi;
-	var slateReg = /slate\.com/gi;
-	var quartzReg = /qz\.com/gi;
-	var cnnReg = /cnn\.com/;
-	var bbcReg = /bbc\.com/gi;
-	var nprReg = /npr\.org/gi;
-	var scmpReg = /scmp\.com/gi;
-	var diplomatReg = /thediplomat\.com/gi;
-  
+	var domainName = document.domain;
+	var splitted = domainName.split('.');
+	var website;
+	if (splitted.length == 2) {
+		website = splitted[0];
+	}
+	else if (splitted.length == 3) {
+		website = splitted[1]
+	}
+	else if (splitted.length == 4) {
+		website = splitted[2];
+	}
 	function cardCompile() {
 	  // If statements for sites
-  
-	  if (nytReg.test(link)) {
-		card = nyTimes();
-	  } else if (cnbcReg.test(link)) {
-		card = cnbc();
-	  } else if (voxReg.test(link)) {
-		card = vox();
-	  } else if (reutersReg.test(link)) {
-		card = reuters();
-	  } else if (busReg.test(link)) {
-		card = busInsider();
-	  } else if (huffPostReg.test(link)) {
-		card = huffPost();
-	  } else if (waPoReg.test(link)) {
-		card = waPo();
-	  } else if (wsjReg.test(link)) {
-		card = wsj();
-	  } else if (nbcReg.test(link)) {
-		card = nbc();
-	  } else if (guardianReg.test(link)) {
-		card = guardian();
-	  } else if (bloombergReg.test(link)) {
-		card = bloomberg();
-	  } else if (forbesReg.test(link)) {
-		card = forbes();
-	  } else if (atlanticReg.test(link)) {
-		card = atlantic();
-	  } else if (usaTodayReg.test(link)) {
-		card = usaToday();
-	  } else if (financialTimesReg.test(link)) {
-		card = financialTimes();
-	  } else if (wiredReg.test(link)) {
-		card = wired();
-	  } else if (politicoReg.test(link)) {
-		card = politico();
-	  } else if (slateReg.test(link)) {
-		card = slate();
-	  } else if (quartzReg.test(link)) {
-		card = quartz();
-	  } else if (cnnReg.test(link)) {
-		card = cnn();
-	  } else if (bbcReg.test(link)) {
-		card = bbc();
-	  } else if (nprReg.test(link)) {
-		card = npr();
-	  } else if (scmpReg.test(link)) {
-		card = scmp();
-	  } else if (diplomatReg.test(link)) {
-		card = diplomat();
-	  } else {
-		console.log("Website Not Supported");
-		card = metaScrape();
-	  }
+
+	switch (website) {
+		case "nytimes":
+			card = nyTimes()
+			console.log("nyTimes called")
+			break;
+		case "cnbc":
+			card = cnbc();
+			console.log("cnbc called");
+			break;
+		case "vox":
+			card = vox();
+			console.log("vox called")
+			break;
+		case "reuters":
+			card = reuters();
+			console.log("reuters called")
+			break;
+		case "businessinsider":
+			card = busInsider();
+			console.log("busInsider called")
+			break;
+		case "huffpost":
+			card = huffPost();
+			console.log("huffPost called")
+			break;
+		case "washingtonpost":
+			card = waPo()
+			console.log("wapo called");
+			break;
+		case "wsj":
+			card = wsj();
+			console.log("wsj called");
+			break;
+		case "nbcnews":
+			card = nbc();
+			console.log("nbc called");
+			break;
+		case "theguardian":
+			card = guardian();
+			console.log("theguardian called")
+			break;
+		case "bloomberg":
+			card = bloomberg();
+			console.log("bloomberg called")
+			break;
+		case "forbes":
+			card = forbes();
+			console.log("forbes called")
+			break;
+		case "theatlantic":
+			card = atlantic();
+			console.log("theatlantic called")
+			break;
+		case "usatoday":
+			card = usaToday();
+			console.log("usatoday called")
+			break;
+		case "ft":
+			card = financialTimes();
+			console.log("ft called")
+			break;
+		case "wired":
+			card = wired();
+			console.log("wired called")
+			break;
+		case "politico":
+			card = politico();
+			console.log("politico called")
+			break;
+		case "slate":
+			card = slate();
+			console.log("slate called")
+			break;
+		case "qz":
+			card = quartz();
+			console.log("qz called")
+			break;
+		case "cnn":
+			card = cnn();
+			console.log("cnn called")
+			break;
+		case "bbc":
+			card = bbc();
+			console.log("bbc called")
+			break;
+		case "npr":
+			card = npr();
+			console.log("npr called")
+			break;
+		case "scmp":
+			card = scmp();
+			console.log("scmp called")
+			break;
+		case "thediplomat":
+			card = diplomat();
+			console.log("thediplomat called")
+			break;
+		default:
+			card = metaScrape();
+			console.log("metaScrape Called");
+			break;
+	}
   
 	  // chrome.runtime.sendMessage({"cardVar": card});
 	  console.log("Card Compile is running");
