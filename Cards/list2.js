@@ -102,6 +102,8 @@ clearStorageBtn.onclick = function (){
 
   chrome.storage.sync.get(["color2", "color1", "bgColor"], function(result) {
     var body = document.getElementById("body");
+    var btnList = document.getElementById("bgSticky");
+    btnList.style.backgroundColor = result.bgColor;
     body.style.backgroundColor = result.bgColor;
     if (result.color1) {
       var useColor1 = document.getElementsByClassName("color1");

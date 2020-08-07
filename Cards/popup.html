@@ -10,7 +10,7 @@
 <body id = "body">
 	<nav>
 		<button type="button" class="collapsible">&#9776;</button>
-		<div class="content">
+		<div class="content" id = "navList">
 			<ul class="navList">
 				<li class="navItem"><a href = "popup.html#cardGenerator">Create Card</a></li>
 				<li class="navItem"><a href = "popup.html#pastCards">Locker</a></li>
@@ -25,16 +25,14 @@
 	<h1 class="productName color2" id = "cardGenerator">Evidence Locker</h1>
 	<div>
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Create Card'" spellcheck="false"></textarea>
-		<button class="cardControl color1 color2Fill" id = "cardControl">Create Card</button>
 		<li class = "saveTo color2Fill">
-			<label for = "saveTo" class = "saveToLabel color1">Save To: </label>
+			<label for = "saveTo" class = "saveToLabel color1">Destination</label>
 			<select id = "select" class="color1" value = "Locker">
 				<option>Locker</option>
-				<option>Pro</option>
-				<option>Con</option>
-				<option>Other</option>
 			</select>
 		</li>
+		<button class="cardControl color1 color2Fill" id = "cardControl">Create Card</button>
+		
 		<p class = "color2">All cards are saved to <strong>Locker.</strong> If you want a more specific list save the card to a different category otherwise leave it on <strong>Locker.</strong></p>
 		<h1 class="productName color2" id = "pastCards">Locker</h1>
 		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
@@ -51,5 +49,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src = "popup.js"></script>
 	<script src = "theme.js"></script>
+	<script src = "dynamic.js"></script>
 </body>
 </html>
