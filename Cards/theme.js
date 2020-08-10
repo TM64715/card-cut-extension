@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function () {
     chrome.storage.sync.get("bgColor", function(result) {
         var body = document.getElementById("body");
         var bgSticky = document.getElementById("bgSticky");
@@ -43,4 +43,4 @@ window.onload = function() {
         select.style.backgroundColor = result.color2;
         bigTxtArea.style.border = `3px double ${result.color2}`;
     })  
-}
+})

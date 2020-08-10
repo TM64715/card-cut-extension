@@ -39,7 +39,7 @@ function main() {
     appendTo.innerHTML = "";
     chrome.storage.local.get("card", function(result) {
       if (typeof result.card == "string") {
-        cardList = result.card.split('///')
+        cardList = result.card.split('///$555')
       }
       if (true) {
         console.log("First ones running")  
@@ -72,7 +72,6 @@ function main() {
           copyBtn.setAttribute("id", `copyBtn${i}`);
           // copyBtn.textContent = "Copy Card"
           const newInputCopy = document.getElementById(`textarea${i}`)
-          console.log(newInput.value);
           console.log("new textarea")
           newInput.value += cardList[i] + '\n';
           appendTo.appendChild(newInput);
@@ -104,12 +103,12 @@ function main() {
             deleteBtn.remove();
             copyBtn.remove();
             chrome.storage.local.set({"card": cardList}, function() {
-              console.log('Value is set to ' + cardList);
+              // console.log('Value is set to ' + cardList);
             })
           })
         }
      }
-      console.log(cardList)
+      // console.log(cardList)
     });
   })
   
@@ -137,7 +136,7 @@ function main() {
             btn.textContent = "Copy To Clipboard";
             cardTextArea.style.textAlign = "left";
             storeCard(card)
-            cardLists(card);
+            destination(card);
 
           });
         });
@@ -167,74 +166,12 @@ function main() {
     
     ;
   }
-
-  // function cardLists(card) {
-  //   var i = select.value;
-  //   var list1Reg = /Pro/gi;
-  //   var list2Reg = /Con/gi;
-  //   var list3Reg = /Other/gi;
-
-  //   if (list1Reg.test(i)) {
-  //     chrome.storage.local.get("card1", function(result) {
-  //       if (result.card1 !== undefined) {
-  //         cardList1 = result.card1;
-  //       }
-  //       else {
-  //         console.log("new card1 history")
-  //       }
-  //       cardList1.push(card);
-
-  //       chrome.storage.local.set({card1: cardList1}, function () {
-  //         console.log("this is cardList1");
-  //         console.log(cardList1);
-  //       });
-  //     })
-      
-  //   } 
-  //   else if (list2Reg.test(i)) {
-  //     chrome.storage.local.get("card2", function(result) {
-  //       if (result.card2 !== undefined) {
-  //         cardList2 = result.card2;
-  //       }
-  //       else {
-  //         console.log("new card2 history")
-  //       }
-  //       cardList2.push(card);
-
-  //       chrome.storage.local.set({card2: cardList2}, function () {
-  //         console.log("this is cardList2");
-  //         console.log(cardList2);
-  //       });
-  //     })
-      
-        
-  //   } 
-  //   else if (list3Reg.test(i)) {
-  //     chrome.storage.local.get("card3", function(result) {
-  //       if (result.card3 !== undefined) {
-  //         cardList3 = result.card3;
-  //       }
-  //       else {
-  //         console.log("new card2 history")
-  //       }
-  //       cardList3.push(card);
-
-  //       chrome.storage.local.set({card3: cardList3}, function () {
-  //         console.log("this is cardList3");
-  //         console.log(cardList3);
-  //       });
-  //     })
-
-  //   }
-
-  
-  // }
-
   if (btn.textContent == "Create Card") {
       btn.addEventListener("click", genCard);
       btn.addEventListener("click", sendCard);
 
     }
+    // Prolly Useless(elif)
   else if (btn.textContent == "Copy To Clipboard") {
     btn.addEventListener('click', cardCopy())
     }
@@ -265,7 +202,7 @@ function main() {
     btn.textContent = "Create Card";
     cardTextArea.value = ""
   }
-
+// Nav
   var coll = document.getElementsByClassName("collapsible");
   var i;
 
@@ -280,7 +217,7 @@ function main() {
       }
     });
   }
-
+// Saving Dropdown
   select.addEventListener("change", function () {
       chrome.storage.sync.set({"select": select.value}, function () {
       console.log("select set to " + select.value);
@@ -295,5 +232,28 @@ function main() {
       select.value = "Locker";
     }
   })
+
+  // save special
+  function destination (card) {
+    if (dropdown.value != "Locker") {
+      var shelf = dropdown.value;
+      var storageObj = {}
+      chrome.storage.local.get(dropdown.value, function(result) {
+        var gotten = result[dropdown.value];
+        if (typeof gotten != "object" || !gotten) {
+          storageObj[shelf] = [card];
+          chrome.storage.local.set(storageObj)
+        }
+        else {
+          var listDy = result[dropdown.value]
+          listDy.push(card);
+          storageObj[shelf] = listDy;
+          chrome.storage.local.set(storageObj)
+        }
+      })
+      chrome.storage.local.set(storageObj);
+      console.log(storageObj)
+    }
+  }
 }
 window.addEventListener("DOM Content Loaded", main())

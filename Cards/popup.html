@@ -12,21 +12,18 @@
 		<button type="button" class="collapsible">&#9776;</button>
 		<div class="content" id = "navList">
 			<ul class="navList">
-				<li class="navItem"><a href = "popup.html#cardGenerator">Create Card</a></li>
-				<li class="navItem"><a href = "popup.html#pastCards">Locker</a></li>
-				<li class = "navItem"><a href = "List1.html">Pro</a></li>
-				<li class="navItem"><a href = "list2.html">Con</a></li>
-				<li class="navItem"><a href = "other.html">Other</a></li>
+				<li class="navItem"><a href = "popup.html#cardGenerator" id = "home">Create Card</a></li>
+				<li class="navItem"><a href = "popup.html#pastCards" id = "locker">Locker</a></li>
 				<li class="navItem"><a href = "settings.html">Settings</a></li>
 			</ul>
 		</div>
 	</nav>
 	
-	<h1 class="productName color2" id = "cardGenerator">Evidence Locker</h1>
+	<div id = "replace"><h1 class="productName color2" id = "cardGenerator">Evidence Locker</h1>
 	<div>
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Create Card'" spellcheck="false"></textarea>
 		<li class = "saveTo color2Fill">
-			<label for = "saveTo" class = "saveToLabel color1">Destination</label>
+			<label for = "saveTo" class = "saveToLabel color1">Destination: </label>
 			<select id = "select" class="color1" value = "Locker">
 				<option>Locker</option>
 			</select>
@@ -44,7 +41,7 @@
 		<div id = "appendedTo"></div>
 		
 		
-	</div>
+	</div></div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src = "popup.js"></script>
