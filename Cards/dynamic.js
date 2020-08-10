@@ -15,7 +15,7 @@ var pages =
 }
 
 var dropdown = document.getElementById("select");
-const navList = document.getElementById("navList");
+const navList = document.getElementById("locker");
 var bod = document.getElementById("replace");
 for (let page in pages) {
   $(document).trigger("DOMContentLoaded")
@@ -25,7 +25,7 @@ for (let page in pages) {
   dropdown.appendChild(newOption)
   var newLi = document.createElement('li');
   newLi.className = "navItem"
-  navList.appendChild(newLi);
+  navList.append(newLi);
   var newLink = document.createElement('a');
   newLi.appendChild(newLink);
   newLink.textContent = page;
@@ -45,6 +45,29 @@ for (let page in pages) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   </body>
   </html>`
+
+  // Clear Storage
+  $(document).on("click", "#clearStorage", function () {
+    var myObj = {}
+    myObj[page] = []
+    chrome.storage.local.set(myObj);
+    appendTo.innerHTML = '';
+  })
+
+  // Export all
+
+  $(document).on("click", "#exportAll", function() {
+    var copyText;
+    chrome.storage.local.get(pages, function(result) {
+      for (let i = 0; i < result[page].length; i++) {
+        copyText+= result[`${page}`][i];
+      }
+    })
+    navigator.clipboard.writeText(copyText);
+    
+  })
+
+  // Looping Storage
   var getStored = document.getElementById("getStored");
     bod.innerHTML = bodyInner;
     console.log(`${page} clicked`);
@@ -55,7 +78,7 @@ for (let page in pages) {
       console.log("clicked");
       chrome.storage.local.get(pages, function (result) {
         var newArr = result[page];
-        for (let i = newArr.length; i > 0; i--) {
+        for (let i = newArr.length - 1; i > 0; i--) {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           const copyBtn = document.createElement('button');
@@ -157,7 +180,12 @@ home.addEventListener("click", function () {
 		<div id = "appendedTo"></div>
 		
 		
-	</div>`
+  </div>`
+  for (page in pages) {
+    var newOption = document.createElement('option');
+    newOption.textContent = page;
+    select.appendChild(newOption);
+  }
 })
 
 
