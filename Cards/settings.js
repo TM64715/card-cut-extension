@@ -23,7 +23,14 @@ window.onload = function () {
       for (let i = 0; i < labels.length; i++) {
         labels[i].style.color = result.color1;
       }
+
+      var useColor1 = document.getElementsByClassName("color1");
+      
+      for (let i = 0; i < useColor1.length; i++) {
+        useColor1[i].style.color = result.color1;
+      }
       console.log("color1 retrieved is " + result.color1);
+      document.getElementById("house").setAttribute("fill", result.color1)
     });
   
     chrome.storage.sync.get("color2", function (result) {
@@ -36,8 +43,24 @@ window.onload = function () {
       }
       exTxtArea.style.border = `3px double ${result.color2}`;
       catInput.style.border = `3px double ${result.color2}`;
+      var useColor2 = document.getElementsByClassName("color2");
+      var color2Fill = document.getElementsByClassName("color2Fill");
+      for (let i = 0; i < useColor2.length; i++) {
+        useColor2[i].style.color = result.color2;
+      }
+
+      for (let i = 0; i < color2Fill.length; i++) {
+        color2Fill[i].style.backgroundColor = result.color2;
+      }
     });
-  
+
+    chrome.storage.local.get("catInput", function(result) {
+      console.log(result);
+      if (result) {
+        console.log("is result");
+        catInput.value = result["catInput"];
+      }
+    })
     console.log("DOM ready");
     // Background
     colorBg.addEventListener("change", function () {
@@ -54,6 +77,7 @@ window.onload = function () {
       for (let i = 0; i < labels.length; i++) {
         labels[i].style.color = color1.value;
       }
+      document.getElementById("house").setAttribute("fill", color1.value)
     });
     // Color2
     color2.addEventListener("change", function () {
@@ -69,8 +93,10 @@ window.onload = function () {
       exTxtArea.style.border = `3px double ${color2.value}`;
       catInput.style.border = `3px double ${color2.value}`;
     });
+    // Categories
     var categories;
     catInput.addEventListener("change", function() {
+      chrome.storage.local.set({"catInput": catInput.value})
       categories = catInput.value.split("/");
       var myObj = {}
 

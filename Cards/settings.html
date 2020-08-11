@@ -10,15 +10,11 @@
 </head>
 <body id="body">
 	<nav>
-		<button type="button" class="collapsible">&#9776;</button>
-		<div class="content">
-			<ul class="navList">
-				<li class="navItem"><a href = "popup.html#cardGenerator">Create Card</a></li>
-				<li class="navItem"><a href = "popup.html#pastCards">Locker</a></li>
-				<li class = "navItem"><a href = "List1.html">Pro</a></li>
-				<li class="navItem"><a href = "list2.html">Con</a></li>
-				<li class="navItem"><a href = "other.html">Other</a></li>
-				<li class="navItem"><a href = "settings.html">Settings</a></li>
+			<ul class="navList" id = "navList">
+				<a href = "popup.html"><svg width="30px"  id  = "house" height="30px" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+					<path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+				  </svg></a>
 			</ul>
 	</nav>
 	<h1 class="settingsHeader" id = "settingsHeader">Settings</h1>
@@ -30,17 +26,17 @@
 		</li>
 		<li>
 			<input type="color" name="user_color1" id = "user_color1">
-			<label for="user_color1" class="label">Button Text Color</label>
+			<label for="user_color1" class="label color1 color2Fill">Button Text Color</label>
 			<button class="revert" id = "revertColor1">Revert</button>
 		</li>
 		<li>
 			<input type="color" name="user_color2" id = "user_color2">
-			<label for="user_color2" class="label">Header/Button Fill</label>
+			<label for="user_color2" class="label color1 color2Fill">Header/Button Fill</label>
 			<button class="revert" id = "revertColor2">Revert</button>
 		</li>
 		<li class="categories">
-			<input type = "text" class = "catInput" placeholder="category1/category2/category3"  id = "categories">
-			<label for = "buckets" class="label bucketsLabel">Categories</label>
+			<input type = "text" class = "catInput" placeholder="category1/category2/category3" id = "categories">
+			<label for = "buckets" class="label bucketsLabel color1 color2Fill">Categories</label>
 		</li>
 	</form>
 	<button class = "dynamicBtn" id = "dynamicBtn">Example Button</button>

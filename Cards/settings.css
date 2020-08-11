@@ -168,3 +168,8 @@ li {
 .bucketsLabel {
 	width: 90px;
 }
+
+#house {
+	padding-top: 14px;
+	padding-left: 7px;
+}
