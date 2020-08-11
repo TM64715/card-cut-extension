@@ -141,3 +141,30 @@ li {
 	font-family: "roboto", serif;
 	padding: 10px;
 }
+
+.categories {
+	text-align: center;
+	border: none;
+	outline:none;
+}
+
+.catInput {
+	border: none;
+	height: 25px;
+	width: 300px;
+	font-size: 13px;
+	font-family: "roboto";
+	box-sizing: border-box;
+	padding: 3px;;
+	color: #4f4f4f;
+	border: 3px double #ff5e5e;
+}
+
+.catInput:focus {
+	border: none;
+	outline: 5px auto -webkit-focus-ring-color;
+}
+
+.bucketsLabel {
+	width: 90px;
+}

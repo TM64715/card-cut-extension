@@ -304,7 +304,8 @@ html {
 
 .navItem {
 	font-size: 14px;
-	padding: 3px;
+	padding: 0px;
+	margin-bottom: 10px;
 	list-style: none;
 	text-align: left;
 	background-color: #faf9f7;
@@ -312,9 +313,6 @@ html {
 .navItem a {
 	color: #4f4f4f;
 	text-decoration: none;
-}
-.navItem:last-child {
-	padding-bottom: 10px;
 }
 
 h1 {

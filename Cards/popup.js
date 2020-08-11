@@ -235,6 +235,7 @@ function main() {
 
   // save special
   function destination (card) {
+    const dropdown = document.getElementById("select");
     if (dropdown.value != "Locker") {
       var shelf = dropdown.value;
       var storageObj = {}

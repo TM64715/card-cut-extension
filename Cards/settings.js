@@ -10,6 +10,7 @@ window.onload = function () {
     const revertBg = document.getElementById("revertBg");
     const labels = document.getElementsByClassName("label");
     const exTxtArea = document.getElementById("dynamicTxtArea");
+    const catInput = document.getElementById('categories');
     chrome.storage.sync.get("bgColor", function (result) {
       colorBg.value = result.bgColor;
       body.style.backgroundColor = result.bgColor;
@@ -34,6 +35,7 @@ window.onload = function () {
         labels[i].style.backgroundColor = result.color2;
       }
       exTxtArea.style.border = `3px double ${result.color2}`;
+      catInput.style.border = `3px double ${result.color2}`;
     });
   
     console.log("DOM ready");
@@ -65,7 +67,24 @@ window.onload = function () {
       }
   
       exTxtArea.style.border = `3px double ${color2.value}`;
+      catInput.style.border = `3px double ${color2.value}`;
     });
+    var categories;
+    catInput.addEventListener("change", function() {
+      categories = catInput.value.split("/");
+      var myObj = {}
+
+      for (let i = 0; i < categories.length; i++) {
+        var page = categories[i];
+        myObj[page] = {
+          inner: ""
+        }
+        console.log(myObj)
+        chrome.storage.local.set({"pages":myObj})
+      }
+      console.log(categories);
+      console.log("changed")
+    })
     // Revert BG
   
     revertBg.addEventListener("click", function () {

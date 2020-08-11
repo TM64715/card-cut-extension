@@ -1,21 +1,43 @@
-var pages = 
-{
-    "Pro":
-    {
-        "inner": ""
-    },
-    "Con":
-    {
-        "inner": ""
-    },
-    "Other":
-    {
-        "inner":""
+var pages;
+document.addEventListener("DOMContentLoaded", function () {
+chrome.storage.local.get("pages", function(result) {
+  if(result.pages && typeof result.pages == "object") {
+    pages = result["pages"];
+    console.log("if")
+  } else {
+    chrome.storage.local.set({
+      "pages" : {"Pro":
+      {
+          "inner": ""
+      },
+      "Con":
+      {
+          "inner": ""
+      },
+      "Other":
+      {
+          "inner":""
+      }
+    }}, function() {
+      pages = 
+      {"Pro":
+      {
+          "inner": ""
+      },
+      "Con":
+      {
+          "inner": ""
+      },
+      "Other":
+      {
+          "inner":""
+      }}
+      console.log("else")
     }
-}
-
-var dropdown = document.getElementById("select");
-const navList = document.getElementById("locker");
+    )
+  }
+  var dropdown = document.getElementById("select");
+const navList = document.getElementById("navList");
 var bod = document.getElementById("replace");
 for (let page in pages) {
   $(document).trigger("DOMContentLoaded")
@@ -25,7 +47,7 @@ for (let page in pages) {
   dropdown.appendChild(newOption)
   var newLi = document.createElement('li');
   newLi.className = "navItem"
-  navList.append(newLi);
+  navList.appendChild(newLi);
   var newLink = document.createElement('a');
   newLi.appendChild(newLink);
   newLink.textContent = page;
@@ -57,28 +79,31 @@ for (let page in pages) {
   // Export all
 
   $(document).on("click", "#exportAll", function() {
-    var copyText;
+    var copyText = "";
     chrome.storage.local.get(pages, function(result) {
       for (let i = 0; i < result[page].length; i++) {
         copyText+= result[`${page}`][i];
       }
     })
-    navigator.clipboard.writeText(copyText);
+    navigator.clipboard.writeText(copyText).then(function () {
+      console.log(copyText);
+    });
     
   })
 
   // Looping Storage
-  var getStored = document.getElementById("getStored");
+    var getStored = document.getElementById("getStored");
     bod.innerHTML = bodyInner;
     console.log(`${page} clicked`);
     console.log(page + " triggered");
     var appendTo = document.getElementById('appendedTo');
     $(document).on("click", "#getStored",function () {
       appendTo.innerHTML = '';
-      console.log("clicked");
-      chrome.storage.local.get(pages, function (result) {
-        var newArr = result[page];
-        for (let i = newArr.length - 1; i > 0; i--) {
+      console.log("getstored clicked");
+      chrome.storage.local.get(page, function (result) {
+        var newArr = result[`${page}`];
+        console.log(newArr);
+        for (let i = newArr.length - 1; i >= 0; i--) {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           const copyBtn = document.createElement('button');
@@ -249,3 +274,7 @@ function changes () {
     dropdown.appendChild(newOption)
   }
 }
+  }
+    );
+
+});
