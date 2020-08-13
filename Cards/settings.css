@@ -37,7 +37,8 @@ html {
 .navList {
 	list-style: none;
 	padding-left: 0;
-	background-color: #faf9f7;
+	background-color: #e0e0e0;
+	width: 50px;
 }
 
 .navItem {
@@ -58,9 +59,11 @@ html {
 h1 {
 	font-family: "acme", avenir;
 	text-align: center;
+	margin-bottom: 30px;
+	color: #ff5e5e;
 }
 
-label {
+.label {
 	display: inline-block;
 	margin-bottom: 20px;
 	color: white;
@@ -113,6 +116,7 @@ li {
 	border: none;
 	padding: 11px;
 	margin: 20px auto;
+	height: 40px;
 	border-radius: 10px;
 	text-align: center;
 	font-size: 13px;
@@ -146,18 +150,21 @@ li {
 	text-align: center;
 	border: none;
 	outline:none;
+	margin-top: 30px;
+	line-height: 30px;
 }
 
 .catInput {
 	border: none;
-	height: 25px;
-	width: 300px;
+	height: 30px;
+	width: 260px;
 	font-size: 13px;
 	font-family: "roboto";
 	box-sizing: border-box;
 	padding: 3px;;
 	color: #4f4f4f;
 	border: 3px double #ff5e5e;
+	background-color: none;
 }
 
 .catInput:focus {
@@ -165,11 +172,21 @@ li {
 	outline: 5px auto -webkit-focus-ring-color;
 }
 
-.bucketsLabel {
-	width: 90px;
+.categories.bucketsLabel {
+	font-size: 14px;
+	display: inline;
 }
 
 #house {
 	padding-top: 14px;
 	padding-left: 7px;
+	position: relative;
+	top: -5px;
+	left: 1.5px;
+}
+
+#catLabel {
+	background-color: transparent;
+	color: #ff5e5e;
+	font-size: 15px;
 }

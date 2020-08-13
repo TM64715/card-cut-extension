@@ -9,6 +9,7 @@ function main() {
   const clearStorageBtn = document.getElementById("clearStorage");
   const exportAll = document.getElementById("exportAll");
   const select = document.getElementById("select");
+  const hamburger = document.getElementById("hamburger")
   var card;
   var stored;
   var cardList = [];
@@ -203,20 +204,22 @@ function main() {
     cardTextArea.value = ""
   }
 // Nav
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
+var clicks = 0;
+  hamburger.addEventListener("click", function() {
+    clicks +=1;
+    if (clicks <2) {
+      navList.style.visibility = "visible";
+      hamburger.textContent = "\u00D7"
+      hamburger.style.fontWeight = "300";
+      hamburger.style.fontSize = "26px";
+    } else {
+      navList.style.visibility = "hidden";
+      clicks = 0;
+      hamburger.textContent = "\u2630"
+      hamburger.style.fontSize = "18px";
+      hamburger.style.fontWeight = "400";
+    }
+  })
 // Saving Dropdown
   select.addEventListener("change", function () {
       chrome.storage.sync.set({"select": select.value}, function () {

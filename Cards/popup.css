@@ -23,21 +23,15 @@ body {
 	margin-left: 5px;
   }
   
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .collapsible:hover {
-	background-color: #ccc;
-	outline: none;
-	border: none;
-  }
-  
-  /* Style the collapsible content. Note: hidden by default */
-  .content {
-	padding: 0 18px;
-	display: none;
-	overflow: hidden;
-	background-color: #faf9f7;
-	color: #444;
-	font-family: 'roboto', sans-serif;
+  .hamburger {
+	  background-color: inherit;
+	  border: none;
+	  font-size: 18px;
+	  padding-left: 15px;
+	  padding-top: 10px;
+	  outline: none;
+	  cursor: pointer;
+	  color: #ff5e5e;
   }
 
 .navList {
@@ -289,17 +283,24 @@ html {
   /* Style the collapsible content. Note: hidden by default */
   .content {
 	padding: 0 18px;
-	display: none;
+	visibility: hidden;
+	z-index: 200;
+	position: relative;
 	overflow: hidden;
-	background-color: #faf9f7;
+	background-color: #e0e0e0;
 	color: #444;
 	font-family: 'roboto', sans-serif;
   }
 
+.replace {
+	position: relative;
+	top: -100px
+}  
+
 .navList {
 	list-style: none;
 	padding-left: 0;
-	background-color: #faf9f7;
+	background-color: inherit;
 }
 
 .navItem {
@@ -308,7 +309,7 @@ html {
 	margin-bottom: 10px;
 	list-style: none;
 	text-align: left;
-	background-color: #faf9f7;
+	background-color: inherit;
 }
 .navItem a {
 	color: #4f4f4f;
@@ -486,4 +487,8 @@ textarea:nth-of-type(1) {
 
 .oldCardContent:hover, .oldCardContent:focus {
 	height: 200px;
+}
+
+p {
+	color: #ff5e5e;
 }

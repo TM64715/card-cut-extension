@@ -263,7 +263,11 @@ function theme () {
       const bigTxtArea = document.getElementById("cardTextArea");
       select.style.backgroundColor = result.color2;
       bigTxtArea.style.border = `3px double ${result.color2}`;}catch(err) {}
-  })  
+  })
+  
+  chrome.storage.sync.get("color3", function(result) {
+    navList.style.backgroundColor = result.color3;
+  })
 }
 
 function changes () {
