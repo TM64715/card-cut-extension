@@ -80,12 +80,13 @@ for (let page in pages) {
 
   $(document).on("click", "#exportAll", function() {
     var copyText = "";
-    chrome.storage.local.get(pages, function(result) {
+    chrome.storage.local.get(page, function(result) {
       for (let i = 0; i < result[page].length; i++) {
         copyText+= result[`${page}`][i];
+        console.log("Hello " + result[page][i]);
       }
     })
-    navigator.clipboard.writeText(copyText).then(function () {
+    navigator.clipboard.writeText(`${copyText}`).then(function () {
       console.log(copyText);
     });
     
