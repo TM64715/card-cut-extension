@@ -57,7 +57,7 @@ for (let page in pages) {
   newLi.addEventListener("click", function () {
     theme()
     var bodyInner = 
-`<h1 class="color2">${page}</h1>
+`<h1 class="color2 catName">${page}</h1>
     <div class = "btnFlex bgFill" id ="bgSticky">
       <button id = "exportAll" class="color1 color2Fill">Copy All</button>
       <button id = "getStored" class="color1 color2Fill">See ${page} Cards</button>
@@ -189,14 +189,14 @@ home.addEventListener("click", function () {
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Create Card'" spellcheck="false"></textarea>
 		<li class = "saveTo color2Fill">
 			<label for = "saveTo" class = "saveToLabel color1">Destination: </label>
-			<select id = "select" class="color1" value = "Locker">
-				<option>Locker</option>
+			<select id = "select" class="color1" value = "Default">
+				<option>Default</option>
 			</select>
 		</li>
 		<button class="cardControl color1 color2Fill" id = "cardControl">Create Card</button>
 		
-		<p class = "color2">All cards are saved to <strong>Locker.</strong> If you want a more specific list save the card to a different category otherwise leave it on <strong>Locker.</strong></p>
-		<h1 class="productName color2" id = "pastCards">Locker</h1>
+		<p class = "color2">All cards are saved to <strong>Default.</strong> If you want a more specific list save the card to a different category otherwise leave it on <strong>Default.</strong></p>
+		<h1 class="productName color2" id = "pastCards">Default</h1>
 		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
 		<div class = "btnFlex" id ="bgSticky">
 			<button id = "exportAll" class="color1 color2Fill">Copy All</button>

@@ -34,12 +34,6 @@ body {
 	  color: #ff5e5e;
   }
 
-.navList {
-	list-style: none;
-	padding-left: 20px;
-	background-color: #faf9f7;
-}
-
 .navItem {
 	font-size: 14px;
 	padding: 3px;
@@ -259,19 +253,6 @@ html {
 	width: 500px;
 	font-family: "roboto", "sans-serif";
 }
-
-/* Navbar */
-.collapsible {
-	color: #444;
-	padding: 18px;
-	width: 50px;
-	border: none;
-	text-align: left;
-	outline: none;
-	font-size: 15px;
-	border: none;
-	margin-left: 5px;
-  }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active, .collapsible:hover {
@@ -294,7 +275,7 @@ html {
 
 .replace {
 	position: relative;
-	top: -100px
+	top: -140px;
 }  
 
 .navList {
@@ -491,4 +472,8 @@ textarea:nth-of-type(1) {
 
 p {
 	color: #ff5e5e;
+}
+
+.catName {
+	padding-top: 25px;
 }

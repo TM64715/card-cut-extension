@@ -109,7 +109,13 @@ window.onload = function () {
       chrome.storage.local.set({"catInput": catInput.value})
       categories = catInput.value.split("/");
       var myObj = {}
-
+      categories = categories.reverse();
+      var cycleArrCat = []
+      categories.forEach(item => {
+        cycleArrCat.push(item.trim());
+      })
+      categories = cycleArrCat;
+      console.log(categories)
       for (let i = 0; i < categories.length; i++) {
         var page = categories[i];
         myObj[page] = {

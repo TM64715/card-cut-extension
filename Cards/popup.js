@@ -232,14 +232,14 @@ var clicks = 0;
     select.value = result.select
     }
     else {
-      select.value = "Locker";
+      select.value = "Default";
     }
   })
 
   // save special
   function destination (card) {
     const dropdown = document.getElementById("select");
-    if (dropdown.value != "Locker") {
+    if (dropdown.value != "Default") {
       var shelf = dropdown.value;
       var storageObj = {}
       chrome.storage.local.get(dropdown.value, function(result) {
