@@ -33,14 +33,6 @@ body {
 	  cursor: pointer;
 	  color: #ff5e5e;
   }
-
-.navItem {
-	font-size: 14px;
-	padding: 3px;
-	list-style: none;
-	text-align: left;
-	background-color: #faf9f7;
-}
 .navItem a {
 	color: #4f4f4f;
 	text-decoration: none;
@@ -207,6 +199,7 @@ textarea:nth-of-type(1) {
 	padding: 9px 11px 9px 11px;
 	position: relative;
 	top: -20px;
+	margin-left: 180px;
 }
 
 .deleteBtn {
@@ -215,27 +208,12 @@ textarea:nth-of-type(1) {
 	box-sizing: border-box;
 	position: relative;
 	top: -20px;
+	margin-right: 180px;
 
-}
-
-.credit {
-	font-size: 7px;
-}
-
-.credit a {
-	color: black;
 }
 
 .trash:hover {
 	fill: black;
-}
-
-.oldCardContent {
-	height: 70px;
-	transition: height 2.4s;
-	padding: 10px;
-	box-sizing: border-box;
-	resize: none;
 }
 
 
@@ -292,10 +270,6 @@ html {
 	text-align: left;
 	background-color: inherit;
 }
-.navItem a {
-	color: #4f4f4f;
-	text-decoration: none;
-}
 
 h1 {
 	font-size: 22px;
@@ -305,61 +279,8 @@ h1 {
 	position: relative;
 }
 
-.btnFlex {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	justify-content: center;
-	gap: 10px;
-}
-
-#bgSticky {
-	position: sticky;
-	top: 0px;
-}
-
-#getStored {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-#clearStorage {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-p {
-	font-size: 13px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-textarea {
-	display: block;
-	width: 90%;
-	height: 60px;
-	margin-bottom: 5px;
-	padding-top: 8px;
-	box-sizing: border-box;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 textarea:nth-of-type(1) {
 	margin-top: 5px;
-}
-
-.copyBtn {
-	font-size: 12px;
-	text-align: left;
-	margin-right: 20px;
-	padding: 9px 11px 9px 11px;
-}
-
-.deleteBtn {
-	font-size: 10px;
-	padding: 13px 13px 8px 13px;
-	box-sizing: border-box;
-
 }
 
 .trash:hover {
@@ -381,88 +302,14 @@ textarea:nth-of-type(1) {
 	height: 200px;
 }
 
-#getStored, #clearStorage, .copyBtn, .deleteBtn, #exportAll,.saveTo {
-	color: white;
-	border: none;
-	padding: 11px;
-	margin-top: 20px;
-	border-radius: 10px;
-	text-align: center;
-	font-size: 13px;
-	font-family: 'Krona One', sans-serif;
-	background-color: #ff5e5e;
-	color: #faf9f7;
-	line-height: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	outline: none;
-	margin-bottom: 20px;
-	text-align: center;
-}
-
-
-#bgSticky {
-	position: sticky;
-	top: 0px;
-}
-
-#getStored {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-#clearStorage {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-p {
-	font-size: 13px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-textarea {
-	display: block;
-	width: 90%;
-	height: 60px;
-	margin-bottom: 5px;
-	padding-top: 8px;
-	box-sizing: border-box;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 textarea:nth-of-type(1) {
 	margin-top: 5px;
 }
 
-.copyBtn {
-	font-size: 12px;
-	text-align: left;
-	margin-right: 20px;
-	padding: 9px 11px 9px 11px;
-	margin-left: 180px;
-}
-
-.deleteBtn {
-	font-size: 10px;
-	padding: 13px 13px 8px 13px;
-	box-sizing: border-box;
-	margin-right: 180px;
-}
 
 
 .trash:hover {
 	fill: black;
-}
-
-.oldCardContent {
-	height: 70px;
-	transition: height 2.4s;
-	padding: 10px;
-	box-sizing: border-box;
-	resize: none;
 }
 
 

@@ -77,20 +77,19 @@ for (let page in pages) {
   })
 
   // Export all
-
   $(document).on("click", "#exportAll", function() {
     var copyText = "";
     chrome.storage.local.get(page, function(result) {
       for (let i = 0; i < result[page].length; i++) {
-        copyText+= result[`${page}`][i];
+        copyText += result[page][i];
         console.log("Hello " + result[page][i]);
       }
+      navigator.clipboard.writeText(copyText).then(function () {
+        console.log("copied" + copyText);
+      });
     })
-    navigator.clipboard.writeText(`${copyText}`).then(function () {
-      console.log(copyText);
-    });
-    
-  })
+
+  });
 
   // Looping Storage
     var getStored = document.getElementById("getStored");
