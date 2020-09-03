@@ -2,7 +2,7 @@ function cardCreate(auth, title, time, staff, org) {
   console.log(`try {
     var auth = document.querySelector("${auth}").textContent.trim()
 } catch(err) {
-    var auth = "${staff}";
+    authScrape(\"${staff}\");
 }`);
   console.log(`try {
     var title = document.querySelector("${title}").textContent.trim()
@@ -12,10 +12,10 @@ function cardCreate(auth, title, time, staff, org) {
   console.log(`try {
     var time = document.querySelector("${time}").textContent.trim();
 } catch(err) {
-    var time = "No Time Given/Found";
+    timeScrape();
 }`);
   console.log("var link = window.location.href");
-  console.log("var today = new Date()");
+  console.log("var today = makeDateReadable(new Date())");
   console.log("var selection = userSelect()");
   console.log(`var card = \`\${auth}, \${time}, \${title}, ${org}, \${link}, \${today}
 "\${selection}"\``);
@@ -37,3 +37,6 @@ function cardCreate(auth, title, time, staff, org) {
 
   console.log("return card;");
 }
+
+cardCreate(".author-card__multi-name", "h1.headline", ".article-general-info", "Heritage Staff", "Heritage");
+// document.querySelector(".byline").textContent.split("\n")[4]

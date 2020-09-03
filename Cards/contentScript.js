@@ -114,6 +114,41 @@ function runScript() {
 			card = diplomat();
 			console.log("thediplomat called")
 			break;
+		case "apnews":
+			card = apNews();
+			console.log("apNews called");
+			break;
+		case "latimes":
+			card = laTimes();
+			console.log("La Times Called");
+			break;
+		case "nber":
+			card = nber();
+			console.log("nber called");
+			break;
+		case "time":
+			card = times();
+			console.log("times calleds")
+			break;
+		case "csis": 
+			card = csis();
+			console.log("csis called");
+			break;
+		case "aljazeera":
+			card = alJazeera();
+			break;
+		case "foreignpolicy":
+			card = foreignPolicy();
+			console.log("Foreign Policy Called");
+			break;
+		case "foreignaffairs":
+			card = foreignAffairs();
+			console.log("Foreign Affairs called");
+			break;
+		case "heritage":
+			card = heritage();
+			console.log("heritage");
+			break;
 		default:
 			card = metaScrape();
 			console.log("metaScrape Called");
@@ -158,7 +193,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, New York Times, ${link}, ${today}
   
@@ -219,7 +254,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, CNBC, ${link}, ${today}
   
@@ -277,7 +312,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Vox, ${link}, ${today}
   
@@ -337,7 +372,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Reuters, ${link}, ${today}
   
@@ -395,7 +430,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Business Insider, ${link}, ${today}
   
@@ -455,7 +490,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Huffington Post, ${link}, ${today}
   
@@ -511,7 +546,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Washington Post, ${link}, ${today}
   
@@ -569,7 +604,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Wall Street Journal, ${link}, ${today}
   
@@ -630,7 +665,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Bloomberg, ${link}, ${today}
   
@@ -686,7 +721,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, The Guardian, ${link}, ${today}
   
@@ -748,7 +783,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Bloomberg News, ${link}, ${today}
   
@@ -806,7 +841,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Forbes, ${link}, ${today}
 "${selection}"`;
@@ -864,7 +899,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Atlantic, ${link}, ${today}
   
@@ -920,7 +955,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, USA Today, ${link}, ${today}
 		  
@@ -983,7 +1018,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Financial Times, ${link}, ${today}
   
@@ -1043,7 +1078,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, WIRED, ${link}, ${today}
   
@@ -1103,7 +1138,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Politico, ${link}, ${today}
   
@@ -1164,7 +1199,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Slate, ${link}, ${today}
   
@@ -1222,7 +1257,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, Quartz, ${link}, ${today}
   
@@ -1278,7 +1313,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, CNN, ${link}, ${today}
   
@@ -1336,7 +1371,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, BBC, ${link}, ${today}
   
@@ -1391,7 +1426,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, NPR, ${link}, ${today}
   
@@ -1455,7 +1490,7 @@ function runScript() {
 		}
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, South China Morning Post, ${link}, ${today}
   
@@ -1500,7 +1535,7 @@ function runScript() {
 		var time = "No Time Given/Found";
 	  }
 	  var link = window.location.href;
-	  var today = new Date();
+	  var today = makeDateReadable(new Date());;
 	  var selection = userSelect();
 	  var card = `${auth}, ${time}, ${title}, The Diplomat, ${link}, ${today}
 	  
@@ -1529,11 +1564,425 @@ function runScript() {
 	  return card;
 	}
 
+	function apNews () {
+		try {
+			var auth = document.querySelector("span[class *= \"Component-bylines\"]").textContent.trim()
+		} catch(err) {
+			var auth = authScrape("Associated Press Staff");
+		}
+		try {
+			var title = document.querySelector(".CardHeadline h1").textContent.trim();
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".Timestamp").textContent.trim();
+		} catch(err) {
+			var time = timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date());
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, AP News, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("span[class *= \"Component-bylines\"]").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".CardHeadline h1").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".Timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		console.log("card");
+		return card;
+	}
+
+	function laTimes () {
+		try {
+			var auth = document.querySelector(".byline").textContent.split("\n")[4];
+		} catch(err) {
+			authScrape("Los Angeles Times Staff");
+		}
+		try {
+			var title = document.querySelector("h1.headine").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("div.published-day").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Los Angeles Times, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.headine").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("div.published-day").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function nber () {
+		try {
+			var auth = document.querySelector("citation_author").textContent.trim()
+		} catch(err) {
+			authScrape("NBER");
+		}
+		try {
+			var title = document.querySelector("h1.citation-title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("div.published-day").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, NBER, ${link}, ${today}
+		"${selection}"`
+		try {
+			var authStyle = document.querySelector("citation_author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.citation-title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("div.published-day").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function times() {
+		try {
+			var auth = document.querySelector("author-name").textContent.trim()
+		} catch(err) {
+			authScrape("TIME");
+		}
+		try {
+			var title = document.querySelector("h1.headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".timestamp").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, TIME Staff, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("author-name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".timestamp").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function csis () {
+		try {
+			var auth = document.querySelector(".teaser__byline").textContent.trim()
+		} catch(err) {
+			authScrape("CSIS");
+		}
+		try {
+			var title = document.querySelector("article h1").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("article h1 + * + p").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, CSIS, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".teaser__byline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("article h1").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("article h1 + * + p").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function alJazeera() {
+		try {
+			var auth = document.querySelector(".article-heading-author-name span").textContent.trim()
+		} catch(err) {
+			authScrape("Al Jazeera Staff");
+		}
+		try {
+			var title = document.querySelector("h1.post-title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time.timeagofunction").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Al Jazeera, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".article-heading-author-name span").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.post-title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time.timeagofunction").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function foreignPolicy() {
+		try {
+			var auth = document.querySelector("address.author-list").textContent.trim()
+		} catch(err) {
+			authScrape("Foreign Policy Staff");
+		}
+		try {
+			var title = document.querySelector("h1.post-title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector("time.date-time").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Foreign Policy, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector("address.author-list").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.post-title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector("time.date-time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function foreignAffairs() {
+		try {
+			var auth = document.querySelector(".article-byline-author").textContent.trim()
+		} catch(err) {
+			authScrape("Foreign Affairs Staff");
+		}
+		try {
+			var title = document.querySelector(".article-title").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".article-header--metadata-date time").textContent.trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Foreign Affairs, ${link}, ${today}
+
+"${selection}"`
+		try {
+			var authStyle = document.querySelector(".article-byline-author").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector(".article-title").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".article-header--metadata-date time").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	function heritage() {
+		try {
+			var auth = document.querySelector(".author-card__multi-name").textContent.trim()
+		} catch(err) {
+			authScrape("Heritage Staff");
+		}
+		try {
+			var title = document.querySelector("h1.headline").textContent.trim()
+		} catch(err) {
+			var title = document.title;
+		}
+		try {
+			var time = document.querySelector(".article-general-info").textContent.trim();
+			var deleteExtra = document.querySelector(".article-general-info span").textContent.trim();
+			time = time.replace(deleteExtra, '').trim();
+		} catch(err) {
+			timeScrape();
+		}
+		var link = window.location.href
+		var today = makeDateReadable(new Date())
+		var selection = userSelect()
+		var card = `${auth}, ${time}, ${title}, Heritage, ${link}, ${today}
+
+"${selection}"`;
+		try {
+			var authStyle = document.querySelector(".author-card__multi-name").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var titleStyle = document.querySelector("h1.headline").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		try {
+			var timeStyle = document.querySelector(".article-general-info").style.backgroundColor = 'rgba(107, 240, 255, 0.53)';
+		} catch(err) {
+		  console.log(err);
+		}
+		return card;
+	}
+
+	
+
 	function metaScrape () {
 		var link = window.location.href;
-		var today = new Date();
+		var today = makeDateReadable(new Date());;
 		var selection = userSelect();
 		var title = document.title;
+		var auth = authScrape();
+		var time = timeScrape();
+		card =  `${auth}, ${time}, ${title}, ${link}, ${today}
+  
+"${selection}"`;
+		console.log(card);
+		return card;
+		
+	}
+	const months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	  ];
+	function timeScrape() {
+		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"], meta[name = "article:published_time"], meta[property = "article:published_time"], meta[itemprop="article:published_time"]');
+		var time;
+		if (allTime) {
+			for (let i = 0; i< allTime.length; i++) {
+				if (allTime[i]) {
+					time = allTime[i].getAttribute("content");
+					time = new Date(time);
+					time = makeDateReadable(time);
+				}
+			}
+		} else {
+			time = "Time Not Found";
+		}
+		return time;
+	}
+
+	function makeDateReadable (date) {
+		var monthIndex = date.getMonth()
+		var monthName = months[monthIndex]
+		var year = date.getFullYear();
+		var day = date.getDate();
+		date = `${monthName} ${day}, ${year}`;
+		return date;
+	}
+	
+	function authScrape(orgAuth="Author Not Found") {
 		var allAuth = document.querySelectorAll("meta[name = 'author'], meta[name = 'og:author'], meta[name = 'article:author'], meta[name = 'byl'], [property = 'author'], [property = 'og:author'], [property = 'article:author'], meta[name = 'DCSext.author'], meta[itemprop = 'author'], meta[itemprop = 'og:author'], meta[itemprop = 'article:author'], meta[itemprop = 'byl']")
 		var auth
 		if (allAuth){
@@ -1543,28 +1992,10 @@ function runScript() {
 				}
 			}
 		} else {
-			auth = "Author Not Found"
+			auth = orgAuth;
 		}
-		var allTime = document.querySelectorAll('meta[property = "article:modified"], meta[property="article:published"], meta[name="article:published"], meta[name="article:updated"], [itemprop="dateCreated"], [itemprop="dateModified"], [name="dateModified"], [name="dateCreated"], meta[property = "article:modified"], meta[itemprop="article:published"], meta[itemprop="article:published"], meta[itemprop="article:updated"], meta[property="article:published"], meta[property="article:published"], meta[property="article:updated"]')
-		var time;
-		if (allTime) {
-			for (let i = 0; i< allTime.length; i++) {
-				if (allTime[i]) {
-					time = allTime[i].getAttribute("content");
-				}
-			}
-		} else {
-			time = "Time Not Found";
-		}
-
-		card =  `${auth}, ${time}, ${title}, ${link}, ${today}
-  
-"${selection}"`;
-		console.log(card);
-		return card;
-		
+		return auth;
 	}
-  
 	chrome.runtime.onMessage.addListener(function (
 	  request,
 	  sender,
