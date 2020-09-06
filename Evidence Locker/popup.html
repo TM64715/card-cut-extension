@@ -3,39 +3,39 @@
 <head>
 	<title>Card Cut PopUp</title>
 	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="popup.css">
-	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Krona+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	<style id = "style"></style>
 	
 </head>
 <body id = "body">
 	<nav>
-		<button type="button" class="hamburger color2" id = "hamburger">&#9776;</button>
-		<div class="content color3Fill" id = "navList">
-			<ul class="navList">
-				<li class="navItem"><a href = "popup.html" id = "home">Create Card</a></li>
-				<li class="navItem"><a href = "settings.html">Settings</a></li>
-			</ul>
-		</div>
+			<dl class="navList" id = "navList">
+				<dt class="navItem"><a href = "popup.html" id = "home">Home</a></dt>
+				<dt class="navItem"><a href = "settings.html">Settings</a></dt>
+			</dl>
 	</nav>
 	
-	<div id = "replace" class="replace"><h1 class="productName color2" id = "cardGenerator">Evidence Locker</h1>
+	<div id = "replace" class=""><h1 id = "cardGenerator">Evidence Locker</h1>
 	<div>
 		<textarea class = "cardTextArea" id = "cardTextArea" placeholder="Highlight the text of the card then press 'Create Card'" spellcheck="false"></textarea>
-		<li class = "saveTo color2Fill">
-			<label for = "saveTo" class = "saveToLabel color1">Destination: </label>
-			<select id = "select" class="color1" value = "Default">
-				<option>Default</option>
-			</select>
+		<li class = "saveTo" id = "saveTo">
+			<button class="btnCenter">
+				<label for = "saveTo" class = "saveToLabel color1">Destination: </label>
+				<select id = "select" class="color1 ui dropdown" value = "Default">
+					<option>Default</option>
+				</select>
+			</button>
 		</li>
-		<button class="cardControl color1 color2Fill" id = "cardControl">Create Card</button>
+		<button class="createCard btnCenter" id = "cardControl">Create Card</button>
 		
-		<p class = "color2">All cards are saved to <strong>Default.</strong> If you want a more specific list save the card to a different category too otherwise leave it on <strong>Default.</strong></p>
-		<h1 class="productName catName color2" id = "pastCards">Default</h1>
+		<p>All cards are saved to <strong>Default.</strong> If you want a more specific list save the card to a different category too otherwise leave it on <strong>Default.</strong></p>
+		<h1 id = "pastCards">Default</h1>
 		<!-- <textarea class = "cardTextArea" id = "cardHistory" spellcheck="false"></textarea> -->
-		<div class = "btnFlex" id ="bgSticky">
-			<button id = "exportAll" class="color1 color2Fill">Copy All</button>
-			<button id = "getStored" class="color1 color2Fill">See Past Cards</button>
-			<button id = "clearStorage" class="color1 color2Fill">Clear Card History</button>
+		<div class = "alignCenter catControl" id ="bgSticky">
+			<button id = "exportAll" class="gap-10">Copy All</button>
+			<button id = "getStored" class="gap-10">See Past Cards</button>
+			<button id = "clearStorage">Clear History</button>
 		</div>
 		<div id = "appendedTo"></div>
 		

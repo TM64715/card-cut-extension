@@ -13,50 +13,29 @@ window.onload = function () {
     const labels = document.getElementsByClassName("label");
     const exTxtArea = document.getElementById("dynamicTxtArea");
     const catInput = document.getElementById('categories');
-    var useBg = document.getElementsByClassName("bgColor");
-    var useColor1 = document.getElementsByClassName("color1");
-    var useColor2 = document.getElementsByClassName("color2");
-    var useColor2Border = document.getElementsByClassName("color2Border");
-    var useColor3Fill = document.getElementsByClassName("color3Fill");
-    // Get Background Color
-    var useColor2Fill = document.getElementsByClassName("color2Fill");
+    let root = document.documentElement;
     chrome.storage.sync.get("bgColor", function (result) {
       if (result["bgColor"]){
-      for (let i = 0; i < useBg.length; i++) {
-        useBg[i].style.backgroundColor = result.bgColor;
-      }
-      colorBg.value = result.bgColor}
+        var newStyle = document.createElement('style');
+        newStyle.innerHTML = `
+        :root {
+          --background-color: ${result.bgColor};
+        }
+        `
+        body.appendChild(newStyle);
+    }
     });
     // Get Color1
     chrome.storage.sync.get("color1", function (result) {
-      if (result["color1"]){
-      color1.value = result.color1;
-      for (let i = 0; i < useColor1.length; i++) {
-        useColor1[i].style.color = result.color1;
-      }}
+      root.style.setProperty("--main-text-color", result.color1);
     });
     // Get Color2
     chrome.storage.sync.get("color2", function (result) {
-      if (result["color2"]){
-      color2.value = result.color2;
-      document.getElementById("house").setAttribute("fill", result.color2)
-      for (let i = 0; i < useColor2.length; i++) {
-        useColor2[i].style.color = result.color2;
-      }
-      for (let i = 0; i < useColor2Fill.length; i++) {
-        useColor2Fill[i].style.backgroundColor = result.color2;
-      }
-      for (let i = 0; i < useColor2Border.length; i++) {
-        useColor2Border[i].style.border = `3px double ${result.color2}`;
-      }}
+      root.style.setProperty("--heading-color", result.color2);
     });
     // Get Color3
     chrome.storage.sync.get("color3", function(result) {
-      if (result["color3"]){
-      color3.value = result.color3;
-      for (let i = 0; i < useColor3Fill.length; i++) {
-        useColor3Fill[i].style.backgroundColor = result.color3;
-      }}
+      root.style.setProperty("--accent-color", result.color3);
     })
 
     chrome.storage.local.get("catInput", function(result) {
@@ -69,39 +48,23 @@ window.onload = function () {
     console.log("DOM ready");
     // Background
     colorBg.addEventListener("change", function () {
-      for (let i = 0; i < useBg.length; i++) {
-        useBg[i].style.backgroundColor = colorBg.value;
-      }
+      root.style.setProperty("--background-color", colorBg.value);
       chrome.storage.sync.set({ bgColor: colorBg.value });
     });
     // Color1
     color1.addEventListener("change", function () {
       chrome.storage.sync.set({ color1: color1.value });
-      for (let i = 0; i < useColor1.length; i++) {
-        useColor1[i].style.color = color1.value;
-      }
+      root.style.setProperty("--main-text-color", color1.value);
     });
     // Color2
     color2.addEventListener("change", function () {
       chrome.storage.sync.set({ color2: color2.value });
-
-      for (let i = 0; i < useColor2.length; i++) {
-        useColor2[i].style.color = color2.value;
-      }
-      for (let i = 0; i < useColor2Fill.length; i++) {
-        useColor2Fill[i].style.backgroundColor = color2.value;
-      }
-      for (let i = 0; i < useColor2Border; i++) {
-        useColor2Border[i].style.border = `3px double ${color2.value}`;
-      }
-      document.getElementById("house").setAttribute("fill", color2.value)
+      root.style.setProperty("--heading-color", color2.value);
     });
 
     color3.addEventListener("change", function () {
       chrome.storage.sync.set({color3: color3.value})
-      for (let i = 0; i < useColor3Fill.length; i++) {
-        useColor3Fill[i].style.backgroundColor = color3.value;
-      }
+      root.style.setProperty("--accent-color", color3.value);
     })
     // Categories
     var categories;
@@ -130,52 +93,25 @@ window.onload = function () {
     // Revert BG
   
     revertBg.addEventListener("click", function () {
-      chrome.storage.sync.set({ bgColor: "#faf9f7" });
-      for (let i = 0; i < useBg.length; i++) {
-        useBg[i].style.backgroundColor = "#faf9f7"
-      }
+      chrome.storage.sync.set({ bgColor: "#86CCCC" });
+      root.style.setProperty("--background-color", "#86CCCC");
     });
     // Revert Color1
   
     revertColor1.addEventListener("click", function () {
-      chrome.storage.sync.set({ color1: "#faf9f7" });
-      for (let i = 0; i < useColor1; i++) {
-        useColor1[i].style.color = "#faf9f7"
-      }
+      chrome.storage.sync.set({ color1: "#707070" });
+      root.style.setProperty("--main-text-color", "#707070");
     });
   
     revertColor2.addEventListener("click", function () {
-      chrome.storage.sync.set({ color2: "#ff5e5e" });
-      for (let i = 0; i < useColor2.length; i++) {
-        useColor2[i].style.color = "#ff5e5e";
-      }
-      for (let i = 0; i < useColor2Fill.length; i++) {
-        useColor2Fill[i].style.backgroundColor = "#ff5e5e";
-      }
-      for (let i = 0; i < useColor2Border.length; i++) {
-        useColor2[i].style.border = `3px double #ff5e5e`;
-      }
+      chrome.storage.sync.set({ color2: "#FFFFFF" });
+      root.style.setProperty("--heading-color", "#FFFFFF");
     })
 
     revertColor3.addEventListener("click", function() {
-      chrome.storage.sync.set({color3: "#e0e0e0"});
-      for (let i = 0; i < useColor3Fill.length; i++) {
-        useColor3Fill[i].style.backgroundColor = "#e0e0e0";
-      }
-      color3.value = "e0e0e0";
+      chrome.storage.sync.set({color3: "#00FFB1"});
+      root.style.setProperty("--accent-color", "#00FFB1");
     })
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
+    
   };

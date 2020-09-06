@@ -15,11 +15,13 @@
   ],
 
 "browser_action": {
-  "default_icon": "icon.png",
+  "default_icon": "icon16.png",
   "default_popup": "popup.html"
 },
 "icons": {
-  "128": "icon.png"
+  "128": "icon128.png",
+  "64": "icon64.png",
+  "16": "icon16.png"
 },
 "permissions": [
 "clipboardWrite",

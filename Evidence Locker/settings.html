@@ -3,22 +3,21 @@
 <head>
 	<title>Settings</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="settings.css">
 	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Krona+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src = "settings.js"></script>
+	<link rel = "stylesheet" href = "popup.css">
+	<style id = "style"></style>
 </head>
-<body id="body" class="bgColor">
+<body id="body" class="bgColor settingsBody">
 	<nav>
-			<ul class="navList color3Fill" id = "navList">
-				<a href = "popup.html"><svg width="30px"  id  = "house" height="30px" viewBox="0 0 16 16" class="bi bi-house-door" fill="#ff5e5e" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
-					<path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-				  </svg></a>
-			</ul>
-	</nav>
+		<dl class="navList" id = "navList">
+			<dt class="navItem"><a href = "popup.html" id = "home">Home</a></dt>
+			<dt class="navItem"><a href = "settings.html">Settings</a></dt>
+		</dl>
+</nav>
 	<h1 class="settingsHeader color2" id = "settingsHeader">Settings</h1>
-	<form>
+	<form class = "settingsForm">
 		<li>
 			<input type="color" name="user_bgColor" id = "user_bgColor" value = "#faf9f7">
 			<label for="user_bgColor" class="label color1 color2Fill">Background Color </label>
@@ -26,22 +25,23 @@
 		</li>
 		<li>
 			<input type="color" name="user_color1" id = "user_color1" value="#faf9f7">
-			<label for="user_color1" class="label color1 color2Fill">Button Text Color</label>
+			<label for="user_color1" class="label color1 color2Fill">Main Text Color</label>
 			<button class="revert" id = "revertColor1">Revert</button>
 		</li>
 		<li>
-			<input type="color" name="user_color2" id = "user_color2" value="#ff5e5e">
+			<input type="color" name="user_color2" id = "user_color2" value="#faf9f7">
 			<label for="user_color2" class="label color1 color2Fill">Header/Button Fill</label>
 			<button class="revert" id = "revertColor2">Revert</button>
 		</li>
 		<li>
-			<input type="color" name="user_color3" id = "user_color3" value="#e0e0e0">
-			<label for="user_color3" class="label color1 color2Fill">Navigation Color</label>
+			<input type="color" name="user_color3" id = "user_color3" value="#faf9f7">
+			<label for="user_color3" class="label color1 color2Fill">Accent Color</label>
 			<button class="revert" id = "revertColor3">Revert</button>
 		</li>
 		<li class="categories">
 			<label for = "buckets" class="label bucketsLabel color2 bgColor" id = "catLabel">Categories: </label>
-			<input type = "text" class = "catInput color2Border" placeholder="category1/category2/category3" id = "categories">
+			<input type = "text" class = "catInput color2Border" placeholder="Pro / Con/ Other/Misc" id = "categories">
+			<p>Enter category names seperated by a slash</p>
 		</li>
 	</form>
 </body>

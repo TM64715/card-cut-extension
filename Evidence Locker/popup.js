@@ -49,35 +49,30 @@ function main() {
           const newInput = document.createElement('textarea');
           newInput.setAttribute("id", `textarea${i}`)
           const copyBtn = document.createElement('button');
-          const clipboardIcon = document.createElement("svg");
+          const clipboardIcon = document.createElement("object");
           const deleteBtn = document.createElement('button');
-          const trashIcon = document.createElement('svg');
-          chrome.storage.sync.get(["color1", "color2"], function (result) {
-            trashIcon.innerHTML = `<svg width="20px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="${result["color1"] || "#faf9f7"}" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-        </svg>
-       ` 
-            clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 138" viewBox="0 0 100 100" x="0px" y="0px" height = "23px" width = "23px" fill = "${result["color1"] || "#faf9f7"}"><title>Artboard 2 copy 29</title><path d="M72.32,26.43V16.52a5.58,5.58,0,0,0-5.58-5.58H53.47A6.57,6.57,0,0,1,50,23.1H27.68a6.57,6.57,0,0,1-3.47-12.16H10.94a5.58,5.58,0,0,0-5.58,5.58V77.9a5.58,5.58,0,0,0,5.58,5.58H37.17V32a5.58,5.58,0,0,1,5.58-5.58Z"/><path d="M22.1,16.52a5.58,5.58,0,0,0,5.58,5.58H50a5.58,5.58,0,0,0,0-11.16H44.42a5.58,5.58,0,1,0-11.16,0H27.68A5.58,5.58,0,0,0,22.1,16.52Z"/><path d="M89.06,27.68H44.42a5.58,5.58,0,0,0-5.58,5.58v55.8a5.58,5.58,0,0,0,5.58,5.58H75.11L94.64,75.11V33.26A5.58,5.58,0,0,0,89.06,27.68ZM77.9,72.32a5.58,5.58,0,0,0-5.58,5.58V89.06H47.21a2.79,2.79,0,0,1-2.79-2.79V36.05a2.79,2.79,0,0,1,2.79-2.79H86.27a2.79,2.79,0,0,1,2.79,2.79V72.32Z"/><path d="M69.53,55.58H58.37a2.79,2.79,0,0,0,0,5.58H69.53a2.79,2.79,0,0,0,0-5.58Z"/><path d="M75.11,44.42H58.37a2.79,2.79,0,0,0,0,5.58H75.11a2.79,2.79,0,1,0,0-5.58Z"/></svg>`
-            deleteBtn.style.backgroundColor = result.color2;
-            copyBtn.style.backgroundColor = result.color2;
-            newInput.style.border = `3px double ${result.color2}`;
-          })
+          const trashIcon = document.createElement('object');
+          const btnContainer = document.createElement("div");
+          btnContainer.className = "btnControlContainer";
+          trashIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height = "25px" fill = "var(--main-text-color)"><path d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"/></svg>`
+          clipboardIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height = "25px" fill = "var(--main-text-color)"><path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/></svg>`
           
           newInput.className = "oldCardContent"
           clipboardIcon.className = "clipboard"
           trashIcon.className = "trash"
-          deleteBtn.className = "deleteBtn color1 color2Fill"
+          deleteBtn.className = "deleteBtn"
           // deleteBtn.textContent = "Delete";
           deleteBtn.id = `deleteBtn${i}`;
-          copyBtn.setAttribute("class", "copyBtn color1");
+          copyBtn.setAttribute("class", "copyBtn");
           copyBtn.setAttribute("id", `copyBtn${i}`);
           // copyBtn.textContent = "Copy Card"
           const newInputCopy = document.getElementById(`textarea${i}`)
           console.log("new textarea")
           newInput.value += cardList[i] + '\n';
           appendTo.appendChild(newInput);
-          appendTo.appendChild(copyBtn);
-          appendTo.appendChild(deleteBtn)
+          appendTo.appendChild(btnContainer);
+          btnContainer.appendChild(deleteBtn);
+          btnContainer.appendChild(copyBtn);
           deleteBtn.appendChild(trashIcon);
           copyBtn.appendChild(clipboardIcon);
           newInput.setAttribute("spellcheck", "false")
@@ -106,6 +101,7 @@ function main() {
             chrome.storage.local.set({"card": cardList}, function() {
               // console.log('Value is set to ' + cardList);
             })
+
           })
         }
      }
@@ -115,10 +111,6 @@ function main() {
   
   function genCard() {
     
-    if (btn.textContent == "Generate Card") {
-      console.log("If statement is working")
-    }
-
   }
   // console.log("send Message response activted")
   //     card = response["cardVar"];
@@ -138,6 +130,7 @@ function main() {
             cardTextArea.style.textAlign = "left";
             storeCard(card)
             destination(card);
+            document.getElementById("saveTo").style.display = "none";
 
           });
         });
@@ -200,26 +193,12 @@ function main() {
 
   function startOver () {
     console.log('startOver')
+    if (btn.textContent == "Start Over") {
     btn.textContent = "Create Card";
-    cardTextArea.value = ""
-  }
-// Nav
-var clicks = 0;
-  hamburger.addEventListener("click", function() {
-    clicks +=1;
-    if (clicks <2) {
-      navList.style.visibility = "visible";
-      hamburger.textContent = "\u00D7"
-      hamburger.style.fontWeight = "300";
-      hamburger.style.fontSize = "26px";
-    } else {
-      navList.style.visibility = "hidden";
-      clicks = 0;
-      hamburger.textContent = "\u2630"
-      hamburger.style.fontSize = "18px";
-      hamburger.style.fontWeight = "400";
+    cardTextArea.value = "";
+    document.getElementById("saveTo").style.display = "block";
     }
-  })
+  }
 // Saving Dropdown
   select.addEventListener("change", function () {
       chrome.storage.sync.set({"select": select.value}, function () {
