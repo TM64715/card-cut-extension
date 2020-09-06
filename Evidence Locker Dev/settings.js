@@ -27,15 +27,22 @@ window.onload = function () {
     });
     // Get Color1
     chrome.storage.sync.get("color1", function (result) {
+      if (result.color1) {
       root.style.setProperty("--main-text-color", result.color1);
+      }
     });
     // Get Color2
     chrome.storage.sync.get("color2", function (result) {
+      if (result.color2) {
       root.style.setProperty("--heading-color", result.color2);
+      color2.value = result.color2;
+      }
     });
     // Get Color3
     chrome.storage.sync.get("color3", function(result) {
+      if (result.color3) {
       root.style.setProperty("--accent-color", result.color3);
+      }
     })
 
     chrome.storage.local.get("catInput", function(result) {

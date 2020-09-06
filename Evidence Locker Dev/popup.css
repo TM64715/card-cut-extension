@@ -202,3 +202,8 @@ input {
 	margin-left: 6px;
 	padding-bottom: 2px;
 }
+
+select {
+	color: var(--main-text-color);
+	border: 1px solid var(--main-text-color);
+}

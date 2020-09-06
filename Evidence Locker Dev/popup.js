@@ -108,10 +108,6 @@ function main() {
       // console.log(cardList)
     });
   })
-  
-  function genCard() {
-    
-  }
   // console.log("send Message response activted")
   //     card = response["cardVar"];
   //     console.log('Message Received');
@@ -161,7 +157,6 @@ function main() {
     ;
   }
   if (btn.textContent == "Create Card") {
-      btn.addEventListener("click", genCard);
       btn.addEventListener("click", sendCard);
 
     }
